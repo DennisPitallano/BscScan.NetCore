@@ -6,19 +6,19 @@ namespace BscScan.NetCore.Models.Response.Account
     public class InternalTransactionsByAddress: BaseResponse
     {
         [JsonPropertyName("result")]
-        public List<InternalTransactionDataByAddress>? Result { get; set; }
+        public IEnumerable<InternalTransactionDataByAddress>? Result { get; set; }
     }
 
     public class InternalTransactionsByHash : BaseResponse
     {
         [JsonPropertyName("result")]
-        public List<InternalTransactionDataByHash>? Result { get; set; }
+        public IEnumerable<InternalTransactionDataByHash>? Result { get; set; }
     }
 
     public class InternalTransactionsByBlockRange : BaseResponse
     {
         [JsonPropertyName("result")]
-        public List<InternalTransactionDataByBlockRange>? Result { get; set; }
+        public IEnumerable<InternalTransactionDataByBlockRange>? Result { get; set; }
     }
 
     public class InternalTransactionData

@@ -2,13 +2,12 @@
 
 namespace BscScan.NetCore.Models.Response.Account
 {
-    public class Bep20TokenTransferEvents : BaseResponse
+    public class Bep721TokenTransferEvents : BaseResponse
     {
         [JsonPropertyName("result")]
-        public IEnumerable<Bep20TokenTransferEventData>? Result { get; set; }
+        public IEnumerable<Bep721TokenTransferEventData>? Result { get; set; }
     }
-
-    public class Bep20TokenTransferEventData
+    public class Bep721TokenTransferEventData
     {
         [JsonPropertyName("blockNumber")]
         public string? BlockNumber { get; set; }
@@ -26,8 +25,8 @@ namespace BscScan.NetCore.Models.Response.Account
         public string? ContractAddress { get; set; }
         [JsonPropertyName("to")]
         public string? To { get; set; }
-        [JsonPropertyName("value")]
-        public string? Value { get; set; }
+        [JsonPropertyName("tokenID")]
+        public string? TokenId { get; set; }
         [JsonPropertyName("tokenName")]
         public string? TokenName { get; set; }
         [JsonPropertyName("tokenSymbol")]

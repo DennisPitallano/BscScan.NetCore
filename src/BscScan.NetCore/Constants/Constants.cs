@@ -14,6 +14,7 @@
         public const string TRANSACTION_LIST = "txlist";
         public const string TRANSACTION_LIST_INTERNAL = "txlistinternal";
         public const string TOKEN_TX = "tokentx";
+        public const string TOKEN_NFT_TX = "tokennfttx";
     }
 
     internal static class BscQueryParam
