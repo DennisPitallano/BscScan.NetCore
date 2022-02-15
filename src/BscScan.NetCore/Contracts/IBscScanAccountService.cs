@@ -17,14 +17,23 @@ namespace BscScan.NetCore.Contracts
         /// </summary>
         /// <param name="request">MultipleBnbBalanceRequest Model</param>
         /// <returns>Returns the balance of the accounts from a list of addresses.</returns>
-        Task<BnbMultipleBalance?> GetMultipleBnbBalanceAsync(MultipleBnbBalanceRequest request);
-     
+        Task<BnbMultipleBalances?> GetMultipleBnbBalanceAsync(MultipleBnbBalanceRequest request);
+
         /// <summary>
         /// Get a list of 'Normal' Transactions By Address
         /// </summary>
-        /// <param name="request"></param>
+        /// <param name="request">NormalTransactionRequest Model</param>
         /// <returns>Returns the list of transactions performed by an address, with optional pagination.</returns>
         /// <remarks>This API endpoint returns a maximum of 10000 records only.</remarks>
-        Task<NormalTransaction?> GetNormalTransactionsByAddressAsync(NormalTransactionRequest request);
+        Task<NormalTransactions?> GetNormalTransactionsByAddressAsync(NormalTransactionRequest request);
+
+
+        /// <summary>
+        /// Get a list of 'Internal' Transactions by Address
+        /// </summary>
+        /// <param name="request">InternalTransactionRequest Model</param>
+        /// <returns>Returns the list of internal transactions performed by an address, with optional pagination.</returns>
+        Task<InternalTransactions?> GetInternalTransactionsByAddressAsync(InternalTransactionRequest request);
+
     }
 }

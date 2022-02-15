@@ -2,7 +2,7 @@
 
 namespace BscScan.NetCore.Models.Response.Account
 {
-    public class NormalTransaction
+    public class NormalTransactions
     {
         [JsonPropertyName("status")]
         public string? Status { get; set; }

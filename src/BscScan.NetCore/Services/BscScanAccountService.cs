@@ -29,7 +29,7 @@ public class BscScanAccountService : BaseHttpClient, IBscScanAccountService
         return result;
     }
 
-    public async Task<BnbMultipleBalance?> GetMultipleBnbBalanceAsync(MultipleBnbBalanceRequest request)
+    public async Task<BnbMultipleBalances?> GetMultipleBnbBalanceAsync(MultipleBnbBalanceRequest request)
     {
         var queryParameters = $"{_bscScanModule}{request.ToRequestParameters(AccountModuleAction.BALANCE_MULTI)}";
         using var response = await BscScanHttpClient.GetAsync($"{queryParameters}")
@@ -37,11 +37,11 @@ public class BscScanAccountService : BaseHttpClient, IBscScanAccountService
 
         response.EnsureSuccessStatusCode();
         await using var responseStream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
-        var result = await JsonSerializer.DeserializeAsync<BnbMultipleBalance>(responseStream);
+        var result = await JsonSerializer.DeserializeAsync<BnbMultipleBalances>(responseStream);
         return result;
     }
 
-    public async Task<NormalTransaction?> GetNormalTransactionsByAddressAsync(NormalTransactionRequest request)
+    public async Task<NormalTransactions?> GetNormalTransactionsByAddressAsync(NormalTransactionRequest request)
     {
         var queryParameters = $"{_bscScanModule}{request.ToRequestParameters(AccountModuleAction.TRANSACTION_LIST)}";
         using var response = await BscScanHttpClient.GetAsync($"{queryParameters}")
@@ -49,9 +49,19 @@ public class BscScanAccountService : BaseHttpClient, IBscScanAccountService
 
         response.EnsureSuccessStatusCode();
         await using var responseStream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
-        var result = await JsonSerializer.DeserializeAsync<NormalTransaction>(responseStream);
+        var result = await JsonSerializer.DeserializeAsync<NormalTransactions>(responseStream);
         return result;
     }
 
+    public async Task<InternalTransactions?> GetInternalTransactionsByAddressAsync(InternalTransactionRequest request)
+    {
+        var queryParameters = $"{_bscScanModule}{request.ToRequestParameters(AccountModuleAction.TRANSACTION_LIST_INTERNAL)}";
+        using var response = await BscScanHttpClient.GetAsync($"{queryParameters}")
+            .ConfigureAwait(false);
 
+        response.EnsureSuccessStatusCode();
+        await using var responseStream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
+        var result = await JsonSerializer.DeserializeAsync<InternalTransactions>(responseStream);
+        return result;
+    }
 }

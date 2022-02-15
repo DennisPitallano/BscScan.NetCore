@@ -2,7 +2,7 @@
 
 namespace BscScan.NetCore.Models.Response.Account;
 
-public  class BnbMultipleBalance
+public  class BnbMultipleBalances
 {
 
     [JsonPropertyName("status")]
