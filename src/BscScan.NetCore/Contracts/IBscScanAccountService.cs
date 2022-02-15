@@ -49,5 +49,17 @@ namespace BscScan.NetCore.Contracts
         /// <returns>Returns the list of internal transactions performed within a block range, with optional pagination.</returns>
         /// <remarks>This API endpoint returns a maximum of 10000 records only.</remarks>
         Task<InternalTransactionsByBlockRange?> GetInternalTransactionsByBlockRangeAsync(InternalTransactionsByBlockRangeRequest request);
+
+        /// <summary>
+        /// Get a list of 'BEP-20 Token Transfer Events' by Address
+        /// </summary>
+        /// <param name="request">Bep20TokenTransferEventsRequest Model</param>
+        /// <remarks> Usage:
+        ///    BEP-20 transfers from an address, specify the address parameter.
+        ///    BEP-20 transfers from a contract address, specify the contract address parameter.
+        ///    BEP-20 transfers from an address filtered by a token contract, specify both address and contract address parameters.
+        /// </remarks>
+        /// <returns>Returns the list of BEP-20 tokens transferred by an address, with optional filtering by token contract.</returns>
+        Task<Bep20TokenTransferEvents?> GetBep20TokenTransferEventsByAddress(Bep20TokenTransferEventsRequest request);
     }
 }

@@ -13,6 +13,7 @@
         public const string BALANCE_MULTI = "balancemulti";
         public const string TRANSACTION_LIST = "txlist";
         public const string TRANSACTION_LIST_INTERNAL = "txlistinternal";
+        public const string TOKEN_TX = "tokentx";
     }
 
     internal static class BscQueryParam

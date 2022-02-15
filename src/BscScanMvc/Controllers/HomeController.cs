@@ -46,10 +46,17 @@ namespace BscScanMvc.Controllers
                 //});
                 // var txtIn = await _bscScanService.GetInternalTransactionsByTransactionHashAsync("0x4d74a6fc84d57f18b8e1dfa07ee517c4feb296d16a8353ee41adc03669982028");
 
-                var txlist = await _bscScanService.GetInternalTransactionsByBlockRangeAsync(new InternalTransactionsByBlockRangeRequest
+                //var txlist = await _bscScanService.GetInternalTransactionsByBlockRangeAsync(new InternalTransactionsByBlockRangeRequest
+                //{
+                //    StartBlock = 0,
+                //    EndBlock = 2702578
+                //});
+
+
+                var txlist = await _bscScanService.GetBep20TokenTransferEventsByAddress(new Bep20TokenTransferEventsRequest
                 {
-                    StartBlock = 0,
-                    EndBlock = 2702578
+                    ContractAddress = "0xc9849e6fdb743d08faee3e34dd2d1bc69ea11a51",
+                    Address = "0x7bb89460599dbf32ee3aa50798bbceae2a5f7f6a"
                 });
             }
             catch (HttpRequestException e)

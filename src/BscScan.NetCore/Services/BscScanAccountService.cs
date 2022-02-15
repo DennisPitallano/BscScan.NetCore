@@ -89,4 +89,16 @@ public class BscScanAccountService : BaseHttpClient, IBscScanAccountService
         var result = await JsonSerializer.DeserializeAsync<InternalTransactionsByBlockRange>(responseStream);
         return result;
     }
+
+    public async Task<Bep20TokenTransferEvents?> GetBep20TokenTransferEventsByAddress(Bep20TokenTransferEventsRequest request)
+    {
+        var queryParameters = $"{_bscScanModule}{request.ToRequestParameters(AccountModuleAction.TOKEN_TX)}";
+        using var response = await BscScanHttpClient.GetAsync($"{queryParameters}")
+            .ConfigureAwait(false);
+
+        response.EnsureSuccessStatusCode();
+        await using var responseStream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
+        var result = await JsonSerializer.DeserializeAsync<Bep20TokenTransferEvents>(responseStream);
+        return result;
+    }
 }
