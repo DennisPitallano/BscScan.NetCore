@@ -2,13 +2,9 @@
 
 namespace BscScan.NetCore.Models.Response.Account;
 
-public  class BnbMultipleBalances
+public  class BnbMultipleBalances : BaseResponse
 {
 
-    [JsonPropertyName("status")]
-    public string? Status { get; set; }
-    [JsonPropertyName("message")]
-    public string? Message { get; set; }
     [JsonPropertyName("result")]
     public List<BnbMultipleBalanceData>? Result { get; set; }
 }

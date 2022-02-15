@@ -8,9 +8,25 @@
             return value.Replace("{apiKey}", apiKey);
         }
 
-        public static string AddAction(this string url,string? action)
+        public static string AppendValue(this string query, string? value)
         {
-            return $"{url}&action={action}";
+            return query.Replace("{value}", value);
+        }
+
+        public static string AddQuery(this string query, string key, string value)
+        {
+            return query.EndsWith('&') ? $"{query}{key}={value}" : $"{query}&{key}={value}";
+        }
+
+        public static string AddQuery(this string query, string parameter)
+        {
+            return query.EndsWith('&') ? $"{query}{parameter}" : $"{query}&{parameter}";
+        }
+
+
+        public static string AddAction(this string query, string? action)
+        {
+            return query.EndsWith('&') ? $"{query}action={action}" : $"{query}&action={action}";
         }
     }
 }
