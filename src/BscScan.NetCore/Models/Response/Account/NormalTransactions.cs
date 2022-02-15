@@ -5,7 +5,7 @@ namespace BscScan.NetCore.Models.Response.Account
     public class NormalTransactions : BaseResponse
     {
         [JsonPropertyName("result")]
-        public List<NormalTransactionData>? Result { get; set; }
+        public IEnumerable<NormalTransactionData>? Result { get; set; }
     }
 
     public class NormalTransactionData

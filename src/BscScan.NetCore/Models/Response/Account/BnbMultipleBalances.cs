@@ -6,7 +6,7 @@ public  class BnbMultipleBalances : BaseResponse
 {
 
     [JsonPropertyName("result")]
-    public List<BnbMultipleBalanceData>? Result { get; set; }
+    public IEnumerable<BnbMultipleBalanceData>? Result { get; set; }
 }
 
 public class BnbMultipleBalanceData

@@ -61,5 +61,18 @@ namespace BscScan.NetCore.Contracts
         /// </remarks>
         /// <returns>Returns the list of BEP-20 tokens transferred by an address, with optional filtering by token contract.</returns>
         Task<Bep20TokenTransferEvents?> GetBep20TokenTransferEventsByAddress(Bep20TokenTransferEventsRequest request);
+
+        /// <summary>
+        /// Get a list of 'BEP-721 Token Transfer Events' by Address
+        /// </summary>
+        /// <param name="request"></param>
+        /// <remarks>
+        /// Usage:
+        ///     BEP-721 transfers from an address, specify the address parameter
+        ///     BEP-721 transfers from a contract address, specify the contract address parameter
+        ///     BEP-721 transfers from an address filtered by a token contract, specify both address and contract address parameters.
+        /// </remarks>
+        /// <returns>Returns the list of BEP-721 ( NFT ) tokens transferred by an address, with optional filtering by token contract.</returns>
+        Task<Bep721TokenTransferEvents?> GetBep721TokenTransferEventsByAddress(Bep721TokenTransferEventsRequest request);
     }
 }
