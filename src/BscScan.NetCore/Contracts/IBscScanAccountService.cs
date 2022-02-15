@@ -1,4 +1,5 @@
-﻿using BscScan.NetCore.Models.Response;
+﻿using BscScan.NetCore.Models.Request.Account;
+using BscScan.NetCore.Models.Response.Account;
 
 namespace BscScan.NetCore.Contracts
 {
@@ -7,10 +8,23 @@ namespace BscScan.NetCore.Contracts
         /// <summary>
         /// Get BNB Balance for a Single Address
         /// </summary>
-        /// <param name="address">the string representing the address to check for balance</param>
+        /// <param name="request">BnbBalanceRequest Model</param>
         /// <returns>Returns the BNB balance of a given address.</returns>
-        Task<BnbBalance?> GetBalanceAsync(string address);
+        Task<BnbBalance?> GetBnbBalanceAsync(BnbBalanceRequest request);
 
-        Task<BnbMultipleBalance?> GetMultipleBalanceAsync(string[] addresses);
+        /// <summary>
+        /// Get BNB Balance for Multiple Addresses in a Single Call
+        /// </summary>
+        /// <param name="request">MultipleBnbBalanceRequest Model</param>
+        /// <returns>Returns the balance of the accounts from a list of addresses.</returns>
+        Task<BnbMultipleBalance?> GetMultipleBnbBalanceAsync(MultipleBnbBalanceRequest request);
+     
+        /// <summary>
+        /// Get a list of 'Normal' Transactions By Address
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns>Returns the list of transactions performed by an address, with optional pagination.</returns>
+        /// <remarks>This API endpoint returns a maximum of 10000 records only.</remarks>
+        Task<NormalTransaction?> GetNormalTransactionsByAddressAsync(NormalTransactionRequest request);
     }
 }
