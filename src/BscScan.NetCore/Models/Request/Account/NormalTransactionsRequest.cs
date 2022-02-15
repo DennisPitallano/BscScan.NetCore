@@ -2,7 +2,7 @@
 
 namespace BscScan.NetCore.Models.Request.Account
 {
-    public class NormalTransactionRequest
+    public class NormalTransactionsRequest
     {
         /// <summary>
         /// the string representing the addresses to check for balance

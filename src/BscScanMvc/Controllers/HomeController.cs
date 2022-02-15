@@ -44,7 +44,13 @@ namespace BscScanMvc.Controllers
                 //{
                 //    Address  = "0x0000000000000000000000000000000000001004"
                 //});
-                var txtIn = await _bscScanService.GetInternalTransactionsByTransactionHashAsync("0x4d74a6fc84d57f18b8e1dfa07ee517c4feb296d16a8353ee41adc03669982028");
+                // var txtIn = await _bscScanService.GetInternalTransactionsByTransactionHashAsync("0x4d74a6fc84d57f18b8e1dfa07ee517c4feb296d16a8353ee41adc03669982028");
+
+                var txlist = await _bscScanService.GetInternalTransactionsByBlockRangeAsync(new InternalTransactionsByBlockRangeRequest
+                {
+                    StartBlock = 0,
+                    EndBlock = 2702578
+                });
             }
             catch (HttpRequestException e)
             {

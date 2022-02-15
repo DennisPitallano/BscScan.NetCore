@@ -41,7 +41,7 @@ public class BscScanAccountService : BaseHttpClient, IBscScanAccountService
         return result;
     }
 
-    public async Task<NormalTransactions?> GetNormalTransactionsByAddressAsync(NormalTransactionRequest request)
+    public async Task<NormalTransactions?> GetNormalTransactionsByAddressAsync(NormalTransactionsRequest request)
     {
         var queryParameters = $"{_bscScanModule}{request.ToRequestParameters(AccountModuleAction.TRANSACTION_LIST)}";
         using var response = await BscScanHttpClient.GetAsync($"{queryParameters}")
@@ -53,7 +53,7 @@ public class BscScanAccountService : BaseHttpClient, IBscScanAccountService
         return result;
     }
 
-    public async Task<InternalTransactionsByAddress?> GetInternalTransactionsByAddressAsync(InternalTransactionRequest request)
+    public async Task<InternalTransactionsByAddress?> GetInternalTransactionsByAddressAsync(InternalTransactionsRequest request)
     {
         var queryParameters = $"{_bscScanModule}{request.ToRequestParameters(AccountModuleAction.TRANSACTION_LIST_INTERNAL)}";
         using var response = await BscScanHttpClient.GetAsync($"{queryParameters}")
@@ -75,6 +75,18 @@ public class BscScanAccountService : BaseHttpClient, IBscScanAccountService
         response.EnsureSuccessStatusCode();
         await using var responseStream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
         var result = await JsonSerializer.DeserializeAsync<InternalTransactionsByHash>(responseStream);
+        return result;
+    }
+
+    public async Task<InternalTransactionsByBlockRange?> GetInternalTransactionsByBlockRangeAsync(InternalTransactionsByBlockRangeRequest request)
+    {
+        var queryParameters = $"{_bscScanModule}{request.ToRequestParameters(AccountModuleAction.TRANSACTION_LIST_INTERNAL)}";
+        using var response = await BscScanHttpClient.GetAsync($"{queryParameters}")
+            .ConfigureAwait(false);
+
+        response.EnsureSuccessStatusCode();
+        await using var responseStream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
+        var result = await JsonSerializer.DeserializeAsync<InternalTransactionsByBlockRange>(responseStream);
         return result;
     }
 }
