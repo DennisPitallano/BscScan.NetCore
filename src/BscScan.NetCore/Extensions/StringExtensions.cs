@@ -13,6 +13,11 @@
             return query.Replace("{value}", value);
         }
 
+        public static string AppendValue(this string query, int? value)
+        {
+            return AppendValue(query, value.ToString());
+        }
+
         public static string AddQuery(this string query, string key, string value)
         {
             return query.EndsWith('&') ? $"{query}{key}={value}" : $"{query}&{key}={value}";
