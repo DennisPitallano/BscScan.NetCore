@@ -33,7 +33,13 @@ namespace BscScan.NetCore.Contracts
         /// </summary>
         /// <param name="request">InternalTransactionRequest Model</param>
         /// <returns>Returns the list of internal transactions performed by an address, with optional pagination.</returns>
-        Task<InternalTransactions?> GetInternalTransactionsByAddressAsync(InternalTransactionRequest request);
+        Task<InternalTransactionsByAddress?> GetInternalTransactionsByAddressAsync(InternalTransactionRequest request);
 
+        /// <summary>
+        /// Get 'Internal Transactions' by Transaction Hash
+        /// </summary>
+        /// <param name="txHash">the string representing the transaction hash to check for internal transactions</param>
+        /// <returns>Returns the list of internal transactions performed within a transaction.</returns>
+        Task<InternalTransactionsByHash?> GetInternalTransactionsByTransactionHashAsync(string txHash);
     }
 }

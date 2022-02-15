@@ -53,7 +53,7 @@ public class BscScanAccountService : BaseHttpClient, IBscScanAccountService
         return result;
     }
 
-    public async Task<InternalTransactions?> GetInternalTransactionsByAddressAsync(InternalTransactionRequest request)
+    public async Task<InternalTransactionsByAddress?> GetInternalTransactionsByAddressAsync(InternalTransactionRequest request)
     {
         var queryParameters = $"{_bscScanModule}{request.ToRequestParameters(AccountModuleAction.TRANSACTION_LIST_INTERNAL)}";
         using var response = await BscScanHttpClient.GetAsync($"{queryParameters}")
@@ -61,7 +61,20 @@ public class BscScanAccountService : BaseHttpClient, IBscScanAccountService
 
         response.EnsureSuccessStatusCode();
         await using var responseStream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
-        var result = await JsonSerializer.DeserializeAsync<InternalTransactions>(responseStream);
+        var result = await JsonSerializer.DeserializeAsync<InternalTransactionsByAddress>(responseStream);
+        return result;
+    }
+
+    public async Task<InternalTransactionsByHash?> GetInternalTransactionsByTransactionHashAsync(string txHash)
+    {
+        var queryParameters = $"{_bscScanModule}".AddAction(AccountModuleAction.TRANSACTION_LIST_INTERNAL)
+            .AddQuery(BscQueryParam.TxHash.AppendValue(txHash));
+        using var response = await BscScanHttpClient.GetAsync($"{queryParameters}")
+            .ConfigureAwait(false);
+
+        response.EnsureSuccessStatusCode();
+        await using var responseStream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
+        var result = await JsonSerializer.DeserializeAsync<InternalTransactionsByHash>(responseStream);
         return result;
     }
 }
