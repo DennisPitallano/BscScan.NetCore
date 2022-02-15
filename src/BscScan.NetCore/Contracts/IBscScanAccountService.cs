@@ -75,6 +75,22 @@ namespace BscScan.NetCore.Contracts
         /// <returns>Returns the list of BEP-721 ( NFT ) tokens transferred by an address, with optional filtering by token contract.</returns>
         Task<Bep721TokenTransferEvents?> GetBep721TokenTransferEventsByAddress(Bep721TokenTransferEventsRequest request);
 
+        /// <summary>
+        /// Get list of Blocks Validated by Address
+        /// </summary>
+        /// <param name="request">BlocksValidatedRequest Model</param>
+        /// <returns>Returns the list of blocks validated by an address.</returns>
         Task<BlocksValidated?> GetBlocksValidatedByAddress(BlocksValidatedRequest request);
+
+        /// <summary>
+        ///  Get Historical BNB Balance for a Single Address by BlockNo 🅰🅿🅸  🅿🆁🅾
+        /// </summary>
+        /// <param name="address">the string representing the addresses to check for balance</param>
+        /// <param name="blockno">the integer block number to check balance for eg. 2000000</param>
+        /// <remarks>
+        ///     Note : This endpoint is throttled to 2 calls/second regardless of API Pro tier.
+        /// </remarks>
+        /// <returns>Returns the historical BNB balance of an address at a certain block height. </returns>
+        Task<BnbBalanceHistoryByBlockNo?> GetHistoricalBnbBalanceByBlockNo(string address, int blockno);
     }
 }

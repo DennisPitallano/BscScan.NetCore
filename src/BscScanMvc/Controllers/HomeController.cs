@@ -63,10 +63,12 @@ namespace BscScanMvc.Controllers
                 //    Address = "0xcd4ee0a77e09afa8d5a6518f7cf8539bef684e6c"
                 //});
 
-                var txlist = await _bscScanService.GetBlocksValidatedByAddress(new BlocksValidatedRequest
-                {
-                    Address = "0x78f3adfc719c99674c072166708589033e2d9afe"
-                });
+                //var txlist = await _bscScanService.GetBlocksValidatedByAddress(new BlocksValidatedRequest
+                //{
+                //    Address = "0x78f3adfc719c99674c072166708589033e2d9afe"
+                //});
+
+                var txlist = await _bscScanService.GetHistoricalBnbBalanceByBlockNo("0x0DB011018728D1B91dDB3C77933a40B9B68C9fa7", 2000000);
             }
             catch (HttpRequestException e)
             {

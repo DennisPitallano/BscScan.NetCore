@@ -125,4 +125,18 @@ public class BscScanAccountService : BaseHttpClient, IBscScanAccountService
         var result = await JsonSerializer.DeserializeAsync<BlocksValidated>(responseStream);
         return result;
     }
+
+    public async Task<BnbBalanceHistoryByBlockNo?> GetHistoricalBnbBalanceByBlockNo(string address, int blockno)
+    {
+        var queryParameters = $"{_bscScanModule}".AddAction(AccountModuleAction.BALANCE_HISTORY)
+            .AddQuery(BscQueryParam.Address.AppendValue(address).AddQuery(BscQueryParam.BlockNo.AppendValue(blockno)));
+        using var response = await BscScanHttpClient.GetAsync($"{queryParameters}")
+            .ConfigureAwait(false);
+
+        response.EnsureSuccessStatusCode();
+
+        await using var responseStream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
+        var result = await JsonSerializer.DeserializeAsync<BnbBalanceHistoryByBlockNo>(responseStream);
+        return result;
+    }
 }

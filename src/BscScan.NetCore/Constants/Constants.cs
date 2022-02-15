@@ -10,6 +10,7 @@
     internal static class AccountModuleAction
     {
         public const string BALANCE = "balance";
+        public const string BALANCE_HISTORY = "balancehistory";
         public const string BALANCE_MULTI = "balancemulti";
         public const string TRANSACTION_LIST = "txlist";
         public const string TRANSACTION_LIST_INTERNAL = "txlistinternal";
@@ -21,6 +22,8 @@
     internal static class BscQueryParam
     {
         public const string TxHash = "txhash={value}";
+        public const string Address = "address={value}";
+        public const string BlockNo = "blockno={value}";
         public const string BlockType = "blocktype={value}";
     }
 }
