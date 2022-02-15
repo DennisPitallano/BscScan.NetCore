@@ -8,7 +8,9 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using BscScan.NetCore.Configuration;
+using BscScan.NetCore.Constants;
 using BscScan.NetCore.Contracts;
+using BscScan.NetCore.Extensions;
 using BscScan.NetCore.Services;
 using Microsoft.Extensions.Options;
 
