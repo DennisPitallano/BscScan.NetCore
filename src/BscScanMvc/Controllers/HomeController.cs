@@ -57,10 +57,15 @@ namespace BscScanMvc.Controllers
                 //    ContractAddress = "0xc9849e6fdb743d08faee3e34dd2d1bc69ea11a51",
                 //    Address = "0x7bb89460599dbf32ee3aa50798bbceae2a5f7f6a"
                 //});
-                var txlist = await _bscScanService.GetBep721TokenTransferEventsByAddress(new Bep721TokenTransferEventsRequest
+                //var txlist = await _bscScanService.GetBep721TokenTransferEventsByAddress(new Bep721TokenTransferEventsRequest
+                //{
+                //    ContractAddress = "0x5e74094cd416f55179dbd0e45b1a8ed030e396a1",
+                //    Address = "0xcd4ee0a77e09afa8d5a6518f7cf8539bef684e6c"
+                //});
+
+                var txlist = await _bscScanService.GetBlocksValidatedByAddress(new BlocksValidatedRequest
                 {
-                    ContractAddress = "0x5e74094cd416f55179dbd0e45b1a8ed030e396a1",
-                    Address = "0xcd4ee0a77e09afa8d5a6518f7cf8539bef684e6c"
+                    Address = "0x78f3adfc719c99674c072166708589033e2d9afe"
                 });
             }
             catch (HttpRequestException e)
