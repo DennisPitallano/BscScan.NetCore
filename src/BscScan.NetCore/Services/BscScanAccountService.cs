@@ -113,4 +113,16 @@ public class BscScanAccountService : BaseHttpClient, IBscScanAccountService
         var result = await JsonSerializer.DeserializeAsync<Bep721TokenTransferEvents>(responseStream);
         return result;
     }
+
+    public async Task<BlocksValidated?> GetBlocksValidatedByAddress(BlocksValidatedRequest request)
+    {
+        var queryParameters = $"{_bscScanModule}{request.ToRequestParameters(AccountModuleAction.GET_MINED_BLOCKS)}";
+        using var response = await BscScanHttpClient.GetAsync($"{queryParameters}")
+            .ConfigureAwait(false);
+
+        response.EnsureSuccessStatusCode();
+        await using var responseStream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
+        var result = await JsonSerializer.DeserializeAsync<BlocksValidated>(responseStream);
+        return result;
+    }
 }

@@ -15,10 +15,12 @@
         public const string TRANSACTION_LIST_INTERNAL = "txlistinternal";
         public const string TOKEN_TX = "tokentx";
         public const string TOKEN_NFT_TX = "tokennfttx";
+        public const string GET_MINED_BLOCKS = "getminedblocks";
     }
 
     internal static class BscQueryParam
     {
         public const string TxHash = "txhash={value}";
+        public const string BlockType = "blocktype={value}";
     }
 }

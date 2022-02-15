@@ -74,5 +74,7 @@ namespace BscScan.NetCore.Contracts
         /// </remarks>
         /// <returns>Returns the list of BEP-721 ( NFT ) tokens transferred by an address, with optional filtering by token contract.</returns>
         Task<Bep721TokenTransferEvents?> GetBep721TokenTransferEventsByAddress(Bep721TokenTransferEventsRequest request);
+
+        Task<BlocksValidated?> GetBlocksValidatedByAddress(BlocksValidatedRequest request);
     }
 }
