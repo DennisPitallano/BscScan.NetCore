@@ -15,6 +15,12 @@ namespace BscScan.NetCore.Models.Response.Account
         public List<InternalTransactionDataByHash>? Result { get; set; }
     }
 
+    public class InternalTransactionsByBlockRange : BaseResponse
+    {
+        [JsonPropertyName("result")]
+        public List<InternalTransactionDataByBlockRange>? Result { get; set; }
+    }
+
     public class InternalTransactionData
     {
         [JsonPropertyName("blockNumber")]
@@ -53,5 +59,13 @@ namespace BscScan.NetCore.Models.Response.Account
 
     public class InternalTransactionDataByHash : InternalTransactionData
     {
+    }
+
+    public class InternalTransactionDataByBlockRange : InternalTransactionData
+    {
+        [JsonPropertyName("hash")]
+        public string? Hash { get; set; }
+        [JsonPropertyName("traceId")]
+        public string? TraceId { get; set; }
     }
 }

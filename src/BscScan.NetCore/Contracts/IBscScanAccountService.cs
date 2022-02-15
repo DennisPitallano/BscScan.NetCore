@@ -25,7 +25,7 @@ namespace BscScan.NetCore.Contracts
         /// <param name="request">NormalTransactionRequest Model</param>
         /// <returns>Returns the list of transactions performed by an address, with optional pagination.</returns>
         /// <remarks>This API endpoint returns a maximum of 10000 records only.</remarks>
-        Task<NormalTransactions?> GetNormalTransactionsByAddressAsync(NormalTransactionRequest request);
+        Task<NormalTransactions?> GetNormalTransactionsByAddressAsync(NormalTransactionsRequest request);
 
 
         /// <summary>
@@ -33,7 +33,7 @@ namespace BscScan.NetCore.Contracts
         /// </summary>
         /// <param name="request">InternalTransactionRequest Model</param>
         /// <returns>Returns the list of internal transactions performed by an address, with optional pagination.</returns>
-        Task<InternalTransactionsByAddress?> GetInternalTransactionsByAddressAsync(InternalTransactionRequest request);
+        Task<InternalTransactionsByAddress?> GetInternalTransactionsByAddressAsync(InternalTransactionsRequest request);
 
         /// <summary>
         /// Get 'Internal Transactions' by Transaction Hash
@@ -41,5 +41,13 @@ namespace BscScan.NetCore.Contracts
         /// <param name="txHash">the string representing the transaction hash to check for internal transactions</param>
         /// <returns>Returns the list of internal transactions performed within a transaction.</returns>
         Task<InternalTransactionsByHash?> GetInternalTransactionsByTransactionHashAsync(string txHash);
+
+        /// <summary>
+        /// Get "Internal Transactions" by Block Range
+        /// </summary>
+        /// <param name="request">InternalTransactionsByBlockRangeRequest Model</param>
+        /// <returns>Returns the list of internal transactions performed within a block range, with optional pagination.</returns>
+        /// <remarks>This API endpoint returns a maximum of 10000 records only.</remarks>
+        Task<InternalTransactionsByBlockRange?> GetInternalTransactionsByBlockRangeAsync(InternalTransactionsByBlockRangeRequest request);
     }
 }
