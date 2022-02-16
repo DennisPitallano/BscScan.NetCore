@@ -12,12 +12,14 @@ namespace BscScanMvc.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        private readonly IBscScanAccountService _bscScanService;
+        private readonly IBscScanAccountsService _bscScanService;
 
-        public HomeController(ILogger<HomeController> logger, IBscScanAccountService bscScanService)
+        private readonly IBscScanContractsService _bscScanContractsService;
+        public HomeController(ILogger<HomeController> logger, IBscScanAccountsService bscScanService, IBscScanContractsService bscScanContractsService)
         {
             _logger = logger;
             _bscScanService = bscScanService;
+            _bscScanContractsService = bscScanContractsService;
         }
 
         public async Task<IActionResult> Index()
@@ -30,7 +32,7 @@ namespace BscScanMvc.Controllers
                 //    Address = "0x70F657164e5b75689b64B7fd1fA275F334f28e18"
                 //});
                 // _logger.LogInformation("Bnb Balance", test);
-                string[] addresses = new[] { "0x70F657164e5b75689b64B7fd1fA275F334f28e18", "0x3f349bBaFEc1551819B8be1EfEA2fC46cA749aA1" };
+               // string[] addresses = new[] { "0x70F657164e5b75689b64B7fd1fA275F334f28e18", "0x3f349bBaFEc1551819B8be1EfEA2fC46cA749aA1" };
                 //var test1 = await _bscScanService.GetMultipleBnbBalanceAsync(new MultipleBnbBalanceRequest
                 //{
                 //    Addresses = addresses
@@ -68,7 +70,13 @@ namespace BscScanMvc.Controllers
                 //    Address = "0x78f3adfc719c99674c072166708589033e2d9afe"
                 //});
 
-                var txlist = await _bscScanService.GetHistoricalBnbBalanceByBlockNo("0x0DB011018728D1B91dDB3C77933a40B9B68C9fa7", 2000000);
+              //  var txlist = await _bscScanService.GetHistoricalBnbBalanceByBlockNo("0x0DB011018728D1B91dDB3C77933a40B9B68C9fa7", 2000000);
+
+              //contracts
+
+              var result = await _bscScanContractsService
+                  .GetContractApplicationBinaryInterface("0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82")
+                  .ConfigureAwait(false);
             }
             catch (HttpRequestException e)
             {

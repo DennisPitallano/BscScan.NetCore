@@ -8,10 +8,10 @@ using BscScan.NetCore.Models.Response.Account;
 
 namespace BscScan.NetCore.Services;
 
-public class BscScanAccountService : BaseHttpClient, IBscScanAccountService
+public class BscScanAccountsService : BaseHttpClient, IBscScanAccountsService
 {
     private readonly string _bscScanModule;
-    public BscScanAccountService(HttpClient bscScanHttpClient, BscScanConfiguration bscScanConfiguration) :
+    public BscScanAccountsService(HttpClient bscScanHttpClient, BscScanConfiguration bscScanConfiguration) :
         base(bscScanHttpClient, bscScanConfiguration)
     {
         _bscScanModule = BscModule.ACCOUNT.AppendApiKey(bscScanConfiguration.BscScanOptions.Token);
@@ -19,7 +19,7 @@ public class BscScanAccountService : BaseHttpClient, IBscScanAccountService
 
     public async Task<BnbBalance?> GetBnbBalanceAsync(BnbBalanceRequest request)
     {
-        var queryParameters = $"{_bscScanModule}{request.ToRequestParameters(AccountModuleAction.BALANCE)}";
+        var queryParameters = $"{_bscScanModule}{request.ToRequestParameters(AccountsModuleAction.BALANCE)}";
         using var response = await BscScanHttpClient.GetAsync($"{queryParameters}")
             .ConfigureAwait(false);
 
@@ -31,7 +31,7 @@ public class BscScanAccountService : BaseHttpClient, IBscScanAccountService
 
     public async Task<BnbMultipleBalances?> GetMultipleBnbBalanceAsync(MultipleBnbBalanceRequest request)
     {
-        var queryParameters = $"{_bscScanModule}{request.ToRequestParameters(AccountModuleAction.BALANCE_MULTI)}";
+        var queryParameters = $"{_bscScanModule}{request.ToRequestParameters(AccountsModuleAction.BALANCE_MULTI)}";
         using var response = await BscScanHttpClient.GetAsync($"{queryParameters}")
             .ConfigureAwait(false);
 
@@ -43,7 +43,7 @@ public class BscScanAccountService : BaseHttpClient, IBscScanAccountService
 
     public async Task<NormalTransactions?> GetNormalTransactionsByAddressAsync(NormalTransactionsRequest request)
     {
-        var queryParameters = $"{_bscScanModule}{request.ToRequestParameters(AccountModuleAction.TRANSACTION_LIST)}";
+        var queryParameters = $"{_bscScanModule}{request.ToRequestParameters(AccountsModuleAction.TRANSACTION_LIST)}";
         using var response = await BscScanHttpClient.GetAsync($"{queryParameters}")
             .ConfigureAwait(false);
 
@@ -55,7 +55,7 @@ public class BscScanAccountService : BaseHttpClient, IBscScanAccountService
 
     public async Task<InternalTransactionsByAddress?> GetInternalTransactionsByAddressAsync(InternalTransactionsRequest request)
     {
-        var queryParameters = $"{_bscScanModule}{request.ToRequestParameters(AccountModuleAction.TRANSACTION_LIST_INTERNAL)}";
+        var queryParameters = $"{_bscScanModule}{request.ToRequestParameters(AccountsModuleAction.TRANSACTION_LIST_INTERNAL)}";
         using var response = await BscScanHttpClient.GetAsync($"{queryParameters}")
             .ConfigureAwait(false);
 
@@ -67,7 +67,7 @@ public class BscScanAccountService : BaseHttpClient, IBscScanAccountService
 
     public async Task<InternalTransactionsByHash?> GetInternalTransactionsByTransactionHashAsync(string txHash)
     {
-        var queryParameters = $"{_bscScanModule}".AddAction(AccountModuleAction.TRANSACTION_LIST_INTERNAL)
+        var queryParameters = $"{_bscScanModule}".AddAction(AccountsModuleAction.TRANSACTION_LIST_INTERNAL)
             .AddQuery(BscQueryParam.TxHash.AppendValue(txHash));
         using var response = await BscScanHttpClient.GetAsync($"{queryParameters}")
             .ConfigureAwait(false);
@@ -80,7 +80,7 @@ public class BscScanAccountService : BaseHttpClient, IBscScanAccountService
 
     public async Task<InternalTransactionsByBlockRange?> GetInternalTransactionsByBlockRangeAsync(InternalTransactionsByBlockRangeRequest request)
     {
-        var queryParameters = $"{_bscScanModule}{request.ToRequestParameters(AccountModuleAction.TRANSACTION_LIST_INTERNAL)}";
+        var queryParameters = $"{_bscScanModule}{request.ToRequestParameters(AccountsModuleAction.TRANSACTION_LIST_INTERNAL)}";
         using var response = await BscScanHttpClient.GetAsync($"{queryParameters}")
             .ConfigureAwait(false);
 
@@ -92,7 +92,7 @@ public class BscScanAccountService : BaseHttpClient, IBscScanAccountService
 
     public async Task<Bep20TokenTransferEvents?> GetBep20TokenTransferEventsByAddress(Bep20TokenTransferEventsRequest request)
     {
-        var queryParameters = $"{_bscScanModule}{request.ToRequestParameters(AccountModuleAction.TOKEN_TX)}";
+        var queryParameters = $"{_bscScanModule}{request.ToRequestParameters(AccountsModuleAction.TOKEN_TX)}";
         using var response = await BscScanHttpClient.GetAsync($"{queryParameters}")
             .ConfigureAwait(false);
 
@@ -104,7 +104,7 @@ public class BscScanAccountService : BaseHttpClient, IBscScanAccountService
 
     public async Task<Bep721TokenTransferEvents?> GetBep721TokenTransferEventsByAddress(Bep721TokenTransferEventsRequest request)
     {
-        var queryParameters = $"{_bscScanModule}{request.ToRequestParameters(AccountModuleAction.TOKEN_NFT_TX)}";
+        var queryParameters = $"{_bscScanModule}{request.ToRequestParameters(AccountsModuleAction.TOKEN_NFT_TX)}";
         using var response = await BscScanHttpClient.GetAsync($"{queryParameters}")
             .ConfigureAwait(false);
 
@@ -116,7 +116,7 @@ public class BscScanAccountService : BaseHttpClient, IBscScanAccountService
 
     public async Task<BlocksValidated?> GetBlocksValidatedByAddress(BlocksValidatedRequest request)
     {
-        var queryParameters = $"{_bscScanModule}{request.ToRequestParameters(AccountModuleAction.GET_MINED_BLOCKS)}";
+        var queryParameters = $"{_bscScanModule}{request.ToRequestParameters(AccountsModuleAction.GET_MINED_BLOCKS)}";
         using var response = await BscScanHttpClient.GetAsync($"{queryParameters}")
             .ConfigureAwait(false);
 
@@ -128,7 +128,7 @@ public class BscScanAccountService : BaseHttpClient, IBscScanAccountService
 
     public async Task<BnbBalanceHistoryByBlockNo?> GetHistoricalBnbBalanceByBlockNo(string address, int blockno)
     {
-        var queryParameters = $"{_bscScanModule}".AddAction(AccountModuleAction.BALANCE_HISTORY)
+        var queryParameters = $"{_bscScanModule}".AddAction(AccountsModuleAction.BALANCE_HISTORY)
             .AddQuery(BscQueryParam.Address.AppendValue(address).AddQuery(BscQueryParam.BlockNo.AppendValue(blockno)));
         using var response = await BscScanHttpClient.GetAsync($"{queryParameters}")
             .ConfigureAwait(false);

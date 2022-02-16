@@ -1,23 +1,22 @@
 ﻿using System.Text.Json;
 
-namespace BscScan.NetCore.Extensions
+namespace BscScan.NetCore.Extensions;
+
+internal static class ObjectExtensions
 {
-    internal static class ObjectExtensions
+    private static IDictionary<string, object>? ToDictionary(this object request)
     {
-        private static IDictionary<string, object>? ToDictionary(this object request)
-        {
-            var jsonFormat = request.ToJsonFormat();
-            return JsonSerializer.Deserialize<Dictionary<string, object>>(jsonFormat);
-        }
+        var jsonFormat = request.ToJsonFormat();
+        return JsonSerializer.Deserialize<Dictionary<string, object>>(jsonFormat);
+    }
 
-        private static string ToJsonFormat(this object obj)
-        {
-            return JsonSerializer.Serialize(obj);
-        }
+    private static string ToJsonFormat(this object obj)
+    {
+        return JsonSerializer.Serialize(obj);
+    }
 
-        internal static string? ToRequestParameters(this object request,string? moduleAction)
-        {
-            return request.ToDictionary()!.ToQueryString(moduleAction);
-        }
+    internal static string? ToRequestParameters(this object request,string? moduleAction)
+    {
+        return request.ToDictionary()!.ToQueryString(moduleAction);
     }
 }

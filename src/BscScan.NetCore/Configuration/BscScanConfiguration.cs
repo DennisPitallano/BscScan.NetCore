@@ -1,7 +1,6 @@
-﻿namespace BscScan.NetCore.Configuration
+﻿namespace BscScan.NetCore.Configuration;
+
+public class BscScanConfiguration : IBscScanConfiguration
 {
-    public class BscScanConfiguration : IBscScanConfiguration
-    {
-        public BscScanOptions BscScanOptions { get; set; } = new BscScanOptions();
-    }
+    public BscScanOptions BscScanOptions { get; set; } = new BscScanOptions();
 }

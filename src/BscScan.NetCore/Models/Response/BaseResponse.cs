@@ -1,12 +1,11 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace BscScan.NetCore.Models.Response
+namespace BscScan.NetCore.Models.Response;
+
+public class BaseResponse
 {
-    public class BaseResponse
-    {
-        [JsonPropertyName("status")]
-        public string? Status { get; set; }
-        [JsonPropertyName("message")]
-        public string? Message { get; set; }
-    }
+    [JsonPropertyName("status")]
+    public string? Status { get; set; }
+    [JsonPropertyName("message")]
+    public string? Message { get; set; }
 }

@@ -1,16 +1,14 @@
-﻿namespace BscScan.NetCore.Models
+﻿namespace BscScan.NetCore.Models;
+
+public enum Tag
 {
-    public enum Tag
-    {
-        Earliest,
-        Pending,
-        Latest
-    }
+    Earliest,
+    Pending,
+    Latest
+}
 
-    public enum Sort
-    {
-        Asc,
-        Desc
-    }
-
+public enum Sort
+{
+    Asc,
+    Desc
 }
