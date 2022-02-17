@@ -23,6 +23,7 @@ internal static class AccountsModuleAction
 internal static class ContractsModuleAction
 {
     public const string GET_ABI = "getabi";
+    public const string GET_SOURCE_CODE = "getsourcecode";
 }
 
 internal static class BscQueryParam

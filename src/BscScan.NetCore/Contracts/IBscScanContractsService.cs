@@ -1,14 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BscScan.NetCore.Models.Response.Contracts;
+﻿using BscScan.NetCore.Models.Response.Contracts;
 
 namespace BscScan.NetCore.Contracts
 {
     public interface IBscScanContractsService
     {
+
+        /// <summary>
+        /// Get Contract ABI for Verified Contract Source Codes
+        /// </summary>
+        /// <param name="address">the contract address that has a verified source code</param>
+        /// <returns>Returns the contract Application Binary Interface ( ABI ) of a verified smart contract.</returns>
         Task<ContractApplicationBinaryInterface?> GetContractApplicationBinaryInterface(string address);
+
+        /// <summary>
+        /// Get Contract Source Code for Verified Contract Source Codes
+        /// </summary>
+        /// <param name="address">the contract address that has a verified source code</param>
+        /// <returns>Returns the Solidity source code of a verified smart contract.</returns>
+        Task<ContractSourceCode?> GetContractSourceCode(string address);
     }
 }
