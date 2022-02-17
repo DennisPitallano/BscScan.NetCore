@@ -1,8 +1,7 @@
-﻿namespace BscScan.NetCore.Configuration
+﻿namespace BscScan.NetCore.Configuration;
+
+public class BscScanOptions
 {
-    public class BscScanOptions
-    {
-        public string? Token { get; set; }
-        public string? Uri { get; set; }
-    }
+    public string? Token { get; set; }
+    public string? Uri { get; set; }
 }
