@@ -27,5 +27,18 @@ namespace BscScan.NetCore.Services
             var result = await JsonSerializer.DeserializeAsync<ContractApplicationBinaryInterface>(responseStream);
             return result;
         }
+
+        public async Task<ContractSourceCode?> GetContractSourceCode(string address)
+        {
+            var queryParameters = $"{_bscScanModule}".AddAction(ContractsModuleAction.GET_SOURCE_CODE)
+                .AddQuery(BscQueryParam.Address.AppendValue(address));
+            using var response = await BscScanHttpClient.GetAsync($"{queryParameters}")
+                .ConfigureAwait(false);
+
+            response.EnsureSuccessStatusCode();
+            await using var responseStream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
+            var result = await JsonSerializer.DeserializeAsync<ContractSourceCode>(responseStream);
+            return result;
+        }
     }
 }
