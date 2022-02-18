@@ -15,12 +15,16 @@ namespace BscScanMvc.Controllers
         private readonly IBscScanContractsService _bscScanContractsService;
 
         private readonly IBscScanTransactionService _bscScanTransactionService;
-        public HomeController(ILogger<HomeController> logger, IBscScanAccountsService bscScanService, IBscScanContractsService bscScanContractsService, IBscScanTransactionService bscScanTransactionService)
+
+        private readonly IBscScanBlocksService _bscScanBlocksService;
+
+        public HomeController(ILogger<HomeController> logger, IBscScanAccountsService bscScanService, IBscScanContractsService bscScanContractsService, IBscScanTransactionService bscScanTransactionService, IBscScanBlocksService bscScanBlocksService)
         {
             _logger = logger;
             _bscScanService = bscScanService;
             _bscScanContractsService = bscScanContractsService;
             _bscScanTransactionService = bscScanTransactionService;
+            _bscScanBlocksService = bscScanBlocksService;
         }
 
         public async Task<IActionResult> Index()
@@ -79,9 +83,11 @@ namespace BscScanMvc.Controllers
                 //    .GetContractApplicationBinaryInterface("0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82")
                 //    .ConfigureAwait(false);
 
-                var result =
+                var resulta =
                     await _bscScanTransactionService.CheckTransactionReceiptStatus(
                         "0xe9975702518c79caf81d5da65dea689dcac701fcdd063f848d4f03c85392fd00");
+
+                var result = await _bscScanBlocksService.GetBlockRewardsByBlockNo("2170000");
             }
             catch (HttpRequestException e)
             {
