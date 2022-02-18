@@ -6,6 +6,8 @@ A BscScan API  Wrapper for .Net Core.
 
 For your API Key, please follow [BscScan Getting Started Guide](https://docs.bscscan.com/getting-started/creating-an-account)
 
+[![bscscan.netcore on fuget.org](https://www.fuget.org/packages/bscscan.netcore/badge.svg)](https://www.fuget.org/packages/bscscan.netcore)
+
 # Installation
 
 1. Download and Install the latest `BscScan.NetCore` from [NuGet](https://www.nuget.org/packages/BscScan.NetCore/) using Package Manager, CLI or by adding it to Package Reference:
