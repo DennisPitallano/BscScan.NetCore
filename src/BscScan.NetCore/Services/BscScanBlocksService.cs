@@ -19,7 +19,7 @@ namespace BscScan.NetCore.Services
         }
 
         /// <inheritdoc />
-        public async Task<BlockRewardData?> GetBlockRewardsByBlockNo(string blockNo)
+        public async Task<BlockRewards?> GetBlockRewardsByBlockNo(string blockNo)
         {
             var queryParameters = $"{_bscScanModule}".AddAction(BlocksModuleAction.GET_BLOCK_REWARD)
                 .AddQuery(BscQueryParam.BlockNo.AppendValue(blockNo));
@@ -28,7 +28,7 @@ namespace BscScan.NetCore.Services
 
             response.EnsureSuccessStatusCode();
             await using var responseStream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
-            var result = await JsonSerializer.DeserializeAsync<BlockRewardData>(responseStream);
+            var result = await JsonSerializer.DeserializeAsync<BlockRewards>(responseStream);
             return result;
         }
     }

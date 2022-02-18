@@ -12,6 +12,6 @@ namespace BscScan.NetCore.Contracts
         /// </summary>
         /// <param name="blockNo">the integer block number to check block rewards for eg. 12697906</param>
         /// <returns>Returns the block reward awarded for validating a certain block.</returns>
-        Task<BlockRewardData?> GetBlockRewardsByBlockNo(string blockNo);
+        Task<BlockRewards?> GetBlockRewardsByBlockNo(string blockNo);
     }
 }
