@@ -1,10 +1,7 @@
 ﻿using BscScanMvc.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
-using BscScan.NetCore;
 using BscScan.NetCore.Contracts;
-using BscScan.NetCore.Models;
-using BscScan.NetCore.Models.Request.Account;
 
 namespace BscScanMvc.Controllers
 {
@@ -15,11 +12,14 @@ namespace BscScanMvc.Controllers
         private readonly IBscScanAccountsService _bscScanService;
 
         private readonly IBscScanContractsService _bscScanContractsService;
-        public HomeController(ILogger<HomeController> logger, IBscScanAccountsService bscScanService, IBscScanContractsService bscScanContractsService)
+
+        private readonly IBscScanTransactionService _bscScanTransactionService;
+        public HomeController(ILogger<HomeController> logger, IBscScanAccountsService bscScanService, IBscScanContractsService bscScanContractsService, IBscScanTransactionService bscScanTransactionService)
         {
             _logger = logger;
             _bscScanService = bscScanService;
             _bscScanContractsService = bscScanContractsService;
+            _bscScanTransactionService = bscScanTransactionService;
         }
 
         public async Task<IActionResult> Index()
@@ -74,9 +74,13 @@ namespace BscScanMvc.Controllers
 
               //contracts
 
-              var result = await _bscScanContractsService
-                  .GetContractApplicationBinaryInterface("0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82")
-                  .ConfigureAwait(false);
+              //var result = await _bscScanContractsService
+              //    .GetContractApplicationBinaryInterface("0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82")
+              //    .ConfigureAwait(false);
+
+              var result =
+                  await _bscScanTransactionService.CheckTransactionReceiptStatus(
+                      "0xe9975702518c79caf81d5da65dea689dcac701fcdd063f848d4f03c85392fd00");
             }
             catch (HttpRequestException e)
             {

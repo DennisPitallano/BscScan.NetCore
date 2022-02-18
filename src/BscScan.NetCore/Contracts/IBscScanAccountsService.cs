@@ -1,5 +1,5 @@
-﻿using BscScan.NetCore.Models.Request.Account;
-using BscScan.NetCore.Models.Response.Account;
+﻿using BscScan.NetCore.Models.Request.Accounts;
+using BscScan.NetCore.Models.Response.Accounts;
 
 namespace BscScan.NetCore.Contracts;
 
