@@ -1,14 +1,21 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace BscScan.NetCore.Models.Request.Account;
+namespace BscScan.NetCore.Models.Request.Accounts;
 
-public class NormalTransactionsRequest
+public class Bep721TokenTransferEventsRequest
 {
     /// <summary>
     /// the string representing the addresses to check for balance
     /// </summary>
     [JsonPropertyName("address")]
     public string? Address { get; set; }
+
+    /// <summary>
+    /// the string representing the token contract address to check for balance
+    /// </summary>
+    [JsonPropertyName("contractaddress")]
+    public string? ContractAddress { get; set; }
+
 
     /// <summary>
     /// the integer block number to start searching for transactions (default is 0)

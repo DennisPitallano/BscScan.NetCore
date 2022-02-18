@@ -1,12 +1,18 @@
 ﻿namespace BscScan.NetCore.Constants;
 
-internal static class BscModule
+/// <summary>
+/// BscScan Modules
+/// </summary>
+internal static class BscScanModule
 {
     public const string ACCOUNT = "?module=account&apikey={apiKey}&";
     public const string CONTRACT = "?module=contract&apikey={apiKey}&";
     public const string TRANSACTIONS = "?module=transaction&apikey={apiKey}&";
 }
 
+/// <summary>
+/// BscScan Accounts Module Actions
+/// </summary>
 internal static class AccountsModuleAction
 {
     public const string BALANCE = "balance";
@@ -19,13 +25,26 @@ internal static class AccountsModuleAction
     public const string GET_MINED_BLOCKS = "getminedblocks";
 }
 
-
+/// <summary>
+/// BscScan Contracts Module Actions
+/// </summary>
 internal static class ContractsModuleAction
 {
     public const string GET_ABI = "getabi";
     public const string GET_SOURCE_CODE = "getsourcecode";
 }
 
+/// <summary>
+/// BscScan Contracts Module Actions
+/// </summary>
+internal static class TransactionsModuleAction
+{
+    public const string GET_TX_RECEIPT_STATUS = "gettxreceiptstatus";
+}
+
+/// <summary>
+/// BscScan shared Query Params
+/// </summary>
 internal static class BscQueryParam
 {
     public const string TxHash = "txhash={value}";

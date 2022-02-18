@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace BscScan.NetCore.Models.Response.Account;
+namespace BscScan.NetCore.Models.Response.Accounts;
 
 public class Bep20TokenTransferEvents : BaseResponse
 {

@@ -1,4 +1,4 @@
-﻿namespace BscScan.NetCore.Models.Request.Account;
+﻿namespace BscScan.NetCore.Models.Request.Accounts;
 
 public class InternalTransactionsRequest : NormalTransactionsRequest
 {
