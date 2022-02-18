@@ -23,5 +23,12 @@ public static class BscScanServiceCollectionExtensions
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         });
+
+        services?.AddHttpClient<IBscScanTransactionService, BscScanTransactionService>(client =>
+        {
+            client.BaseAddress = new Uri(bscScanConfiguration.BscScanOptions.Uri!);
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+        });
     }
 }

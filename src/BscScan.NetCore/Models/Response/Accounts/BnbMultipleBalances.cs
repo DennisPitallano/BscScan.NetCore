@@ -1,14 +1,15 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace BscScan.NetCore.Models.Response.Account;
+namespace BscScan.NetCore.Models.Response.Accounts;
 
-public class BnbBalanceHistoryByBlockNo : BaseResponse
+public  class BnbMultipleBalances : BaseResponse
 {
+
     [JsonPropertyName("result")]
-    public IEnumerable<BnbBalanceHistoryByBlockNoData>? Result { get; set; }
+    public IEnumerable<BnbMultipleBalanceData>? Result { get; set; }
 }
 
-public class BnbBalanceHistoryByBlockNoData
+public class BnbMultipleBalanceData
 {
     [JsonPropertyName("account")]
     public string? Account { get; set; }

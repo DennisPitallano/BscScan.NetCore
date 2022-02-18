@@ -3,8 +3,8 @@ using BscScan.NetCore.Configuration;
 using BscScan.NetCore.Constants;
 using BscScan.NetCore.Contracts;
 using BscScan.NetCore.Extensions;
-using BscScan.NetCore.Models.Request.Account;
-using BscScan.NetCore.Models.Response.Account;
+using BscScan.NetCore.Models.Request.Accounts;
+using BscScan.NetCore.Models.Response.Accounts;
 
 namespace BscScan.NetCore.Services;
 
@@ -14,7 +14,7 @@ public class BscScanAccountsService : BaseHttpClient, IBscScanAccountsService
     public BscScanAccountsService(HttpClient bscScanHttpClient, BscScanConfiguration bscScanConfiguration) :
         base(bscScanHttpClient, bscScanConfiguration)
     {
-        _bscScanModule = BscModule.ACCOUNT.AppendApiKey(bscScanConfiguration.BscScanOptions.Token);
+        _bscScanModule = BscScanModule.ACCOUNT.AppendApiKey(bscScanConfiguration.BscScanOptions.Token);
     }
 
     public async Task<BnbBalance?> GetBnbBalanceAsync(BnbBalanceRequest request)

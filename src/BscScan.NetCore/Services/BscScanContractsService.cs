@@ -7,12 +7,12 @@ using BscScan.NetCore.Models.Response.Contracts;
 
 namespace BscScan.NetCore.Services
 {
-    public  class BscScanContractsService : BaseHttpClient, IBscScanContractsService
+    public class BscScanContractsService : BaseHttpClient, IBscScanContractsService
     {
         private readonly string _bscScanModule;
         public BscScanContractsService(HttpClient bscScanHttpClient, BscScanConfiguration bscScanConfiguration) : base(bscScanHttpClient, bscScanConfiguration)
         {
-            _bscScanModule = BscModule.CONTRACT.AppendApiKey(bscScanConfiguration.BscScanOptions.Token);
+            _bscScanModule = BscScanModule.CONTRACT.AppendApiKey(bscScanConfiguration.BscScanOptions.Token);
         }
 
         public async Task<ContractApplicationBinaryInterface?> GetContractApplicationBinaryInterface(string address)
