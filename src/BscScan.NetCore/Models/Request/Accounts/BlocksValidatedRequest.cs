@@ -2,6 +2,9 @@
 
 namespace BscScan.NetCore.Models.Request.Accounts;
 
+/// <summary>
+/// Blocks Validated Request
+/// </summary>
 public class BlocksValidatedRequest
 {
     /// <summary>

@@ -2,6 +2,9 @@
 
 namespace BscScan.NetCore.Models.Request.Accounts;
 
+/// <summary>
+/// Bep20Token Transfer Request Model
+/// </summary>
 public  class Bep20TokenTransferEventsRequest
 {
     /// <summary>
@@ -47,6 +50,9 @@ public  class Bep20TokenTransferEventsRequest
     [JsonIgnore]
     public Sort Sort { get; set; } = Sort.Asc;
 
+    /// <summary>
+    /// the sorting preference, use asc to sort by ascending and desc to sort by descending (default is asc)
+    /// </summary>
 
     [JsonPropertyName("sort")]
     public string SortParam => Sort.ToString().ToLower();
