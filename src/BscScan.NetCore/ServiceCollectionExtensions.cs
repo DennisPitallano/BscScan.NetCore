@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using System.Net.Http.Headers;
 using BscScan.NetCore.Configuration;
+using BscScan.NetCore.Constants;
 using BscScan.NetCore.Contracts;
 using BscScan.NetCore.Services;
 
@@ -16,27 +17,23 @@ public static class BscScanServiceCollectionExtensions
     /// </summary>
     /// <param name="services">IServiceCollection</param>
     /// <param name="bscScanConfiguration">BscScanConfiguration</param>
-    public static void AddBscScan(this IServiceCollection? services, BscScanConfiguration bscScanConfiguration )
+    public static void AddBscScan(this IServiceCollection? services, BscScanConfiguration bscScanConfiguration)
     {
-        services?.AddHttpClient<IBscScanAccountsService, BscScanAccountsService>(client =>
-        {
-            client.BaseAddress = new Uri(bscScanConfiguration.BscScanOptions.Uri!);
-            client.DefaultRequestHeaders.Accept.Clear();
-            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-        });
+        if (services == null) return;
 
-        services?.AddHttpClient<IBscScanContractsService, BscScanContractsService>(client =>
+        var configureClient = new Action<HttpClient>(client =>
         {
             client.BaseAddress = new Uri(bscScanConfiguration.BscScanOptions.Uri!);
             client.DefaultRequestHeaders.Accept.Clear();
-            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue(MimeTypes.ApplicationJson));
         });
+        
+        services.AddHttpClient<IBscScanAccountsService, BscScanAccountsService>(configureClient);
 
-        services?.AddHttpClient<IBscScanTransactionService, BscScanTransactionService>(client =>
-        {
-            client.BaseAddress = new Uri(bscScanConfiguration.BscScanOptions.Uri!);
-            client.DefaultRequestHeaders.Accept.Clear();
-            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-        });
+        services.AddHttpClient<IBscScanContractsService, BscScanContractsService>(configureClient);
+
+        services.AddHttpClient<IBscScanTransactionService, BscScanTransactionService>(configureClient);
+
+        services.AddHttpClient<IBscScanBlocksService, BscScanBlocksService>(configureClient);
     }
 }

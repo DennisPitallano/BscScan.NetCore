@@ -8,6 +8,7 @@ internal static class BscScanModule
     public const string ACCOUNT = "?module=account&apikey={apiKey}&";
     public const string CONTRACT = "?module=contract&apikey={apiKey}&";
     public const string TRANSACTIONS = "?module=transaction&apikey={apiKey}&";
+    public const string BLOCKS = "?module=block&apikey={apiKey}&";
 }
 
 /// <summary>
@@ -43,6 +44,15 @@ internal static class TransactionsModuleAction
 }
 
 /// <summary>
+/// BscScan Blocks Module Actions
+/// </summary>
+internal static class BlocksModuleAction
+{
+    public const string GET_BLOCK_REWARD = "getblockreward";
+}
+
+
+/// <summary>
 /// BscScan shared Query Params
 /// </summary>
 internal static class BscQueryParam
@@ -51,4 +61,9 @@ internal static class BscQueryParam
     public const string Address = "address={value}";
     public const string BlockNo = "blockno={value}";
     public const string BlockType = "blocktype={value}";
+}
+
+internal static class MimeTypes
+{
+    public const string ApplicationJson = "application/json";
 }
