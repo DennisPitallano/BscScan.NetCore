@@ -6,8 +6,16 @@ using BscScan.NetCore.Services;
 
 namespace BscScan.NetCore;
 
+/// <summary>
+/// BscScanService CollectionExtensions
+/// </summary>
 public static class BscScanServiceCollectionExtensions
 {
+    /// <summary>
+    ///  BscScanService CollectionExtensions
+    /// </summary>
+    /// <param name="services">IServiceCollection</param>
+    /// <param name="bscScanConfiguration">BscScanConfiguration</param>
     public static void AddBscScan(this IServiceCollection? services, BscScanConfiguration bscScanConfiguration )
     {
         services?.AddHttpClient<IBscScanAccountsService, BscScanAccountsService>(client =>

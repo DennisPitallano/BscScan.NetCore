@@ -2,6 +2,9 @@
 
 namespace BscScan.NetCore.Contracts
 {
+    /// <summary>
+    /// BscScan Contract Module Interface
+    /// </summary>
     public interface IBscScanContractsService
     {
 

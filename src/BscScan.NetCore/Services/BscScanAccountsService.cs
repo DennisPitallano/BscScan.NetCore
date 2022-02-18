@@ -8,15 +8,19 @@ using BscScan.NetCore.Models.Response.Accounts;
 
 namespace BscScan.NetCore.Services;
 
+/// <inheritdoc cref="IBscScanAccountsService" />
 public class BscScanAccountsService : BaseHttpClient, IBscScanAccountsService
 {
     private readonly string _bscScanModule;
+
+    /// <inheritdoc />
     public BscScanAccountsService(HttpClient bscScanHttpClient, BscScanConfiguration bscScanConfiguration) :
         base(bscScanHttpClient, bscScanConfiguration)
     {
         _bscScanModule = BscScanModule.ACCOUNT.AppendApiKey(bscScanConfiguration.BscScanOptions.Token);
     }
 
+    /// <inheritdoc />
     public async Task<BnbBalance?> GetBnbBalanceAsync(BnbBalanceRequest request)
     {
         var queryParameters = $"{_bscScanModule}{request.ToRequestParameters(AccountsModuleAction.BALANCE)}";
@@ -29,6 +33,7 @@ public class BscScanAccountsService : BaseHttpClient, IBscScanAccountsService
         return result;
     }
 
+    /// <inheritdoc />
     public async Task<BnbMultipleBalances?> GetMultipleBnbBalanceAsync(MultipleBnbBalanceRequest request)
     {
         var queryParameters = $"{_bscScanModule}{request.ToRequestParameters(AccountsModuleAction.BALANCE_MULTI)}";
@@ -41,6 +46,7 @@ public class BscScanAccountsService : BaseHttpClient, IBscScanAccountsService
         return result;
     }
 
+    /// <inheritdoc />
     public async Task<NormalTransactions?> GetNormalTransactionsByAddressAsync(NormalTransactionsRequest request)
     {
         var queryParameters = $"{_bscScanModule}{request.ToRequestParameters(AccountsModuleAction.TRANSACTION_LIST)}";
@@ -53,6 +59,7 @@ public class BscScanAccountsService : BaseHttpClient, IBscScanAccountsService
         return result;
     }
 
+    /// <inheritdoc />
     public async Task<InternalTransactionsByAddress?> GetInternalTransactionsByAddressAsync(InternalTransactionsRequest request)
     {
         var queryParameters = $"{_bscScanModule}{request.ToRequestParameters(AccountsModuleAction.TRANSACTION_LIST_INTERNAL)}";
@@ -65,6 +72,7 @@ public class BscScanAccountsService : BaseHttpClient, IBscScanAccountsService
         return result;
     }
 
+    /// <inheritdoc />
     public async Task<InternalTransactionsByHash?> GetInternalTransactionsByTransactionHashAsync(string txHash)
     {
         var queryParameters = $"{_bscScanModule}".AddAction(AccountsModuleAction.TRANSACTION_LIST_INTERNAL)
@@ -78,6 +86,7 @@ public class BscScanAccountsService : BaseHttpClient, IBscScanAccountsService
         return result;
     }
 
+    /// <inheritdoc />
     public async Task<InternalTransactionsByBlockRange?> GetInternalTransactionsByBlockRangeAsync(InternalTransactionsByBlockRangeRequest request)
     {
         var queryParameters = $"{_bscScanModule}{request.ToRequestParameters(AccountsModuleAction.TRANSACTION_LIST_INTERNAL)}";
@@ -90,6 +99,7 @@ public class BscScanAccountsService : BaseHttpClient, IBscScanAccountsService
         return result;
     }
 
+    /// <inheritdoc />
     public async Task<Bep20TokenTransferEvents?> GetBep20TokenTransferEventsByAddress(Bep20TokenTransferEventsRequest request)
     {
         var queryParameters = $"{_bscScanModule}{request.ToRequestParameters(AccountsModuleAction.TOKEN_TX)}";
@@ -102,6 +112,7 @@ public class BscScanAccountsService : BaseHttpClient, IBscScanAccountsService
         return result;
     }
 
+    /// <inheritdoc />
     public async Task<Bep721TokenTransferEvents?> GetBep721TokenTransferEventsByAddress(Bep721TokenTransferEventsRequest request)
     {
         var queryParameters = $"{_bscScanModule}{request.ToRequestParameters(AccountsModuleAction.TOKEN_NFT_TX)}";
@@ -114,6 +125,7 @@ public class BscScanAccountsService : BaseHttpClient, IBscScanAccountsService
         return result;
     }
 
+    /// <inheritdoc />
     public async Task<BlocksValidated?> GetBlocksValidatedByAddress(BlocksValidatedRequest request)
     {
         var queryParameters = $"{_bscScanModule}{request.ToRequestParameters(AccountsModuleAction.GET_MINED_BLOCKS)}";
@@ -126,6 +138,7 @@ public class BscScanAccountsService : BaseHttpClient, IBscScanAccountsService
         return result;
     }
 
+    /// <inheritdoc />
     public async Task<BnbBalanceHistoryByBlockNo?> GetHistoricalBnbBalanceByBlockNo(string address, int blockno)
     {
         var queryParameters = $"{_bscScanModule}".AddAction(AccountsModuleAction.BALANCE_HISTORY)

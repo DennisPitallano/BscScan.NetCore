@@ -7,14 +7,18 @@ using BscScan.NetCore.Models.Response.Contracts;
 
 namespace BscScan.NetCore.Services
 {
+    /// <inheritdoc cref="IBscScanContractsService" />
     public class BscScanContractsService : BaseHttpClient, IBscScanContractsService
     {
         private readonly string _bscScanModule;
+
+        /// <inheritdoc />
         public BscScanContractsService(HttpClient bscScanHttpClient, BscScanConfiguration bscScanConfiguration) : base(bscScanHttpClient, bscScanConfiguration)
         {
             _bscScanModule = BscScanModule.CONTRACT.AppendApiKey(bscScanConfiguration.BscScanOptions.Token);
         }
 
+        /// <inheritdoc />
         public async Task<ContractApplicationBinaryInterface?> GetContractApplicationBinaryInterface(string address)
         {
             var queryParameters = $"{_bscScanModule}".AddAction(ContractsModuleAction.GET_ABI)
@@ -28,6 +32,7 @@ namespace BscScan.NetCore.Services
             return result;
         }
 
+        /// <inheritdoc />
         public async Task<ContractSourceCode?> GetContractSourceCode(string address)
         {
             var queryParameters = $"{_bscScanModule}".AddAction(ContractsModuleAction.GET_SOURCE_CODE)

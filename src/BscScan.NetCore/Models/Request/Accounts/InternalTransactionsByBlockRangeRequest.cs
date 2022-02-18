@@ -2,6 +2,9 @@
 
 namespace BscScan.NetCore.Models.Request.Accounts;
 
+/// <summary>
+/// Internal Transactions By BlockRange Request Model
+/// </summary>
 public class InternalTransactionsByBlockRangeRequest
 {
     /// <summary>
@@ -35,6 +38,9 @@ public class InternalTransactionsByBlockRangeRequest
     public Sort Sort { get; set; } = Sort.Asc;
 
 
+    /// <summary>
+    /// the sorting preference, use asc to sort by ascending and desc to sort by descending (default is asc)
+    /// </summary>
     [JsonPropertyName("sort")]
     public string SortParam => Sort.ToString().ToLower();
 }

@@ -3,6 +3,9 @@ using BscScan.NetCore.Models.Response.Accounts;
 
 namespace BscScan.NetCore.Contracts;
 
+/// <summary>
+/// BscScan Account Module API Interface
+/// </summary>
 public interface IBscScanAccountsService
 {
     /// <summary>

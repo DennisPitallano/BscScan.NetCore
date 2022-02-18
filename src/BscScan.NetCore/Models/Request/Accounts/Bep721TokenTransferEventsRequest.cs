@@ -2,6 +2,9 @@
 
 namespace BscScan.NetCore.Models.Request.Accounts;
 
+/// <summary>
+/// Bep721Token Transfer Request Model
+/// </summary>
 public class Bep721TokenTransferEventsRequest
 {
     /// <summary>
@@ -48,6 +51,9 @@ public class Bep721TokenTransferEventsRequest
     public Sort Sort { get; set; } = Sort.Asc;
 
 
+    /// <summary>
+    /// Sort
+    /// </summary>
     [JsonPropertyName("sort")]
     public string SortParam => Sort.ToString().ToLower();
 }
