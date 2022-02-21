@@ -1,4 +1,5 @@
-﻿using BscScan.NetCore.Models.Response.Blocks;
+﻿using BscScan.NetCore.Models;
+using BscScan.NetCore.Models.Response.Blocks;
 
 namespace BscScan.NetCore.Contracts
 {
@@ -20,5 +21,14 @@ namespace BscScan.NetCore.Contracts
         /// <param name="blockNo">the integer block number to estimate time remaining to be validated eg. 12697906</param>
         /// <returns>Returns the estimated time remaining, in seconds, until a certain block is validated.</returns>
         Task<EstimatedBlockCountdownTime?> GetEstimatedBlockCountdownTimeByBlockNo(string blockNo);
+
+       
+        /// <summary>
+        /// Get Block Number by Timestamp
+        /// </summary>
+        /// <param name="timestamp">the integer representing the Unix timestamp in seconds.</param>
+        /// <param name="closest">the closest available block to the provided timestamp, either before or after</param>
+        /// <returns>Returns the block number that was validated at a certain timestamp.</returns>
+        Task<BlockNumber?> GetBlockNumberByTimestamp(int timestamp, Closest closest =Closest.Before );
     }
 }

@@ -33,6 +33,7 @@ internal static class ContractsModuleAction
 {
     public const string GET_ABI = "getabi";
     public const string GET_SOURCE_CODE = "getsourcecode";
+    public const string GET_BLOCK_NO_BY_TIME = "getblocknobytime";
 }
 
 /// <summary>
@@ -50,6 +51,7 @@ internal static class BlocksModuleAction
 {
     public const string GET_BLOCK_REWARD = "getblockreward";
     public const string GET_BLOCK_COUNT_DOWN= "getblockcountdown";
+    public const string GET_BLOCK_NUMBER_BY_TIMESTAMP= "getblocknobytime";
 }
 
 
@@ -62,6 +64,8 @@ internal static class BscQueryParam
     public const string Address = "address={value}";
     public const string BlockNo = "blockno={value}";
     public const string BlockType = "blocktype={value}";
+    public const string Timestamp = "timestamp={value}";
+    public const string Closest = "closest={value}";
 }
 
 internal static class MimeTypes

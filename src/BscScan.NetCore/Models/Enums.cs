@@ -33,3 +33,18 @@ public enum Sort
     /// </summary>
     Desc
 }
+
+/// <summary>
+/// Closest options
+/// </summary>
+public enum Closest
+{
+    /// <summary>
+    /// Before
+    /// </summary>
+    Before,
+    /// <summary>
+    /// After
+    /// </summary>
+    After,
+}
