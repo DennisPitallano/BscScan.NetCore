@@ -46,5 +46,12 @@ namespace BscScan.NetCore.Contracts
         /// <param name="request">DailyBlockCountAndRewardRequest Model</param>
         /// <returns>Returns the number of blocks validated daily and the amount of block rewards.</returns>
         Task<DailyBlockCountAndRewards?> GetDailyBlockCountsAndRewards(DailyBlockCountAndRewardRequest request);
+
+        /// <summary>
+        /// Get Daily Block Rewards  🅰🅿🅸  🅿🆁🅾
+        /// </summary>
+        /// <param name="request">DailyBlockRequest Model</param>
+        /// <returns>Returns the amount of block rewards distributed to validators daily.</returns>
+        Task<DailyBlockRewards?> GetDailyBlockRewards(DailyBlockRequest request);
     }
 }
