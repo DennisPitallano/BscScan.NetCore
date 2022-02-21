@@ -31,5 +31,20 @@ namespace BscScan.NetCore.Services
             var result = await JsonSerializer.DeserializeAsync<BlockRewards>(responseStream);
             return result;
         }
+
+
+        /// <inheritdoc />
+        public async Task<EstimatedBlockCountdownTime?> GetEstimatedBlockCountdownTimeByBlockNo(string blockNo)
+        {
+            var queryParameters = $"{_bscScanModule}".AddAction(BlocksModuleAction.GET_BLOCK_COUNT_DOWN)
+                .AddQuery(BscQueryParam.BlockNo.AppendValue(blockNo));
+            using var response = await BscScanHttpClient.GetAsync($"{queryParameters}")
+                .ConfigureAwait(false);
+
+            response.EnsureSuccessStatusCode();
+            await using var responseStream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
+            var result = await JsonSerializer.DeserializeAsync<EstimatedBlockCountdownTime>(responseStream);
+            return result;
+        }
     }
 }
