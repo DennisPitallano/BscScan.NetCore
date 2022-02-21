@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using BscScan.NetCore.Contracts;
+using BscScan.NetCore.Models;
 using BscScan.NetCore.Models.Request.Accounts;
 
 namespace BscScanMvc.Controllers
@@ -83,11 +84,11 @@ namespace BscScanMvc.Controllers
                 //    .GetContractApplicationBinaryInterface("0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82")
                 //    .ConfigureAwait(false);
 
-                var resulta =
-                    await _bscScanTransactionService.CheckTransactionReceiptStatus(
-                        "0xe9975702518c79caf81d5da65dea689dcac701fcdd063f848d4f03c85392fd00");
+                //var resulta =
+                //    await _bscScanTransactionService.CheckTransactionReceiptStatus(
+                //        "0xe9975702518c79caf81d5da65dea689dcac701fcdd063f848d4f03c85392fd00");
 
-                var result = await _bscScanBlocksService.GetBlockRewardsByBlockNo("2170000");
+                var result = await _bscScanBlocksService.GetBlockNumberByTimestamp(1601510400);
             }
             catch (HttpRequestException e)
             {
