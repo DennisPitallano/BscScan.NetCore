@@ -1,4 +1,5 @@
 ﻿using BscScan.NetCore.Models;
+using BscScan.NetCore.Models.Request.Blocks;
 using BscScan.NetCore.Models.Response.Blocks;
 
 namespace BscScan.NetCore.Contracts
@@ -30,5 +31,12 @@ namespace BscScan.NetCore.Contracts
         /// <param name="closest">the closest available block to the provided timestamp, either before or after</param>
         /// <returns>Returns the block number that was validated at a certain timestamp.</returns>
         Task<BlockNumber?> GetBlockNumberByTimestamp(int timestamp, Closest closest =Closest.Before );
+
+        /// <summary>
+        /// Get Daily Average Block Size  🅰🅿🅸  🅿🆁🅾
+        /// </summary>
+        /// <param name="request">DailyAverageBlockSizeRequest Model</param>
+        /// <returns>Returns the daily average block size within a date range.</returns>
+        Task<DailyAverageBlockSize?> GetDailyAverageBlockSize(DailyAverageBlockSizeRequest request);
     }
 }
