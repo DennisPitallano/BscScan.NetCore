@@ -3,6 +3,7 @@ using BscScan.NetCore.Configuration;
 using BscScan.NetCore.Constants;
 using BscScan.NetCore.Contracts;
 using BscScan.NetCore.Extensions;
+using BscScan.NetCore.Models;
 using BscScan.NetCore.Models.Response.Blocks;
 
 namespace BscScan.NetCore.Services
@@ -44,6 +45,20 @@ namespace BscScan.NetCore.Services
             response.EnsureSuccessStatusCode();
             await using var responseStream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
             var result = await JsonSerializer.DeserializeAsync<EstimatedBlockCountdownTime>(responseStream);
+            return result;
+        }
+
+        /// <inheritdoc />
+        public async Task<BlockNumber?> GetBlockNumberByTimestamp(int timestamp, Closest closest = Closest.Before)
+        {
+            var queryParameters = $"{_bscScanModule}".AddAction(BlocksModuleAction.GET_BLOCK_NUMBER_BY_TIMESTAMP)
+                .AddQuery(BscQueryParam.Timestamp.AppendValue(timestamp)).AddQuery(BscQueryParam.Closest.AppendValue(closest.ToString().ToLower()));
+            using var response = await BscScanHttpClient.GetAsync($"{queryParameters}")
+                .ConfigureAwait(false);
+
+            response.EnsureSuccessStatusCode();
+            await using var responseStream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
+            var result = await JsonSerializer.DeserializeAsync<BlockNumber>(responseStream);
             return result;
         }
     }
