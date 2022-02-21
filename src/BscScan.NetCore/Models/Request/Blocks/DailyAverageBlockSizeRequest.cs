@@ -35,7 +35,7 @@ namespace BscScan.NetCore.Models.Request.Blocks
         /// the sorting preference, use asc to sort by ascending and desc to sort by descending
         /// </summary>
         [JsonIgnore]
-        public Sort Sort { get; set; }
+        public Sort Sort { get; set; } = Sort.Asc;
 
 
         /// <summary>

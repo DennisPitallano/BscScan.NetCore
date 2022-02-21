@@ -4,6 +4,7 @@ using System.Diagnostics;
 using BscScan.NetCore.Contracts;
 using BscScan.NetCore.Models;
 using BscScan.NetCore.Models.Request.Accounts;
+using BscScan.NetCore.Models.Request.Blocks;
 
 namespace BscScanMvc.Controllers
 {
@@ -88,7 +89,11 @@ namespace BscScanMvc.Controllers
                 //    await _bscScanTransactionService.CheckTransactionReceiptStatus(
                 //        "0xe9975702518c79caf81d5da65dea689dcac701fcdd063f848d4f03c85392fd00");
 
-                var result = await _bscScanBlocksService.GetBlockNumberByTimestamp(1601510400);
+                var result = await _bscScanBlocksService.GetDailyAverageBlockSize(new DailyAverageBlockSizeRequest
+                {
+                    StartDate = new DateOnly(2021,08,01),
+                    EndDate = new DateOnly(2021,08,31)
+                });
             }
             catch (HttpRequestException e)
             {
