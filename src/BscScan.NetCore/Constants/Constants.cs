@@ -9,6 +9,7 @@ internal static class BscScanModule
     public const string CONTRACT = "?module=contract&apikey={apiKey}&";
     public const string TRANSACTIONS = "?module=transaction&apikey={apiKey}&";
     public const string BLOCKS = "?module=block&apikey={apiKey}&";
+    public const string STATS = "?module=stats&apikey={apiKey}&";
 }
 
 /// <summary>
@@ -52,6 +53,7 @@ internal static class BlocksModuleAction
     public const string GET_BLOCK_REWARD = "getblockreward";
     public const string GET_BLOCK_COUNT_DOWN= "getblockcountdown";
     public const string GET_BLOCK_NUMBER_BY_TIMESTAMP= "getblocknobytime";
+    public const string GET_DAILY_AVG_BLOCK_SIZE = "dailyavgblocksize";
 }
 
 
