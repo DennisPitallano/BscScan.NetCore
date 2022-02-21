@@ -11,24 +11,25 @@ For your API Key, please follow [BscScan Getting Started Guide](https://docs.bsc
 # Installation
 
 1. Download and Install the latest `BscScan.NetCore` from [NuGet](https://www.nuget.org/packages/BscScan.NetCore/) using Package Manager, CLI or by adding it to Package Reference:
-
+   
    ```
-   <PackageReference Include="BscScan.NetCore" Version="1.0.0-rc" />
+   <PackageReference Include="BscScan.NetCore" Version="1.0.1" />
    ```
-
+   
    ```
-   dotnet add package BscScan.NetCore --version 1.0.0-rc
+   dotnet add package BscScan.NetCore --version 1.0.1
    ```
-
+   
    ```
-   PM> Install-Package BscScan.NetCore -Version 1.0.0-rc
+   PM> Install-Package BscScan.NetCore -Version 1.0.1
    ```
 
 2. Import the following namespace in the class:
-
+   
    ```c#
    using BscScan.NetCore;
    ```
 
-# 
+## See the detailed guide [here](https://dennispitallano.github.io/docs/bscsan-netcore/get-start).
+
 
