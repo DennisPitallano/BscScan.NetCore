@@ -38,5 +38,13 @@ namespace BscScan.NetCore.Contracts
         /// <param name="request">DailyAverageBlockSizeRequest Model</param>
         /// <returns>Returns the daily average block size within a date range.</returns>
         Task<DailyAverageBlockSize?> GetDailyAverageBlockSize(DailyAverageBlockSizeRequest request);
+        
+
+        /// <summary>
+        /// Get Daily Block Count and Rewards  🅰🅿🅸  🅿🆁🅾
+        /// </summary>
+        /// <param name="request">DailyBlockCountAndRewardRequest Model</param>
+        /// <returns>Returns the number of blocks validated daily and the amount of block rewards.</returns>
+        Task<DailyBlockCountAndRewards?> GetDailyBlockCountsAndRewards(DailyBlockCountAndRewardRequest request);
     }
 }

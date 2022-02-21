@@ -76,5 +76,19 @@ namespace BscScan.NetCore.Services
             var result = await JsonSerializer.DeserializeAsync<DailyAverageBlockSize>(responseStream);
             return result;
         }
+
+
+        /// <inheritdoc />
+        public async Task<DailyBlockCountAndRewards?> GetDailyBlockCountsAndRewards(DailyBlockCountAndRewardRequest request)
+        {
+            var queryParameters = $"{_bscScanModuleStat}{request.ToRequestParameters(BlocksModuleAction.GET_DAILY_BLOCK_COUNT)}";
+            using var response = await BscScanHttpClient.GetAsync($"{queryParameters}")
+                .ConfigureAwait(false);
+
+            response.EnsureSuccessStatusCode();
+            await using var responseStream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
+            var result = await JsonSerializer.DeserializeAsync<DailyBlockCountAndRewards>(responseStream);
+            return result;
+        }
     }
 }
