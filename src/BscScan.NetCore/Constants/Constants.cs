@@ -49,6 +49,7 @@ internal static class TransactionsModuleAction
 internal static class BlocksModuleAction
 {
     public const string GET_BLOCK_REWARD = "getblockreward";
+    public const string GET_BLOCK_COUNT_DOWN= "getblockcountdown";
 }
 
 
