@@ -89,7 +89,7 @@ namespace BscScanMvc.Controllers
                 //    await _bscScanTransactionService.CheckTransactionReceiptStatus(
                 //        "0xe9975702518c79caf81d5da65dea689dcac701fcdd063f848d4f03c85392fd00");
 
-                var result = await _bscScanBlocksService.GetDailyAverageBlockSize(new DailyAverageBlockSizeRequest
+                var result = await _bscScanBlocksService.GetDailyBlockCountsAndRewards(new DailyBlockCountAndRewardRequest
                 {
                     StartDate = new DateOnly(2021,08,01),
                     EndDate = new DateOnly(2021,08,31)
