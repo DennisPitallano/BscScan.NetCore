@@ -53,5 +53,12 @@ namespace BscScan.NetCore.Contracts
         /// <param name="request">DailyBlockRequest Model</param>
         /// <returns>Returns the amount of block rewards distributed to validators daily.</returns>
         Task<DailyBlockRewards?> GetDailyBlockRewards(DailyBlockRequest request);
+
+        /// <summary>
+        /// Get Daily Average Time for A Block to be Included in the BNB Smart Chain   🅰🅿🅸  🅿🆁🅾
+        /// </summary>
+        /// <param name="request">DailyBlockRequest Model</param>
+        /// <returns>Returns the daily average of time needed for a block to be successfully validated.</returns>
+        Task<DailyAverageTimeForBlock?> GetDailyAverageTimeForABlock(DailyBlockRequest request);
     }
 }

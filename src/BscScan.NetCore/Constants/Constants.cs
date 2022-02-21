@@ -56,6 +56,7 @@ internal static class BlocksModuleAction
     public const string GET_DAILY_AVG_BLOCK_SIZE = "dailyavgblocksize";
     public const string GET_DAILY_BLOCK_COUNT = "dailyblkcount";
     public const string GET_DAILY_BLOCK_REWARDS = "dailyblockrewards";
+    public const string GET_DAILY_AVG_BLOCK_TIME = "dailyavgblocktime";
 }
 
 
