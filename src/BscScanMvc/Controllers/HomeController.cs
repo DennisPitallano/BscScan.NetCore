@@ -2,9 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using BscScan.NetCore.Contracts;
-using BscScan.NetCore.Models;
-using BscScan.NetCore.Models.Request.Accounts;
-using BscScan.NetCore.Models.Request.Blocks;
 
 namespace BscScanMvc.Controllers
 {
@@ -20,13 +17,16 @@ namespace BscScanMvc.Controllers
 
         private readonly IBscScanBlocksService _bscScanBlocksService;
 
-        public HomeController(ILogger<HomeController> logger, IBscScanAccountsService bscScanService, IBscScanContractsService bscScanContractsService, IBscScanTransactionService bscScanTransactionService, IBscScanBlocksService bscScanBlocksService)
+        private readonly IBscScanGethProxyService _bscScanGethProxyService;
+
+        public HomeController(ILogger<HomeController> logger, IBscScanAccountsService bscScanService, IBscScanContractsService bscScanContractsService, IBscScanTransactionService bscScanTransactionService, IBscScanBlocksService bscScanBlocksService, IBscScanGethProxyService bscScanGethProxyService)
         {
             _logger = logger;
             _bscScanService = bscScanService;
             _bscScanContractsService = bscScanContractsService;
             _bscScanTransactionService = bscScanTransactionService;
             _bscScanBlocksService = bscScanBlocksService;
+            _bscScanGethProxyService = bscScanGethProxyService;
         }
 
         public async Task<IActionResult> Index()
@@ -89,11 +89,12 @@ namespace BscScanMvc.Controllers
                 //    await _bscScanTransactionService.CheckTransactionReceiptStatus(
                 //        "0xe9975702518c79caf81d5da65dea689dcac701fcdd063f848d4f03c85392fd00");
 
-                var result = await _bscScanBlocksService.GetDailyBlockRewards(new DailyBlockCountAndRewardRequest
-                {
-                    StartDate = new DateOnly(2021,08,01),
-                    EndDate = new DateOnly(2021,08,31)
-                });
+                //var result = await _bscScanBlocksService.GetDailyBlockRewards(new DailyBlockCountAndRewardRequest
+                //{
+                //    StartDate = new DateOnly(2021,08,01),
+                //    EndDate = new DateOnly(2021,08,31)
+                //});
+                var result = await _bscScanGethProxyService.EthBlockNumber().ConfigureAwait(false);
             }
             catch (HttpRequestException e)
             {
