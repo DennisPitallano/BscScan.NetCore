@@ -35,5 +35,7 @@ public static class BscScanServiceCollectionExtensions
         services.AddHttpClient<IBscScanTransactionService, BscScanTransactionService>(configureClient);
 
         services.AddHttpClient<IBscScanBlocksService, BscScanBlocksService>(configureClient);
+
+        services.AddHttpClient<IBscScanGethProxyService, BscScanGethProxyService>(configureClient);
     }
 }
