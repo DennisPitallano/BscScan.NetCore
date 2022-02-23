@@ -10,6 +10,7 @@ internal static class BscScanModule
     public const string TRANSACTIONS = "?module=transaction&apikey={apiKey}&";
     public const string BLOCKS = "?module=block&apikey={apiKey}&";
     public const string STATS = "?module=stats&apikey={apiKey}&";
+    public const string PROXY = "?module=proxy&apikey={apiKey}&";
 }
 
 /// <summary>
@@ -57,6 +58,12 @@ internal static class BlocksModuleAction
     public const string GET_DAILY_BLOCK_COUNT = "dailyblkcount";
     public const string GET_DAILY_BLOCK_REWARDS = "dailyblockrewards";
     public const string GET_DAILY_AVG_BLOCK_TIME = "dailyavgblocktime";
+}
+
+
+internal static class ProxyModuleAction
+{
+    public const string ETH_BLOCK_NUMBER = "eth_blockNumber";
 }
 
 
