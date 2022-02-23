@@ -17,10 +17,10 @@ namespace BscScan.NetCore.Models.Response.Proxy
         /// Id
         /// </summary>
         [JsonPropertyName("id")]
-        public string? Id { get; set; }
+        public int Id { get; set; }
 
         /// <summary>
-        /// Id
+        /// result
         /// </summary>
         [JsonPropertyName("result")]
         public string? Result { get; set; }
