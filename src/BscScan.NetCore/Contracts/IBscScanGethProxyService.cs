@@ -1,4 +1,5 @@
-﻿using BscScan.NetCore.Models.Response.Proxy;
+﻿using BscScan.NetCore.Models;
+using BscScan.NetCore.Models.Response.Proxy;
 
 namespace BscScan.NetCore.Contracts
 {
@@ -44,5 +45,13 @@ namespace BscScan.NetCore.Contracts
         /// <param name="index">the position of the uncle's index in the block, in hex eg. 0x1</param>
         /// <returns></returns>
         Task<TransactionByBlockNumberAndIndex?> EthGetTransactionByBlockNumberAndIndex(string tag, string index);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="address">the string representing the address to get transaction count</param>
+        /// <param name="tag">the string pre-defined block parameter, either earliest, pending or latest</param>
+        /// <returns>Returns the number of transactions performed by an address.</returns>
+        Task<TransactionCount?> EthGetTransactionCount(string address, Tag tag = Tag.Latest);
     }
 }
