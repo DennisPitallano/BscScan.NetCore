@@ -125,6 +125,7 @@ public class BlockByNumberData
     /// <summary>
     /// stateRoot
     /// </summary>
+    [JsonPropertyName("stateRoot")]
     public string? StateRoot { get; set; }
 
     /// <summary>
