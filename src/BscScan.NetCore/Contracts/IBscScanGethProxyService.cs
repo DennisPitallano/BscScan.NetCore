@@ -53,5 +53,12 @@ namespace BscScan.NetCore.Contracts
         /// <param name="tag">the string pre-defined block parameter, either earliest, pending or latest</param>
         /// <returns>Returns the number of transactions performed by an address.</returns>
         Task<TransactionCount?> EthGetTransactionCount(string address, Tag tag = Tag.Latest);
+
+        /// <summary>
+        /// eth_sendRawTransaction
+        /// </summary>
+        /// <param name="hex">the string representing the signed raw transaction data to broadcast.</param>
+        /// <returns>Submits a pre-signed transaction for broadcast to the BNB Smart Chain network.</returns>
+        Task<SendRawTransaction?> EthSendRawTransaction(string hex);
     }
 }

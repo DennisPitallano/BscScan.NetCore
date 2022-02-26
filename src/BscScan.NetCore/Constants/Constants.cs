@@ -69,6 +69,7 @@ internal static class ProxyModuleAction
     public const string ETH_GET_TRANSACTION_BY_HASH = "eth_getTransactionByHash";
     public const string ETH_GET_TRANSACTION_BY_BLOCK_NUMBER_AND_INDEX = "eth_getTransactionByBlockNumberAndIndex";
     public const string ETH_GET_TRANSACTION_COUNT = "eth_getTransactionCount";
+    public const string ETH_SEND_RAW_TRANSACTION = "eth_sendRawTransaction";
 }
 
 
@@ -86,6 +87,7 @@ internal static class BscQueryParam
     public const string Tag = "tag={value}";
     public const string Boolean = "boolean={value}";
     public const string Index = "index={value}";
+    public const string Hex = "hex={value}";
 }
 
 internal static class MimeTypes

@@ -3,9 +3,9 @@
 namespace BscScan.NetCore.Models.Response.Proxy
 {
     /// <summary>
-    /// BlockTransactionCountByNumber
+    /// SendRawTransaction
     /// </summary>
-    public class BlockTransactionCountByNumber
+    public class SendRawTransaction
     {
         /// <summary>
         /// JsonRpc
