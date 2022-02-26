@@ -24,5 +24,28 @@ namespace BscScan.NetCore.Models.Response.Proxy
         /// </summary>
         [JsonPropertyName("result")]
         public string? Result { get; set; }
+
+
+        /// <summary>
+        /// Error
+        /// </summary>
+        [JsonPropertyName("error")]
+        public Error? Error { get; set; }
+    }
+
+    /// <summary>
+    /// Error
+    /// </summary>
+    public class Error
+    {
+        /// <summary>
+        /// Code
+        /// </summary>
+        public int Code { get; set; }
+
+        /// <summary>
+        /// Message
+        /// </summary>
+        public string? Message { get; set; }
     }
 }
