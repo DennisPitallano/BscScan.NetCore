@@ -94,7 +94,8 @@ namespace BscScanMvc.Controllers
                 //    StartDate = new DateOnly(2021,08,01),
                 //    EndDate = new DateOnly(2021,08,31)
                 //});
-                var result = await _bscScanGethProxyService.EthGetBlockByNumber("0xa11446").ConfigureAwait(false);
+                //var result = await _bscScanGethProxyService.EthGetBlockByNumber("0xa11446").ConfigureAwait(false);
+                var result = await _bscScanGethProxyService.EthGetBlockTransactionCountByNumber("0xa11446");
             }
             catch (HttpRequestException e)
             {
