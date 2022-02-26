@@ -71,5 +71,19 @@ namespace BscScan.NetCore.Services
             var result = await JsonSerializer.DeserializeAsync<TransactionByHash>(responseStream);
             return result;
         }
+
+        /// <inheritdoc />
+        public async Task<TransactionByBlockNumberAndIndex?> EthGetTransactionByBlockNumberAndIndex(string tag, string index)
+        {
+            var queryParameters = $"{_bscScanModule}".AddAction(ProxyModuleAction.ETH_GET_TRANSACTION_BY_BLOCK_NUMBER_AND_INDEX)
+                .AddQuery(BscQueryParam.Tag.AppendValue(tag)).AddQuery(BscQueryParam.Index.AppendValue(index));
+            using var response = await BscScanHttpClient.GetAsync($"{queryParameters}")
+                .ConfigureAwait(false);
+
+            response.EnsureSuccessStatusCode();
+            await using var responseStream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
+            var result = await JsonSerializer.DeserializeAsync<TransactionByBlockNumberAndIndex>(responseStream);
+            return result;
+        }
     }
 }
