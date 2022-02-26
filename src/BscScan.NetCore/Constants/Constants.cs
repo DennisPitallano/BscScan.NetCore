@@ -68,6 +68,7 @@ internal static class ProxyModuleAction
     public const string ETH_GET_BLOCk_TRANSACTION_COUNT_BY_NUMBER = "eth_getBlockTransactionCountByNumber";
     public const string ETH_GET_TRANSACTION_BY_HASH = "eth_getTransactionByHash";
     public const string ETH_GET_TRANSACTION_BY_BLOCK_NUMBER_AND_INDEX = "eth_getTransactionByBlockNumberAndIndex";
+    public const string ETH_GET_TRANSACTION_COUNT = "eth_getTransactionCount";
 }
 
 

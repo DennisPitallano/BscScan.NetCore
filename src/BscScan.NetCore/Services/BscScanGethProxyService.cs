@@ -3,6 +3,7 @@ using BscScan.NetCore.Configuration;
 using BscScan.NetCore.Constants;
 using BscScan.NetCore.Contracts;
 using BscScan.NetCore.Extensions;
+using BscScan.NetCore.Models;
 using BscScan.NetCore.Models.Response.Proxy;
 
 namespace BscScan.NetCore.Services
@@ -83,6 +84,20 @@ namespace BscScan.NetCore.Services
             response.EnsureSuccessStatusCode();
             await using var responseStream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
             var result = await JsonSerializer.DeserializeAsync<TransactionByBlockNumberAndIndex>(responseStream);
+            return result;
+        }
+
+        /// <inheritdoc />
+        public async Task<TransactionCount?> EthGetTransactionCount(string address, Tag tag)
+        {
+            var queryParameters = $"{_bscScanModule}".AddAction(ProxyModuleAction.ETH_GET_TRANSACTION_COUNT)
+                .AddQuery(BscQueryParam.Tag.AppendValue(tag.ToString().ToLower())).AddQuery(BscQueryParam.Address.AppendValue(address));
+            using var response = await BscScanHttpClient.GetAsync($"{queryParameters}")
+                .ConfigureAwait(false);
+
+            response.EnsureSuccessStatusCode();
+            await using var responseStream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
+            var result = await JsonSerializer.DeserializeAsync<TransactionCount>(responseStream);
             return result;
         }
     }
