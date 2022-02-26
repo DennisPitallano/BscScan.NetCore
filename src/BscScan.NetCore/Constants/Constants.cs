@@ -67,6 +67,7 @@ internal static class ProxyModuleAction
     public const string ETH_GET_BLOCk_BY_NUMBER = "eth_getBlockByNumber";
     public const string ETH_GET_BLOCk_TRANSACTION_COUNT_BY_NUMBER = "eth_getBlockTransactionCountByNumber";
     public const string ETH_GET_TRANSACTION_BY_HASH = "eth_getTransactionByHash";
+    public const string ETH_GET_TRANSACTION_BY_BLOCK_NUMBER_AND_INDEX = "eth_getTransactionByBlockNumberAndIndex";
 }
 
 
@@ -83,6 +84,7 @@ internal static class BscQueryParam
     public const string Closest = "closest={value}";
     public const string Tag = "tag={value}";
     public const string Boolean = "boolean={value}";
+    public const string Index = "index={value}";
 }
 
 internal static class MimeTypes
