@@ -94,7 +94,7 @@ namespace BscScanMvc.Controllers
                 //    StartDate = new DateOnly(2021,08,01),
                 //    EndDate = new DateOnly(2021,08,31)
                 //});
-                var result = await _bscScanGethProxyService.EthBlockNumber().ConfigureAwait(false);
+                var result = await _bscScanGethProxyService.EthGetBlockByNumber("0xa11446").ConfigureAwait(false);
             }
             catch (HttpRequestException e)
             {
