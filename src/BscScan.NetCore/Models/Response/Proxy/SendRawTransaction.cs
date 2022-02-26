@@ -41,7 +41,7 @@ namespace BscScan.NetCore.Models.Response.Proxy
         /// <summary>
         /// Code
         /// </summary>
-        [JsonPropertyName("Code")]
+        [JsonPropertyName("code")]
         public int Code { get; set; }
 
         /// <summary>
