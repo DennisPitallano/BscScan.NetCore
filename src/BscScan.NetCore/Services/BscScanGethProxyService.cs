@@ -29,5 +29,19 @@ namespace BscScan.NetCore.Services
             var result = await JsonSerializer.DeserializeAsync<EthBlockNumber>(responseStream);
             return result;
         }
+
+        /// <inheritdoc />
+        public async Task<BlockByNumber?> EthGetBlockByNumber(string tag)
+        {
+            var queryParameters = $"{_bscScanModule}".AddAction(ProxyModuleAction.ETH_GET_BLOCk_BY_NUMBER)
+                .AddQuery(BscQueryParam.Tag.AppendValue(tag)).AddQuery(BscQueryParam.Boolean.AppendValue("true"));
+            using var response = await BscScanHttpClient.GetAsync($"{queryParameters}")
+                .ConfigureAwait(false);
+
+            response.EnsureSuccessStatusCode();
+            await using var responseStream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
+            var result = await JsonSerializer.DeserializeAsync<BlockByNumber>(responseStream);
+            return result;
+        }
     }
 }

@@ -64,6 +64,7 @@ internal static class BlocksModuleAction
 internal static class ProxyModuleAction
 {
     public const string ETH_BLOCK_NUMBER = "eth_blockNumber";
+    public const string ETH_GET_BLOCk_BY_NUMBER = "eth_getBlockByNumber";
 }
 
 
@@ -78,6 +79,8 @@ internal static class BscQueryParam
     public const string BlockType = "blocktype={value}";
     public const string Timestamp = "timestamp={value}";
     public const string Closest = "closest={value}";
+    public const string Tag = "tag={value}";
+    public const string Boolean = "boolean={value}";
 }
 
 internal static class MimeTypes
