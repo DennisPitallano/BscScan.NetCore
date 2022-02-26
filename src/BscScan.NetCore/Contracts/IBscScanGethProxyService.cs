@@ -19,9 +19,16 @@ namespace BscScan.NetCore.Contracts
         /// eth_getBlockByNumber
         /// </summary>
         /// <param name="tag">the block number, in hex eg. 0xC36B3C</param>
-        /// <param name="boolean">the boolean value to show full transaction objects.
         /// when true, returns full transaction objects and their information, when false only returns a list of transactions.</param>
         /// <returns>Returns information about a block by block number.</returns>
         Task<BlockByNumber?> EthGetBlockByNumber(string tag);
+
+        /// <summary>
+        /// eth_getBlockTransactionCountByNumber
+        /// </summary>
+        /// <param name="tag">the block number, in hex eg. 0x10FB78</param>
+        /// <returns>Returns the number of transactions in a block</returns>
+        Task<BlockTransactionCountByNumber?> EthGetBlockTransactionCountByNumber(string tag);
+
     }
 }
