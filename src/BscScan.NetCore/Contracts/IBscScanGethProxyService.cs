@@ -30,5 +30,11 @@ namespace BscScan.NetCore.Contracts
         /// <returns>Returns the number of transactions in a block</returns>
         Task<BlockTransactionCountByNumber?> EthGetBlockTransactionCountByNumber(string tag);
 
+        /// <summary>
+        /// eth_getBlockTransactionCountByNumber
+        /// </summary>
+        /// <param name="txhash">the string representing the hash of the transaction</param>
+        /// <returns>Returns the number of transactions in a block.</returns>
+        Task<TransactionByHash?> EthGetTransactionByHash(string txhash);
     }
 }
