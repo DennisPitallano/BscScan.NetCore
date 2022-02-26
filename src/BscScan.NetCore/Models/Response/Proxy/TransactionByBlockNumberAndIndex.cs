@@ -24,7 +24,7 @@ namespace BscScan.NetCore.Models.Response.Proxy
         /// result
         /// </summary>
         [JsonPropertyName("result")]
-        public TransactionByBlockNumberAndIndex? Result { get; set; }
+        public TransactionByBlockNumberAndIndexData? Result { get; set; }
     }
 
     /// <summary>
