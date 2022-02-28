@@ -88,7 +88,7 @@ namespace BscScan.NetCore.Services
         }
 
         /// <inheritdoc />
-        public async Task<TransactionCount?> EthGetTransactionCount(string address, Tag tag)
+        public async Task<TransactionCount?> EthGetTransactionCount(string address, Tag tag = Tag.Latest)
         {
             var queryParameters = $"{_bscScanModule}".AddAction(ProxyModuleAction.ETH_GET_TRANSACTION_COUNT)
                 .AddQuery(BscQueryParam.Tag.AppendValue(tag.ToString().ToLower())).AddQuery(BscQueryParam.Address.AppendValue(address));
@@ -126,6 +126,22 @@ namespace BscScan.NetCore.Services
             response.EnsureSuccessStatusCode();
             await using var responseStream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
             var result = await JsonSerializer.DeserializeAsync<TransactionReceipt>(responseStream);
+            return result;
+        }
+
+        /// <inheritdoc />
+        public async Task<EthCall?> EthCall(string to, string data, Tag tag = Tag.Latest)
+        {
+            var queryParameters = $"{_bscScanModule}".AddAction(ProxyModuleAction.ETH_CALL)
+                .AddQuery(BscQueryParam.Tag.AppendValue(tag.ToString().ToLower()))
+                .AddQuery(BscQueryParam.Data.AppendValue(data))
+                .AddQuery(BscQueryParam.To.AppendValue(to));
+            using var response = await BscScanHttpClient.GetAsync($"{queryParameters}")
+                .ConfigureAwait(false);
+
+            response.EnsureSuccessStatusCode();
+            await using var responseStream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
+            var result = await JsonSerializer.DeserializeAsync<EthCall>(responseStream);
             return result;
         }
     }
