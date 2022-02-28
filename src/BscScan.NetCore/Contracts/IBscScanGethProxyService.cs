@@ -1,4 +1,5 @@
 ﻿using BscScan.NetCore.Models;
+using BscScan.NetCore.Models.Request.Proxy;
 using BscScan.NetCore.Models.Response.Proxy;
 
 namespace BscScan.NetCore.Contracts
@@ -100,5 +101,12 @@ namespace BscScan.NetCore.Contracts
         /// </summary>
         /// <returns>Returns the current price per gas in wei.</returns>
         Task<EthGasPrice?> EthGasPrice();
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="request">EthEstimateGasRequest Model</param>
+        /// <returns></returns>
+        Task<EthEstimateGas?> EthEstimateGas(EthEstimateGasRequest request);
     }
 }
