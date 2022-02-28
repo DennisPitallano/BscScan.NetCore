@@ -60,5 +60,12 @@ namespace BscScan.NetCore.Contracts
         /// <param name="hex">the string representing the signed raw transaction data to broadcast.</param>
         /// <returns>Submits a pre-signed transaction for broadcast to the BNB Smart Chain network.</returns>
         Task<SendRawTransaction?> EthSendRawTransaction(string hex);
+
+        /// <summary>
+        /// eth_getTransactionReceipt
+        /// </summary>
+        /// <param name="txhash">the string representing the hash of the transaction</param>
+        /// <returns>Returns the receipt of a transaction that has been validated.</returns>
+        Task<TransactionReceipt?> EthGetTransactionReceipt(string txhash);
     }
 }
