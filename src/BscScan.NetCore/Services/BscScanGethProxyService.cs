@@ -159,5 +159,21 @@ namespace BscScan.NetCore.Services
             var result = await JsonSerializer.DeserializeAsync<EthCode>(responseStream);
             return result;
         }
+
+        /// <inheritdoc />
+        public async Task<EthStorageAt?> EthGetStorageAt(string address, string position, Tag tag = Tag.Latest)
+        {
+            var queryParameters = $"{_bscScanModule}".AddAction(ProxyModuleAction.ETH_GET_STORAGE_AT)
+                .AddQuery(BscQueryParam.Tag.AppendValue(tag.ToString().ToLower()))
+                .AddQuery(BscQueryParam.Position.AppendValue(position))
+                .AddQuery(BscQueryParam.Address.AppendValue(address));
+            using var response = await BscScanHttpClient.GetAsync($"{queryParameters}")
+                .ConfigureAwait(false);
+
+            response.EnsureSuccessStatusCode();
+            await using var responseStream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
+            var result = await JsonSerializer.DeserializeAsync<EthStorageAt>(responseStream);
+            return result;
+        }
     }
 }

@@ -73,6 +73,7 @@ internal static class ProxyModuleAction
     public const string ETH_GET_TRANSACTION_RECEIPT = "eth_getTransactionReceipt";
     public const string ETH_CALL = "eth_call";
     public const string ETH_GET_CODE = "eth_getCode";
+    public const string ETH_GET_STORAGE_AT = "eth_getStorageAt";
 }
 
 
@@ -93,6 +94,7 @@ internal static class BscQueryParam
     public const string Hex = "hex={value}";
     public const string To = "to={value}";
     public const string Data = "data={value}";
+    public const string Position = "position={value}";
 }
 
 internal static class MimeTypes

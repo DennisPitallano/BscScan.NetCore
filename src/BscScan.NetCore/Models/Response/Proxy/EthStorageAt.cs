@@ -3,9 +3,9 @@
 namespace BscScan.NetCore.Models.Response.Proxy
 {
     /// <summary>
-    /// EthCode
+    /// EthStorageAt
     /// </summary>
-    public class EthCode
+    public class EthStorageAt
     {
         /// <summary>
         /// JsonRpc
