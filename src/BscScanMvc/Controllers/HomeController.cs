@@ -100,9 +100,11 @@ namespace BscScanMvc.Controllers
                // var resultt = await _bscScanGethProxyService.EthGetTransactionByBlockNumberAndIndex("0xa11446", "0x1");
                //var result = await _bscScanGethProxyService.EthGetTransactionCount("0x4430b3230294D12c6AB2aAC5C2cd68E80B16b581");
                //var result = await _bscScanGethProxyService.EthSendRawTransaction("0xf904808000831cfde080");
-               var result =
-                   await _bscScanGethProxyService.EthGetTransactionReceipt(
-                       "0x2122b2317d6cf409846f80e829c1e45ecb30306907ba0a00a02730c78890739f");
+               //var result =
+               //    await _bscScanGethProxyService.EthGetTransactionReceipt(
+               //        "0x2122b2317d6cf409846f80e829c1e45ecb30306907ba0a00a02730c78890739f");
+               var result = await _bscScanGethProxyService.EthCall("0xAEEF46DB4855E25702F8237E8f403FddcaF931C0",
+                   "0x70a08231000000000000000000000000e16359506c028e51f16be38986ec5746251e9724");
             }
             catch (HttpRequestException e)
             {
