@@ -4,6 +4,7 @@ using BscScan.NetCore.Constants;
 using BscScan.NetCore.Contracts;
 using BscScan.NetCore.Extensions;
 using BscScan.NetCore.Models;
+using BscScan.NetCore.Models.Request.Proxy;
 using BscScan.NetCore.Models.Response.Proxy;
 
 namespace BscScan.NetCore.Services
@@ -186,6 +187,19 @@ namespace BscScan.NetCore.Services
             response.EnsureSuccessStatusCode();
             await using var responseStream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
             var result = await JsonSerializer.DeserializeAsync<EthGasPrice>(responseStream);
+            return result;
+        }
+
+        /// <inheritdoc />
+        public async Task<EthEstimateGas?> EthEstimateGas(EthEstimateGasRequest request)
+        {
+            var queryParameters = $"{_bscScanModule}{request.ToRequestParameters(ProxyModuleAction.ETH_ESTIMATE_GAS)}";
+            using var response = await BscScanHttpClient.GetAsync($"{queryParameters}")
+                .ConfigureAwait(false);
+
+            response.EnsureSuccessStatusCode();
+            await using var responseStream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
+            var result = await JsonSerializer.DeserializeAsync<EthEstimateGas>(responseStream);
             return result;
         }
     }
