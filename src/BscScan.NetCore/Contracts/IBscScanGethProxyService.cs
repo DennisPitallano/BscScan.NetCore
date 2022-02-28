@@ -67,5 +67,14 @@ namespace BscScan.NetCore.Contracts
         /// <param name="txhash">the string representing the hash of the transaction</param>
         /// <returns>Returns the receipt of a transaction that has been validated.</returns>
         Task<TransactionReceipt?> EthGetTransactionReceipt(string txhash);
+
+        /// <summary>
+        /// eth_call
+        /// </summary>
+        /// <param name="to">the string representing the address to interact with</param>
+        /// <param name="data">the hash of the method signature and encoded parameters</param>
+        /// <param name="tag">the string pre-defined block parameter, either earliest, pending or latest</param>
+        /// <returns>Executes a new message call immediately without creating a transaction on the block chain.</returns>
+        Task<EthCall?> EthCall(string to, string data, Tag tag = Tag.Latest);
     }
 }
