@@ -20,7 +20,7 @@ namespace BscScan.NetCore.Contracts
         /// eth_getBlockByNumber
         /// </summary>
         /// <param name="tag">the block number, in hex eg. 0xC36B3C</param>
-        /// when true, returns full transaction objects and their information, when false only returns a list of transactions.</param>
+        /// when true, returns full transaction objects and their information, when false only returns a list of transactions.
         /// <returns>Returns information about a block by block number.</returns>
         Task<BlockByNumber?> EthGetBlockByNumber(string tag);
 
@@ -84,5 +84,15 @@ namespace BscScan.NetCore.Contracts
         /// <param name="tag">the string pre-defined block parameter, either earliest, pending or latest</param>
         /// <returns>Returns code at a given address.</returns>
         Task<EthCode?> EthGetCode(string address, Tag tag = Tag.Latest);
+
+        /// <summary>
+        /// eth_getStorageAt
+        /// Note: This endpoint is still experimental and may have potential issues
+        /// </summary>
+        /// <param name="address">the string representing the address to get code</param>
+        /// <param name="position">the hex code of the position in storage, eg 0x0</param>
+        /// <param name="tag">the string pre-defined block parameter, either earliest, pending or latest</param>
+        /// <returns>Returns the value from a storage position at a given address.</returns>
+        Task<EthStorageAt?> EthGetStorageAt(string address,string position, Tag tag = Tag.Latest);
     }
 }
