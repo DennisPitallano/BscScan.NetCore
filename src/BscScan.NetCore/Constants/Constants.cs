@@ -72,6 +72,7 @@ internal static class ProxyModuleAction
     public const string ETH_SEND_RAW_TRANSACTION = "eth_sendRawTransaction";
     public const string ETH_GET_TRANSACTION_RECEIPT = "eth_getTransactionReceipt";
     public const string ETH_CALL = "eth_call";
+    public const string ETH_GET_CODE = "eth_getCode";
 }
 
 

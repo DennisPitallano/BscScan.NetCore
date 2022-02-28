@@ -76,5 +76,13 @@ namespace BscScan.NetCore.Contracts
         /// <param name="tag">the string pre-defined block parameter, either earliest, pending or latest</param>
         /// <returns>Executes a new message call immediately without creating a transaction on the block chain.</returns>
         Task<EthCall?> EthCall(string to, string data, Tag tag = Tag.Latest);
+
+        /// <summary>
+        /// eth_getCode
+        /// </summary>
+        /// <param name="address">the string representing the address to get code</param>
+        /// <param name="tag">the string pre-defined block parameter, either earliest, pending or latest</param>
+        /// <returns>Returns code at a given address.</returns>
+        Task<EthCode?> EthGetCode(string address, Tag tag = Tag.Latest);
     }
 }
