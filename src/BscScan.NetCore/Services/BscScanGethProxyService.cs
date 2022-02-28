@@ -114,5 +114,19 @@ namespace BscScan.NetCore.Services
             var result = await JsonSerializer.DeserializeAsync<SendRawTransaction>(responseStream);
             return result;
         }
+
+        /// <inheritdoc />
+        public async Task<TransactionReceipt?> EthGetTransactionReceipt(string txhash)
+        {
+            var queryParameters = $"{_bscScanModule}".AddAction(ProxyModuleAction.ETH_GET_TRANSACTION_RECEIPT)
+                .AddQuery(BscQueryParam.TxHash.AppendValue(txhash));
+            using var response = await BscScanHttpClient.GetAsync($"{queryParameters}")
+                .ConfigureAwait(false);
+
+            response.EnsureSuccessStatusCode();
+            await using var responseStream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
+            var result = await JsonSerializer.DeserializeAsync<TransactionReceipt>(responseStream);
+            return result;
+        }
     }
 }

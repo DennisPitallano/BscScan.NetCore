@@ -70,6 +70,7 @@ internal static class ProxyModuleAction
     public const string ETH_GET_TRANSACTION_BY_BLOCK_NUMBER_AND_INDEX = "eth_getTransactionByBlockNumberAndIndex";
     public const string ETH_GET_TRANSACTION_COUNT = "eth_getTransactionCount";
     public const string ETH_SEND_RAW_TRANSACTION = "eth_sendRawTransaction";
+    public const string ETH_GET_TRANSACTION_RECEIPT = "eth_getTransactionReceipt";
 }
 
 
