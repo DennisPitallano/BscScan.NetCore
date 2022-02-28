@@ -175,5 +175,18 @@ namespace BscScan.NetCore.Services
             var result = await JsonSerializer.DeserializeAsync<EthStorageAt>(responseStream);
             return result;
         }
+
+        /// <inheritdoc />
+        public async Task<EthGasPrice?> EthGasPrice()
+        {
+            var queryParameters = $"{_bscScanModule}".AddAction(ProxyModuleAction.ETH_GAS_PRICE);
+            using var response = await BscScanHttpClient.GetAsync($"{queryParameters}")
+                .ConfigureAwait(false);
+
+            response.EnsureSuccessStatusCode();
+            await using var responseStream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
+            var result = await JsonSerializer.DeserializeAsync<EthGasPrice>(responseStream);
+            return result;
+        }
     }
 }
