@@ -94,5 +94,11 @@ namespace BscScan.NetCore.Contracts
         /// <param name="tag">the string pre-defined block parameter, either earliest, pending or latest</param>
         /// <returns>Returns the value from a storage position at a given address.</returns>
         Task<EthStorageAt?> EthGetStorageAt(string address,string position, Tag tag = Tag.Latest);
+
+        /// <summary>
+        /// eth_gasPrice
+        /// </summary>
+        /// <returns>Returns the current price per gas in wei.</returns>
+        Task<EthGasPrice?> EthGasPrice();
     }
 }

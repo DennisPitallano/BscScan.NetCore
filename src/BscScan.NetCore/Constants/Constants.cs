@@ -74,6 +74,7 @@ internal static class ProxyModuleAction
     public const string ETH_CALL = "eth_call";
     public const string ETH_GET_CODE = "eth_getCode";
     public const string ETH_GET_STORAGE_AT = "eth_getStorageAt";
+    public const string ETH_GAS_PRICE = "eth_gasPrice";
 }
 
 
