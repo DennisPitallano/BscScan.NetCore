@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using BscScan.NetCore.Contracts;
+using BscScan.NetCore.Models.Request.Proxy;
 
 namespace BscScanMvc.Controllers
 {
@@ -108,7 +109,15 @@ namespace BscScanMvc.Controllers
                //var result = await _bscScanGethProxyService.EthGetCode("0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82");
                //var result =
                //    await _bscScanGethProxyService.EthGetStorageAt("0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82", "0x0");
-               var result = await _bscScanGethProxyService.EthGasPrice();
+               //var result = await _bscScanGethProxyService.EthGasPrice();
+               var result = await _bscScanGethProxyService.EthEstimateGas(new EthEstimateGasRequest
+               {
+                   Data = "0x4e71d92d",
+                   To = "0xEeee7341f206302f2216e39D715B96D8C6901A1C",
+                   Value = "0xff22",
+                   GasPrice = "0x51da038cc",
+                   Gas = "0x5f5e0ff"
+               });
             }
             catch (HttpRequestException e)
             {
