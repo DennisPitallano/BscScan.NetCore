@@ -3,6 +3,7 @@ using BscScan.NetCore.Configuration;
 using BscScan.NetCore.Constants;
 using BscScan.NetCore.Contracts;
 using BscScan.NetCore.Extensions;
+using BscScan.NetCore.Models;
 using BscScan.NetCore.Models.Response.Tokens;
 
 namespace BscScan.NetCore.Services
@@ -12,12 +13,14 @@ namespace BscScan.NetCore.Services
     {
         private readonly string _bscScanModuleToken;
         private readonly string _bscScanModuleStat;
+        private readonly string _bscScanModuleAccount;
 
         /// <inheritdoc />
         public BscScanTokensService(HttpClient bscScanHttpClient, BscScanConfiguration bscScanConfiguration) : base(bscScanHttpClient, bscScanConfiguration)
         {
             _bscScanModuleStat = BscScanModule.STATS.AppendApiKey(bscScanConfiguration.BscScanOptions.Token);
             _bscScanModuleToken = BscScanModule.TOKEN.AppendApiKey(bscScanConfiguration.BscScanOptions.Token);
+            _bscScanModuleAccount = BscScanModule.ACCOUNT.AppendApiKey(bscScanConfiguration.BscScanOptions.Token);
         }
 
         /// <inheritdoc />
@@ -45,6 +48,23 @@ namespace BscScan.NetCore.Services
             response.EnsureSuccessStatusCode();
             await using var responseStream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
             var result = await JsonSerializer.DeserializeAsync<TokenCirculatingSupply>(responseStream);
+            return result;
+        }
+
+        /// <inheritdoc />
+        public async Task<TokenAccountBalance?> GetBep20TokenAccountBalanceByContractAddress(string contractAddress, string address)
+        {
+            var queryParameters = $"{_bscScanModuleStat}".AddAction(TokenModuleAction.TOKEN_BALANCE)
+                .AddQuery(BscQueryParam.ContractAddress.AppendValue(contractAddress))
+                .AddQuery(BscQueryParam.Address.AppendValue(address))
+                .AddQuery(BscQueryParam.Tag.AppendValue(Tag.Latest.ToString().ToLower()));
+
+            using var response = await BscScanHttpClient.GetAsync($"{queryParameters}")
+                .ConfigureAwait(false);
+
+            response.EnsureSuccessStatusCode();
+            await using var responseStream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
+            var result = await JsonSerializer.DeserializeAsync<TokenAccountBalance>(responseStream);
             return result;
         }
     }
