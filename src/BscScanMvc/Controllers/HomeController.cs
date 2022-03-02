@@ -124,9 +124,12 @@ namespace BscScanMvc.Controllers
                //    await _bscScanTokensService.GetBep20TokenTotalSupplyByContractAddress(
                //        "0xe9e7cea3dedca5984780bafc599bd69add087d56");
 
-               var result =
-                   await _bscScanTokensService.GetBep20TokenCirculatingSupplyByContractAddress(
-                       "0xe9e7cea3dedca5984780bafc599bd69add087d56");
+               //var result =
+               //    await _bscScanTokensService.GetBep20TokenCirculatingSupplyByContractAddress(
+               //        "0xe9e7cea3dedca5984780bafc599bd69add087d56");
+
+               var result = await _bscScanTokensService
+                   .GetBep20TokenAccountBalanceByContractAddress("0xe9e7cea3dedca5984780bafc599bd69add087d56", "0x89e73303049ee32919903c09e8de5629b84f59eb");
             }
             catch (HttpRequestException e)
             {
