@@ -120,8 +120,12 @@ namespace BscScanMvc.Controllers
                //    Gas = "0x5f5e0ff"
                //});
 
+               //var result =
+               //    await _bscScanTokensService.GetBep20TokenTotalSupplyByContractAddress(
+               //        "0xe9e7cea3dedca5984780bafc599bd69add087d56");
+
                var result =
-                   await _bscScanTokensService.GetBep20TokenTotalSupplyByContractAddress(
+                   await _bscScanTokensService.GetBep20TokenCirculatingSupplyByContractAddress(
                        "0xe9e7cea3dedca5984780bafc599bd69add087d56");
             }
             catch (HttpRequestException e)
