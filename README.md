@@ -6,7 +6,7 @@ A BscScan API  Wrapper for .Net Core.
 
 For your API Key, please follow [BscScan Getting Started Guide](https://docs.bscscan.com/getting-started/creating-an-account)
 
-[![bscscan.netcore on fuget.org](https://www.fuget.org/packages/bscscan.netcore/badge.svg)](https://www.fuget.org/packages/bscscan.netcore)
+[![bscscan.netcore on fuget.org](https://www.fuget.org/packages/bscscan.netcore/badge.svg)](https://www.fuget.org/packages/bscscan.netcore) [![Nuget](https://img.shields.io/nuget/v/BscScan.NetCore?logo=nuget)](https://www.nuget.org/packages/BscScan.NetCore) ![Nuget](https://img.shields.io/nuget/dt/BscScan.NetCore)
 
 # Installation
 
@@ -30,6 +30,5 @@ For your API Key, please follow [BscScan Getting Started Guide](https://docs.bsc
    using BscScan.NetCore;
    ```
 
-## See the detailed guide [here](https://dennispitallano.github.io/docs/bscsan-netcore/get-start).
-
+## `(Documentation In-Progress)` See the detailed guide [here](https://dennispitallano.github.io/docs/bscsan-netcore/get-start).
 
