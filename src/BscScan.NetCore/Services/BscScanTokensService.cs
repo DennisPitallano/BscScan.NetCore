@@ -33,5 +33,19 @@ namespace BscScan.NetCore.Services
             var result = await JsonSerializer.DeserializeAsync<TokenTotalSupply>(responseStream);
             return result;
         }
+
+        /// <inheritdoc />
+        public async Task<TokenCirculatingSupply?> GetBep20TokenCirculatingSupplyByContractAddress(string contractAddress)
+        {
+            var queryParameters = $"{_bscScanModuleStat}".AddAction(TokenModuleAction.TOKEN_C_SUPPLY)
+                .AddQuery(BscQueryParam.ContractAddress.AppendValue(contractAddress));
+            using var response = await BscScanHttpClient.GetAsync($"{queryParameters}")
+                .ConfigureAwait(false);
+
+            response.EnsureSuccessStatusCode();
+            await using var responseStream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
+            var result = await JsonSerializer.DeserializeAsync<TokenCirculatingSupply>(responseStream);
+            return result;
+        }
     }
 }
