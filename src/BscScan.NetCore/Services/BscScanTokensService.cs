@@ -23,7 +23,7 @@ namespace BscScan.NetCore.Services
         /// <inheritdoc />
         public async Task<TokenTotalSupply?> GetBep20TokenTotalSupplyByContractAddress(string contractAddress)
         {
-            var queryParameters = $"{_bscScanModuleStat}".AddAction(TokenModuleAction.TOKEN_HOLDER_LIST)
+            var queryParameters = $"{_bscScanModuleStat}".AddAction(TokenModuleAction.TOKEN_SUPPLY)
                 .AddQuery(BscQueryParam.ContractAddress.AppendValue(contractAddress));
             using var response = await BscScanHttpClient.GetAsync($"{queryParameters}")
                 .ConfigureAwait(false);

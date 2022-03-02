@@ -81,7 +81,7 @@ internal static class ProxyModuleAction
 
 internal static class TokenModuleAction
 {
-    public const string TOKEN_HOLDER_LIST = "tokenholderlist";
+    public const string TOKEN_SUPPLY = "tokensupply";
 }
 
 /// <summary>
