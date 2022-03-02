@@ -11,6 +11,7 @@ internal static class BscScanModule
     public const string BLOCKS = "?module=block&apikey={apiKey}&";
     public const string STATS = "?module=stats&apikey={apiKey}&";
     public const string PROXY = "?module=proxy&apikey={apiKey}&";
+    public const string TOKEN = "?module=token&apikey={apiKey}&";
 }
 
 /// <summary>
@@ -78,11 +79,15 @@ internal static class ProxyModuleAction
     public const string ETH_ESTIMATE_GAS = "eth_estimateGas";
 }
 
+internal static class TokenModuleAction
+{
+    public const string TOKEN_HOLDER_LIST = "tokenholderlist";
+}
 
 /// <summary>
-/// BscScan shared Query Params
-/// </summary>
-internal static class BscQueryParam
+    /// BscScan shared Query Params
+    /// </summary>
+    internal static class BscQueryParam
 {
     public const string TxHash = "txhash={value}";
     public const string Address = "address={value}";
@@ -97,6 +102,7 @@ internal static class BscQueryParam
     public const string To = "to={value}";
     public const string Data = "data={value}";
     public const string Position = "position={value}";
+    public const string ContractAddress = "contractaddress={value}";
 }
 
 internal static class MimeTypes
