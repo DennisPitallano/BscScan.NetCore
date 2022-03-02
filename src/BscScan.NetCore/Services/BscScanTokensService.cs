@@ -54,7 +54,7 @@ namespace BscScan.NetCore.Services
         /// <inheritdoc />
         public async Task<TokenAccountBalance?> GetBep20TokenAccountBalanceByContractAddress(string contractAddress, string address)
         {
-            var queryParameters = $"{_bscScanModuleStat}".AddAction(TokenModuleAction.TOKEN_BALANCE)
+            var queryParameters = $"{_bscScanModuleAccount}".AddAction(TokenModuleAction.TOKEN_BALANCE)
                 .AddQuery(BscQueryParam.ContractAddress.AppendValue(contractAddress))
                 .AddQuery(BscQueryParam.Address.AppendValue(address))
                 .AddQuery(BscQueryParam.Tag.AppendValue(Tag.Latest.ToString().ToLower()));
