@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using BscScan.NetCore.Contracts;
-using BscScan.NetCore.Models.Request.Proxy;
 
 namespace BscScanMvc.Controllers
 {
@@ -19,8 +18,9 @@ namespace BscScanMvc.Controllers
         private readonly IBscScanBlocksService _bscScanBlocksService;
 
         private readonly IBscScanGethProxyService _bscScanGethProxyService;
+        private readonly IBscScanTokensService _bscScanTokensService;
 
-        public HomeController(ILogger<HomeController> logger, IBscScanAccountsService bscScanService, IBscScanContractsService bscScanContractsService, IBscScanTransactionService bscScanTransactionService, IBscScanBlocksService bscScanBlocksService, IBscScanGethProxyService bscScanGethProxyService)
+        public HomeController(ILogger<HomeController> logger, IBscScanAccountsService bscScanService, IBscScanContractsService bscScanContractsService, IBscScanTransactionService bscScanTransactionService, IBscScanBlocksService bscScanBlocksService, IBscScanGethProxyService bscScanGethProxyService, IBscScanTokensService bscScanTokensService)
         {
             _logger = logger;
             _bscScanService = bscScanService;
@@ -28,6 +28,7 @@ namespace BscScanMvc.Controllers
             _bscScanTransactionService = bscScanTransactionService;
             _bscScanBlocksService = bscScanBlocksService;
             _bscScanGethProxyService = bscScanGethProxyService;
+            _bscScanTokensService = bscScanTokensService;
         }
 
         public async Task<IActionResult> Index()
@@ -110,14 +111,18 @@ namespace BscScanMvc.Controllers
                //var result =
                //    await _bscScanGethProxyService.EthGetStorageAt("0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82", "0x0");
                //var result = await _bscScanGethProxyService.EthGasPrice();
-               var result = await _bscScanGethProxyService.EthEstimateGas(new EthEstimateGasRequest
-               {
-                   Data = "0x4e71d92d",
-                   To = "0xEeee7341f206302f2216e39D715B96D8C6901A1C",
-                   Value = "0xff22",
-                   GasPrice = "0x51da038cc",
-                   Gas = "0x5f5e0ff"
-               });
+               //var result = await _bscScanGethProxyService.EthEstimateGas(new EthEstimateGasRequest
+               //{
+               //    Data = "0x4e71d92d",
+               //    To = "0xEeee7341f206302f2216e39D715B96D8C6901A1C",
+               //    Value = "0xff22",
+               //    GasPrice = "0x51da038cc",
+               //    Gas = "0x5f5e0ff"
+               //});
+
+               var result =
+                   await _bscScanTokensService.GetBep20TokenTotalSupplyByContractAddress(
+                       "0xe9e7cea3dedca5984780bafc599bd69add087d56");
             }
             catch (HttpRequestException e)
             {
