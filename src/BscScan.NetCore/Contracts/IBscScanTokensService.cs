@@ -36,5 +36,14 @@ namespace BscScan.NetCore.Contracts
         /// <param name="request">TokenHolderListRequest</param>
         /// <returns></returns>
         Task<TokenHolderList?> GetTokenHolderListByContractAddress(TokenHolderListRequest request);
+
+
+        /// <summary>
+        /// Get Historical BEP-20 Token TotalSupply by ContractAddress and BlockNo  🅰🅿🅸  🅿🆁🅾
+        /// </summary>
+        /// <param name="contractAddress">the contract address of the BEP-20 token</param>
+        /// <param name="blockNo">the integer block number to check total supply for eg. 4000000</param>
+        /// <returns>Returns the historical amount of a BEP-20 token in circulation at a certain block height.</returns>
+        Task<HistoricalBep20TokenTotalSupply?> GetHistoricalBep20TokenTotalSupplyByContractAddressAndBlockNo(string contractAddress, int blockNo);
     }
 }
