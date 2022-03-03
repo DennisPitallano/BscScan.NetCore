@@ -141,5 +141,18 @@ namespace BscScan.NetCore.Services
             var result = await JsonSerializer.DeserializeAsync<AddressBep20TokenHolding>(responseStream);
             return result;
         }
+
+        /// <inheritdoc />
+        public async Task<AddressBep721TokenHolding?> GetAddressBep721TokenHolding(AddressBep721TokenHoldingRequest request)
+        {
+            var queryParameters = $"{_bscScanModuleAccount}{request.ToRequestParameters(TokenModuleAction.ADDRESS_TOKEN_NFT_BALANCE)}";
+            using var response = await BscScanHttpClient.GetAsync($"{queryParameters}")
+                .ConfigureAwait(false);
+
+            response.EnsureSuccessStatusCode();
+            await using var responseStream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
+            var result = await JsonSerializer.DeserializeAsync<AddressBep721TokenHolding>(responseStream);
+            return result;
+        }
     }
 }

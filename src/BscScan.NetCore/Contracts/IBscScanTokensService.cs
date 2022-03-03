@@ -67,5 +67,13 @@ namespace BscScan.NetCore.Contracts
         /// <param name="request">AddressBep20TokenHoldingRequest</param>
         /// <returns>Returns the BEP-20 tokens and amount held by an address.</returns>
         Task<AddressBep20TokenHolding?> GetAddressBep20TokenHolding(AddressBep20TokenHoldingRequest request);
+
+        /// <summary>
+        /// Get Address BEP721 Token Holding 🅰🅿🅸  🅿🆁🅾
+        /// </summary>
+        /// <param name="request">AddressBep721TokenHoldingRequest</param>
+        /// <returns>Returns the BEP-721 tokens and amount held by an address. </returns>
+        Task<AddressBep721TokenHolding?> GetAddressBep721TokenHolding(AddressBep721TokenHoldingRequest request);
+
     }
 }

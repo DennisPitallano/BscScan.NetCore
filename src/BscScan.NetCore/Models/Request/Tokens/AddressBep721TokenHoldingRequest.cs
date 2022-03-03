@@ -3,9 +3,9 @@
 namespace BscScan.NetCore.Models.Request.Tokens
 {
     /// <summary>
-    /// AddressBep20TokenHoldingRequest
+    /// AddressBep721TokenHoldingRequest
     /// </summary>
-    public class AddressBep20TokenHoldingRequest
+    public class AddressBep721TokenHoldingRequest
     {
         /// <summary>
         /// the string representing the address to check for balance
