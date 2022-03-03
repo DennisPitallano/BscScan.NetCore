@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using BscScan.NetCore.Contracts;
+using BscScan.NetCore.Models.Request.Tokens;
 
 namespace BscScanMvc.Controllers
 {
@@ -128,8 +129,13 @@ namespace BscScanMvc.Controllers
                //    await _bscScanTokensService.GetBep20TokenCirculatingSupplyByContractAddress(
                //        "0xe9e7cea3dedca5984780bafc599bd69add087d56");
 
-               var result = await _bscScanTokensService
-                   .GetBep20TokenAccountBalanceByContractAddress("0xe9e7cea3dedca5984780bafc599bd69add087d56", "0x89e73303049ee32919903c09e8de5629b84f59eb");
+               //var result = await _bscScanTokensService
+               //    .GetBep20TokenAccountBalanceByContractAddress("0xe9e7cea3dedca5984780bafc599bd69add087d56", "0x89e73303049ee32919903c09e8de5629b84f59eb");
+
+               var result = await _bscScanTokensService.GetTokenHolderListByContractAddress(new TokenHolderListRequest
+               {
+                   ContractAddress = "0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82"
+               });
             }
             catch (HttpRequestException e)
             {
