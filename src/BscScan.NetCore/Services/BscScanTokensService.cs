@@ -81,5 +81,22 @@ namespace BscScan.NetCore.Services
             var result = await JsonSerializer.DeserializeAsync<TokenHolderList>(responseStream);
             return result;
         }
+
+        /// <inheritdoc />
+        public async Task<HistoricalBep20TokenTotalSupply?> GetHistoricalBep20TokenTotalSupplyByContractAddressAndBlockNo(string contractAddress, int blockNo)
+        {
+            var queryParameters = $"{_bscScanModuleStat}".AddAction(TokenModuleAction.TOKEN_SUPPLY_HISTORY)
+                .AddQuery(BscQueryParam.ContractAddress.AppendValue(contractAddress))
+                .AddQuery(BscQueryParam.BlockNo.AppendValue(blockNo))
+                .AddQuery(BscQueryParam.Tag.AppendValue(Tag.Latest.ToString().ToLower()));
+
+            using var response = await BscScanHttpClient.GetAsync($"{queryParameters}")
+                .ConfigureAwait(false);
+
+            response.EnsureSuccessStatusCode();
+            await using var responseStream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
+            var result = await JsonSerializer.DeserializeAsync<HistoricalBep20TokenTotalSupply>(responseStream);
+            return result;
+        }
     }
 }
