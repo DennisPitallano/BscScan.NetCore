@@ -89,6 +89,7 @@ internal static class TokenModuleAction
     public const string TOKEN_INFO = "tokeninfo";
     public const string ADDRESS_TOKEN_BALANCE = "addresstokenbalance";
     public const string ADDRESS_TOKEN_NFT_BALANCE = "addresstokennftbalance";
+    public const string ADDRESS_TOKEN_NFT_INVENTORY = "addresstokennftinventory";
 }
 
 /// <summary>
