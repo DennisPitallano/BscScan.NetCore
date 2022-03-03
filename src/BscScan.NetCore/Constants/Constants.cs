@@ -36,7 +36,6 @@ internal static class ContractsModuleAction
 {
     public const string GET_ABI = "getabi";
     public const string GET_SOURCE_CODE = "getsourcecode";
-    public const string GET_BLOCK_NO_BY_TIME = "getblocknobytime";
 }
 
 /// <summary>
@@ -89,6 +88,7 @@ internal static class TokenModuleAction
     public const string TOKEN_BALANCE_HISTORY = "tokenbalancehistory";
     public const string TOKEN_INFO = "tokeninfo";
     public const string ADDRESS_TOKEN_BALANCE = "addresstokenbalance";
+    public const string ADDRESS_TOKEN_NFT_BALANCE = "addresstokennftbalance";
 }
 
 /// <summary>
