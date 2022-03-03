@@ -53,5 +53,12 @@ namespace BscScan.NetCore.Contracts
         /// <param name="request">HistoricalBep20TokenAccountBalanceRequest</param>
         /// <returns>Returns the balance of a BEP-20 token of an address at a certain block height.</returns>
         Task<HistoricalBep20TokenAccountBalance?> GetHistoricalBep20TokenAccountBalanceByContractAddressAndBlockNo(HistoricalBep20TokenAccountBalanceRequest request);
+
+        /// <summary>
+        /// Get Token Info by ContractAddress 🅰🅿🅸  🅿🆁🅾
+        /// </summary>
+        /// <param name="contractAddress">the contract address of the BEP-20/BEP721 token to retrieve token info</param>
+        /// <returns>Returns project information and social media links of a BEP-20/BEP-721 token.</returns>
+        Task<TokenInfo?> GetTokenInfoByContractAddress(string contractAddress);
     }
 }
