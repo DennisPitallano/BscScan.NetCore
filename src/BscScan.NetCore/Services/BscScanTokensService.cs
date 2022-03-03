@@ -4,6 +4,7 @@ using BscScan.NetCore.Constants;
 using BscScan.NetCore.Contracts;
 using BscScan.NetCore.Extensions;
 using BscScan.NetCore.Models;
+using BscScan.NetCore.Models.Request.Tokens;
 using BscScan.NetCore.Models.Response.Tokens;
 
 namespace BscScan.NetCore.Services
@@ -65,6 +66,19 @@ namespace BscScan.NetCore.Services
             response.EnsureSuccessStatusCode();
             await using var responseStream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
             var result = await JsonSerializer.DeserializeAsync<TokenAccountBalance>(responseStream);
+            return result;
+        }
+
+        /// <inheritdoc />
+        public async Task<TokenHolderList?> GetTokenHolderListByContractAddress(TokenHolderListRequest request)
+        {
+            var queryParameters = $"{_bscScanModuleToken}{request.ToRequestParameters(TokenModuleAction.TOKEN_HOLDER_LIST)}";
+            using var response = await BscScanHttpClient.GetAsync($"{queryParameters}")
+                .ConfigureAwait(false);
+
+            response.EnsureSuccessStatusCode();
+            await using var responseStream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
+            var result = await JsonSerializer.DeserializeAsync<TokenHolderList>(responseStream);
             return result;
         }
     }
