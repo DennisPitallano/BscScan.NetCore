@@ -17,7 +17,8 @@ namespace BscScan.NetCore.Services
         private readonly string _bscScanModuleAccount;
 
         /// <inheritdoc />
-        public BscScanTokensService(HttpClient bscScanHttpClient, BscScanConfiguration bscScanConfiguration) : base(bscScanHttpClient, bscScanConfiguration)
+        public BscScanTokensService(HttpClient bscScanHttpClient, BscScanConfiguration bscScanConfiguration)
+            : base(bscScanHttpClient, bscScanConfiguration)
         {
             _bscScanModuleStat = BscScanModule.STATS.AppendApiKey(bscScanConfiguration.BscScanOptions.Token);
             _bscScanModuleToken = BscScanModule.TOKEN.AppendApiKey(bscScanConfiguration.BscScanOptions.Token);
@@ -83,7 +84,8 @@ namespace BscScan.NetCore.Services
         }
 
         /// <inheritdoc />
-        public async Task<HistoricalBep20TokenTotalSupply?> GetHistoricalBep20TokenTotalSupplyByContractAddressAndBlockNo(string contractAddress, int blockNo)
+        public async Task<HistoricalBep20TokenTotalSupply?> GetHistoricalBep20TokenTotalSupplyByContractAddressAndBlockNo(
+            string contractAddress, int blockNo)
         {
             var queryParameters = $"{_bscScanModuleStat}".AddAction(TokenModuleAction.TOKEN_SUPPLY_HISTORY)
                 .AddQuery(BscQueryParam.ContractAddress.AppendValue(contractAddress))
@@ -96,6 +98,20 @@ namespace BscScan.NetCore.Services
             response.EnsureSuccessStatusCode();
             await using var responseStream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
             var result = await JsonSerializer.DeserializeAsync<HistoricalBep20TokenTotalSupply>(responseStream);
+            return result;
+        }
+
+        /// <inheritdoc />
+        public async Task<HistoricalBep20TokenAccountBalance?> GetHistoricalBep20TokenAccountBalanceByContractAddressAndBlockNo(
+            HistoricalBep20TokenAccountBalanceRequest request)
+        {
+            var queryParameters = $"{_bscScanModuleAccount}{request.ToRequestParameters(TokenModuleAction.TOKEN_BALANCE_HISTORY)}";
+            using var response = await BscScanHttpClient.GetAsync($"{queryParameters}")
+                .ConfigureAwait(false);
+
+            response.EnsureSuccessStatusCode();
+            await using var responseStream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
+            var result = await JsonSerializer.DeserializeAsync<HistoricalBep20TokenAccountBalance>(responseStream);
             return result;
         }
     }
