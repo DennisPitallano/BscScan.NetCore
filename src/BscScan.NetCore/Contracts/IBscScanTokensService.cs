@@ -1,4 +1,5 @@
-﻿using BscScan.NetCore.Models.Response.Tokens;
+﻿using BscScan.NetCore.Models.Request.Tokens;
+using BscScan.NetCore.Models.Response.Tokens;
 
 namespace BscScan.NetCore.Contracts
 {
@@ -28,5 +29,12 @@ namespace BscScan.NetCore.Contracts
         /// <param name="address">the string representing the address to check for token balance</param>
         /// <returns>Returns the current balance of a BEP-20 token of an address.</returns>
         Task<TokenAccountBalance?> GetBep20TokenAccountBalanceByContractAddress(string contractAddress, string address);
+
+        /// <summary>
+        /// Get Token Holder List by Contract Address  🅰🅿🅸  🅿🆁🅾
+        /// </summary>
+        /// <param name="request">TokenHolderListRequest</param>
+        /// <returns></returns>
+        Task<TokenHolderList?> GetTokenHolderListByContractAddress(TokenHolderListRequest request);
     }
 }
