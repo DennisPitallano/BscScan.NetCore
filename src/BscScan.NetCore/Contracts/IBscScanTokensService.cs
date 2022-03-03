@@ -45,5 +45,13 @@ namespace BscScan.NetCore.Contracts
         /// <param name="blockNo">the integer block number to check total supply for eg. 4000000</param>
         /// <returns>Returns the historical amount of a BEP-20 token in circulation at a certain block height.</returns>
         Task<HistoricalBep20TokenTotalSupply?> GetHistoricalBep20TokenTotalSupplyByContractAddressAndBlockNo(string contractAddress, int blockNo);
+
+
+        /// <summary>
+        /// Get Historical BEP-20 Token Account Balance by ContractAddress and BlockNo 🅰🅿🅸  🅿🆁🅾
+        /// </summary>
+        /// <param name="request">HistoricalBep20TokenAccountBalanceRequest</param>
+        /// <returns>Returns the balance of a BEP-20 token of an address at a certain block height.</returns>
+        Task<HistoricalBep20TokenAccountBalance?> GetHistoricalBep20TokenAccountBalanceByContractAddressAndBlockNo(HistoricalBep20TokenAccountBalanceRequest request);
     }
 }
