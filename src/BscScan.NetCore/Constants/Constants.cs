@@ -87,6 +87,7 @@ internal static class TokenModuleAction
     public const string TOKEN_HOLDER_LIST = "tokenholderlist";
     public const string TOKEN_SUPPLY_HISTORY = "tokensupplyhistory";
     public const string TOKEN_BALANCE_HISTORY = "tokenbalancehistory";
+    public const string TOKEN_INFO = "tokeninfo";
 }
 
 /// <summary>
