@@ -75,5 +75,12 @@ namespace BscScan.NetCore.Contracts
         /// <returns>Returns the BEP-721 tokens and amount held by an address. </returns>
         Task<AddressBep721TokenHolding?> GetAddressBep721TokenHolding(AddressBep721TokenHoldingRequest request);
 
+
+        /// <summary>
+        /// Get Address BEP721 Token Inventory By Contract Address 🅰🅿🅸  🅿🆁🅾
+        /// </summary>
+        /// <param name="request">AddressBep721TokenInventoryRequest</param>
+        /// <returns>Returns the BEP-721 token inventory of an address, filtered by contract address.</returns>
+        Task<AddressBep721TokenInventory?> GetAddressBep721TokenInventoryByContractAddress(AddressBep721TokenInventoryRequest request);
     }
 }
