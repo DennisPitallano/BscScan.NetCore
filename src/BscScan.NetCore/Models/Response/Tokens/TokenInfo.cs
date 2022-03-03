@@ -10,6 +10,7 @@ namespace BscScan.NetCore.Models.Response.Tokens
         /// <summary>
         /// List of TokenInfoData
         /// </summary>
+        [JsonPropertyName("result")]
         public IEnumerable<TokenInfoData>? Result { get; set; }
     }
 
