@@ -5,31 +5,30 @@ using BscScan.NetCore.Contracts;
 using BscScan.NetCore.Extensions;
 using BscScan.NetCore.Models.Response.Transactions;
 
-namespace BscScan.NetCore.Services
+namespace BscScan.NetCore.Services;
+
+/// <inheritdoc cref="IBscScanTransactionService" />
+public class BscScanTransactionService : BaseHttpClient, IBscScanTransactionService
 {
-    /// <inheritdoc cref="IBscScanTransactionService" />
-    public class BscScanTransactionService : BaseHttpClient, IBscScanTransactionService
+    private readonly string _bscScanModule;
+
+    /// <inheritdoc />
+    public BscScanTransactionService(HttpClient bscScanHttpClient, BscScanConfiguration bscScanConfiguration) : base(bscScanHttpClient, bscScanConfiguration)
     {
-        private readonly string _bscScanModule;
+        _bscScanModule = BscScanModule.TRANSACTIONS.AppendApiKey(bscScanConfiguration.BscScanOptions.Token);
+    }
 
-        /// <inheritdoc />
-        public BscScanTransactionService(HttpClient bscScanHttpClient, BscScanConfiguration bscScanConfiguration) : base(bscScanHttpClient, bscScanConfiguration)
-        {
-            _bscScanModule = BscScanModule.TRANSACTIONS.AppendApiKey(bscScanConfiguration.BscScanOptions.Token);
-        }
+    /// <inheritdoc />
+    public async Task<TransactionReceiptStatus?> CheckTransactionReceiptStatus(string txHash)
+    {
+        var queryParameters = $"{_bscScanModule}".AddAction(TransactionsModuleAction.GET_TX_RECEIPT_STATUS)
+            .AddQuery(BscQueryParam.TxHash.AppendValue(txHash));
+        using var response = await BscScanHttpClient.GetAsync($"{queryParameters}")
+            .ConfigureAwait(false);
 
-        /// <inheritdoc />
-        public async Task<TransactionReceiptStatus?> CheckTransactionReceiptStatus(string txHash)
-        {
-            var queryParameters = $"{_bscScanModule}".AddAction(TransactionsModuleAction.GET_TX_RECEIPT_STATUS)
-                .AddQuery(BscQueryParam.TxHash.AppendValue(txHash));
-            using var response = await BscScanHttpClient.GetAsync($"{queryParameters}")
-                .ConfigureAwait(false);
-
-            response.EnsureSuccessStatusCode();
-            await using var responseStream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
-            var result = await JsonSerializer.DeserializeAsync<TransactionReceiptStatus>(responseStream);
-            return result;
-        }
+        response.EnsureSuccessStatusCode();
+        await using var responseStream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
+        var result = await JsonSerializer.DeserializeAsync<TransactionReceiptStatus>(responseStream);
+        return result;
     }
 }

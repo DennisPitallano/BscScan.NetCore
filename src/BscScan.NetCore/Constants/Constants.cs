@@ -12,6 +12,7 @@ internal static class BscScanModule
     public const string STATS = "?module=stats&apikey={apiKey}&";
     public const string PROXY = "?module=proxy&apikey={apiKey}&";
     public const string TOKEN = "?module=token&apikey={apiKey}&";
+    public const string GAS_TRACKER = "?module=gastracker&apikey={apiKey}&";
 }
 
 /// <summary>
@@ -60,7 +61,9 @@ internal static class BlocksModuleAction
     public const string GET_DAILY_AVG_BLOCK_TIME = "dailyavgblocktime";
 }
 
-
+/// <summary>
+/// BscScan Proxy Module Actions
+/// </summary>
 internal static class ProxyModuleAction
 {
     public const string ETH_BLOCK_NUMBER = "eth_blockNumber";
@@ -78,6 +81,9 @@ internal static class ProxyModuleAction
     public const string ETH_ESTIMATE_GAS = "eth_estimateGas";
 }
 
+/// <summary>
+/// BscScan Token Module Actions
+/// </summary>
 internal static class TokenModuleAction
 {
     public const string TOKEN_SUPPLY = "tokensupply";
@@ -90,6 +96,14 @@ internal static class TokenModuleAction
     public const string ADDRESS_TOKEN_BALANCE = "addresstokenbalance";
     public const string ADDRESS_TOKEN_NFT_BALANCE = "addresstokennftbalance";
     public const string ADDRESS_TOKEN_NFT_INVENTORY = "addresstokennftinventory";
+}
+
+/// <summary>
+/// BscScan Gas Tracker Module Actions
+/// </summary>
+internal static class GasTrackerModuleAction
+{
+    public const string GAS_ORACLE = "gasoracle";
 }
 
 /// <summary>

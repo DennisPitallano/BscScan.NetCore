@@ -1,10 +1,9 @@
-﻿namespace BscScan.NetCore.Models.Request.Blocks
+﻿namespace BscScan.NetCore.Models.Request.Blocks;
+
+/// <summary>
+/// DailyAverageBlockSize Request Model
+/// </summary>
+public class DailyAverageBlockSizeRequest :DailyBlockRequest
 {
-    /// <summary>
-    /// DailyAverageBlockSize Request Model
-    /// </summary>
-    public class DailyAverageBlockSizeRequest :DailyBlockRequest
-    {
       
-    }
 }
