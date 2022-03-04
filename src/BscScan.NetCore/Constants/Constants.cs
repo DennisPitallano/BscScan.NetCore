@@ -105,6 +105,7 @@ internal static class GasTrackerModuleAction
 {
     public const string GAS_ORACLE = "gasoracle";
     public const string DAILY_AVG_GAS_LIMIT = "dailyavggaslimit";
+    public const string DAILY_GAS_USED = "dailygasused";
 }
 
 /// <summary>

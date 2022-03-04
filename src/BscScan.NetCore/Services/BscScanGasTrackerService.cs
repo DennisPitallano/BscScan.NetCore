@@ -47,4 +47,17 @@ public class BscScanGasTrackerService : BaseHttpClient, IBscScanGasTrackerServic
         var result = await JsonSerializer.DeserializeAsync<DailyAverageGasLimit>(responseStream);
         return result;
     }
+
+    /// <inheritdoc />
+    public async Task<BnbSmartChainDailyTotalGasUsed?> GetBnbSmartChainDailyTotalGasUsed(BnbSmartChainDailyTotalGasUsedRequest request)
+    {
+        var queryParameters = $"{_bscScanStatsModule}{request.ToRequestParameters(GasTrackerModuleAction.DAILY_GAS_USED)}";
+        using var response = await BscScanHttpClient.GetAsync($"{queryParameters}")
+            .ConfigureAwait(false);
+
+        response.EnsureSuccessStatusCode();
+        await using var responseStream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
+        var result = await JsonSerializer.DeserializeAsync<BnbSmartChainDailyTotalGasUsed>(responseStream);
+        return result;
+    }
 }
