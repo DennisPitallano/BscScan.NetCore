@@ -1,4 +1,5 @@
-﻿using BscScan.NetCore.Models.Response.Stats;
+﻿using BscScan.NetCore.Models.Request.Stats;
+using BscScan.NetCore.Models.Response.Stats;
 
 namespace BscScan.NetCore.Contracts;
 
@@ -24,4 +25,11 @@ public interface IBscScanStatsService
     /// </summary>
     /// <returns>Returns the latest price of 1 BNB.</returns>
     Task<BnbLastPrice?> GetBnbLastPrice();
+
+    /// <summary>
+    /// Get BNB Historical Price 🅰🅿🅸  🅿🆁🅾
+    /// </summary>
+    /// <param name="request">BnbHistoricalPriceRequest</param>
+    /// <returns>Returns the historical price of 1 BNB.</returns>
+    Task<BnbHistoricalPrice?> GetBnbHistoricalPrice(BnbHistoricalPriceRequest request);
 }

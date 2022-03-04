@@ -3,6 +3,7 @@ using BscScan.NetCore.Configuration;
 using BscScan.NetCore.Constants;
 using BscScan.NetCore.Contracts;
 using BscScan.NetCore.Extensions;
+using BscScan.NetCore.Models.Request.Stats;
 using BscScan.NetCore.Models.Response.Stats;
 
 namespace BscScan.NetCore.Services;
@@ -55,6 +56,19 @@ public class BscScanStatsService : BaseHttpClient, IBscScanStatsService
         response.EnsureSuccessStatusCode();
         await using var responseStream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
         var result = await JsonSerializer.DeserializeAsync<BnbLastPrice>(responseStream);
+        return result;
+    }
+
+    /// <inheritdoc />
+    public async Task<BnbHistoricalPrice?> GetBnbHistoricalPrice(BnbHistoricalPriceRequest request)
+    {
+        var queryParameters = $"{_bscScanStatsModule}{request.ToRequestParameters(GasStatsModuleAction.BNB_DAILY_PRICE)}";
+        using var response = await BscScanHttpClient.GetAsync($"{queryParameters}")
+            .ConfigureAwait(false);
+
+        response.EnsureSuccessStatusCode();
+        await using var responseStream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
+        var result = await JsonSerializer.DeserializeAsync<BnbHistoricalPrice>(responseStream);
         return result;
     }
 }
