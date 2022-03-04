@@ -39,4 +39,11 @@ public interface IBscScanStatsService
     /// <param name="request">DailyNetworkTransactionFeeRequest</param>
     /// <returns>Returns the historical amount of transaction fees paid to validators per day.</returns>
     Task<DailyNetworkTransactionFee?> GetDailyNetworkTransactionFee(DailyNetworkTransactionFeeRequest request);
+
+    /// <summary>
+    /// Get Daily New Address Count 🅰🅿🅸  🅿🆁🅾
+    /// </summary>
+    /// <param name="request">DailyNewAddressCountRequest</param>
+    /// <returns>Returns the historical number of new BNB Smart Chain addresses created per day.</returns>
+    Task<DailyNewAddressCount?> GetDailyNewAddressCount(DailyNewAddressCountRequest request);
 }
