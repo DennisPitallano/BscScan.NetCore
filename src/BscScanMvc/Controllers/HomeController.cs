@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using BscScan.NetCore.Contracts;
-using BscScan.NetCore.Models.Request.GasTracker;
 
 namespace BscScanMvc.Controllers
 {
@@ -21,7 +20,8 @@ namespace BscScanMvc.Controllers
         private readonly IBscScanGethProxyService _bscScanGethProxyService;
         private readonly IBscScanTokensService _bscScanTokensService;
         private readonly IBscScanGasTrackerService _bscScanGasTrackerService;
-        public HomeController(ILogger<HomeController> logger, IBscScanAccountsService bscScanService, IBscScanContractsService bscScanContractsService, IBscScanTransactionService bscScanTransactionService, IBscScanBlocksService bscScanBlocksService, IBscScanGethProxyService bscScanGethProxyService, IBscScanTokensService bscScanTokensService, IBscScanGasTrackerService bscScanGasTrackerService)
+        private readonly IBscScanStatsService _bscScanStatsService;
+        public HomeController(ILogger<HomeController> logger, IBscScanAccountsService bscScanService, IBscScanContractsService bscScanContractsService, IBscScanTransactionService bscScanTransactionService, IBscScanBlocksService bscScanBlocksService, IBscScanGethProxyService bscScanGethProxyService, IBscScanTokensService bscScanTokensService, IBscScanGasTrackerService bscScanGasTrackerService, IBscScanStatsService bscScanStatsService)
         {
             _logger = logger;
             _bscScanService = bscScanService;
@@ -31,6 +31,7 @@ namespace BscScanMvc.Controllers
             _bscScanGethProxyService = bscScanGethProxyService;
             _bscScanTokensService = bscScanTokensService;
             _bscScanGasTrackerService = bscScanGasTrackerService;
+            _bscScanStatsService = bscScanStatsService;
         }
 
         public async Task<IActionResult> Index()
@@ -140,11 +141,13 @@ namespace BscScanMvc.Controllers
 
             // var result = await _bscScanGasTrackerService.GetGasOracle();
 
-            var result = await _bscScanGasTrackerService.GetDailyAverageGasLimit(new DailyAverageGasLimitRequest
-            {
-                StartDate = new DateOnly(2021,8,1),
-                EndDate = new DateOnly(2021,8,28)
-            });
+            //var result = await _bscScanGasTrackerService.GetDailyAverageGasLimit(new DailyAverageGasLimitRequest
+            //{
+            //    StartDate = new DateOnly(2021,8,1),
+            //    EndDate = new DateOnly(2021,8,28)
+            //});
+
+            var result = await _bscScanStatsService.GetTotalSupply();
             return View();
         }
 
