@@ -119,6 +119,7 @@ internal static class GasStatsModuleAction
     public const string BNB_PRICE = "bnbprice";
     public const string BNB_DAILY_PRICE = "bnbdailyprice";
     public const string DAILY_TXN_FEE = "dailytxnfee";
+    public const string DAILY_NEW_ADDRESS = "dailynewaddress";
 }
 
 /// <summary>

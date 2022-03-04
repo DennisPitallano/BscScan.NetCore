@@ -84,4 +84,17 @@ public class BscScanStatsService : BaseHttpClient, IBscScanStatsService
         var result = await JsonSerializer.DeserializeAsync<DailyNetworkTransactionFee>(responseStream);
         return result;
     }
+
+    /// <inheritdoc />
+    public async Task<DailyNewAddressCount?> GetDailyNewAddressCount(DailyNewAddressCountRequest request)
+    {
+        var queryParameters = $"{_bscScanStatsModule}{request.ToRequestParameters(GasStatsModuleAction.DAILY_NEW_ADDRESS)}";
+        using var response = await BscScanHttpClient.GetAsync($"{queryParameters}")
+            .ConfigureAwait(false);
+
+        response.EnsureSuccessStatusCode();
+        await using var responseStream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
+        var result = await JsonSerializer.DeserializeAsync<DailyNewAddressCount>(responseStream);
+        return result;
+    }
 }
