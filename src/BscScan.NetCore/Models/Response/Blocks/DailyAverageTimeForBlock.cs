@@ -1,40 +1,39 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace BscScan.NetCore.Models.Response.Blocks
+namespace BscScan.NetCore.Models.Response.Blocks;
+
+/// <summary>
+/// DailyAverageTimeForBlock
+/// </summary>
+public class DailyAverageTimeForBlock: BaseResponse
 {
     /// <summary>
-    /// DailyAverageTimeForBlock
+    /// List of DailyBlockCountAndRewardsData
     /// </summary>
-    public class DailyAverageTimeForBlock: BaseResponse
-    {
-        /// <summary>
-        /// List of DailyBlockCountAndRewardsData
-        /// </summary>
-        [JsonPropertyName("result")]
-        public IEnumerable<DailyAverageTimeForBlockData>? Result { get; set; }
-    }
+    [JsonPropertyName("result")]
+    public IEnumerable<DailyAverageTimeForBlockData>? Result { get; set; }
+}
+
+/// <summary>
+/// DailyBlockCountAndRewardsData 
+/// </summary>
+public class DailyAverageTimeForBlockData
+{
+    /// <summary>
+    /// UTCDate
+    /// </summary>
+    [JsonPropertyName("UTCDate")]
+    public string? UtcDate { get; set; }
 
     /// <summary>
-    /// DailyBlockCountAndRewardsData 
+    /// UnixTimeStamp
     /// </summary>
-    public class DailyAverageTimeForBlockData
-    {
-        /// <summary>
-        /// UTCDate
-        /// </summary>
-        [JsonPropertyName("UTCDate")]
-        public string? UtcDate { get; set; }
+    [JsonPropertyName("unixTimeStamp")]
+    public string? UnixTimeStamp { get; set; }
 
-        /// <summary>
-        /// UnixTimeStamp
-        /// </summary>
-        [JsonPropertyName("unixTimeStamp")]
-        public string? UnixTimeStamp { get; set; }
-
-        /// <summary>
-        /// BlockTimeSec
-        /// </summary>
-        [JsonPropertyName("blockTime_sec")]
-        public string? BlockTimeSec { get; set; }
-    }
+    /// <summary>
+    /// BlockTimeSec
+    /// </summary>
+    [JsonPropertyName("blockTime_sec")]
+    public string? BlockTimeSec { get; set; }
 }

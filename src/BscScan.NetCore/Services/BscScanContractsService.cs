@@ -5,45 +5,44 @@ using BscScan.NetCore.Contracts;
 using BscScan.NetCore.Extensions;
 using BscScan.NetCore.Models.Response.Contracts;
 
-namespace BscScan.NetCore.Services
+namespace BscScan.NetCore.Services;
+
+/// <inheritdoc cref="IBscScanContractsService" />
+public class BscScanContractsService : BaseHttpClient, IBscScanContractsService
 {
-    /// <inheritdoc cref="IBscScanContractsService" />
-    public class BscScanContractsService : BaseHttpClient, IBscScanContractsService
+    private readonly string _bscScanModule;
+
+    /// <inheritdoc />
+    public BscScanContractsService(HttpClient bscScanHttpClient, BscScanConfiguration bscScanConfiguration) : base(bscScanHttpClient, bscScanConfiguration)
     {
-        private readonly string _bscScanModule;
+        _bscScanModule = BscScanModule.CONTRACT.AppendApiKey(bscScanConfiguration.BscScanOptions.Token);
+    }
 
-        /// <inheritdoc />
-        public BscScanContractsService(HttpClient bscScanHttpClient, BscScanConfiguration bscScanConfiguration) : base(bscScanHttpClient, bscScanConfiguration)
-        {
-            _bscScanModule = BscScanModule.CONTRACT.AppendApiKey(bscScanConfiguration.BscScanOptions.Token);
-        }
+    /// <inheritdoc />
+    public async Task<ContractApplicationBinaryInterface?> GetContractApplicationBinaryInterface(string address)
+    {
+        var queryParameters = $"{_bscScanModule}".AddAction(ContractsModuleAction.GET_ABI)
+            .AddQuery(BscQueryParam.Address.AppendValue(address));
+        using var response = await BscScanHttpClient.GetAsync($"{queryParameters}")
+            .ConfigureAwait(false);
 
-        /// <inheritdoc />
-        public async Task<ContractApplicationBinaryInterface?> GetContractApplicationBinaryInterface(string address)
-        {
-            var queryParameters = $"{_bscScanModule}".AddAction(ContractsModuleAction.GET_ABI)
-                .AddQuery(BscQueryParam.Address.AppendValue(address));
-            using var response = await BscScanHttpClient.GetAsync($"{queryParameters}")
-                .ConfigureAwait(false);
+        response.EnsureSuccessStatusCode();
+        await using var responseStream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
+        var result = await JsonSerializer.DeserializeAsync<ContractApplicationBinaryInterface>(responseStream);
+        return result;
+    }
 
-            response.EnsureSuccessStatusCode();
-            await using var responseStream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
-            var result = await JsonSerializer.DeserializeAsync<ContractApplicationBinaryInterface>(responseStream);
-            return result;
-        }
+    /// <inheritdoc />
+    public async Task<ContractSourceCode?> GetContractSourceCode(string address)
+    {
+        var queryParameters = $"{_bscScanModule}".AddAction(ContractsModuleAction.GET_SOURCE_CODE)
+            .AddQuery(BscQueryParam.Address.AppendValue(address));
+        using var response = await BscScanHttpClient.GetAsync($"{queryParameters}")
+            .ConfigureAwait(false);
 
-        /// <inheritdoc />
-        public async Task<ContractSourceCode?> GetContractSourceCode(string address)
-        {
-            var queryParameters = $"{_bscScanModule}".AddAction(ContractsModuleAction.GET_SOURCE_CODE)
-                .AddQuery(BscQueryParam.Address.AppendValue(address));
-            using var response = await BscScanHttpClient.GetAsync($"{queryParameters}")
-                .ConfigureAwait(false);
-
-            response.EnsureSuccessStatusCode();
-            await using var responseStream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
-            var result = await JsonSerializer.DeserializeAsync<ContractSourceCode>(responseStream);
-            return result;
-        }
+        response.EnsureSuccessStatusCode();
+        await using var responseStream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
+        var result = await JsonSerializer.DeserializeAsync<ContractSourceCode>(responseStream);
+        return result;
     }
 }
