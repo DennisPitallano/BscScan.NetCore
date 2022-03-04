@@ -3,9 +3,9 @@
 namespace BscScan.NetCore.Models.Response.Tokens;
 
 /// <summary>
-/// TokenAccountBalance
+/// HistoricalBep20TokenTotalSupply
 /// </summary>
-public class TokenAccountBalance : BaseResponse
+public class HistoricalBep20TokenTotalSupply : BaseResponse
 {
     /// <summary>
     /// result

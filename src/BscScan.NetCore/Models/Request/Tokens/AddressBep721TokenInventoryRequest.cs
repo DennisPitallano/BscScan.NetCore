@@ -3,10 +3,15 @@
 namespace BscScan.NetCore.Models.Request.Tokens;
 
 /// <summary>
-/// TokenHolderListRequest
+/// AddressBep721TokenInventoryRequest
 /// </summary>
-public class TokenHolderListRequest
+public class AddressBep721TokenInventoryRequest
 {
+    /// <summary>
+    /// the string representing the address to check for balance
+    /// </summary>
+    [JsonPropertyName("address")]
+    public string? Address { get; set; }
     /// <summary>
     /// the contract address of the BEP-20 token
     /// </summary>

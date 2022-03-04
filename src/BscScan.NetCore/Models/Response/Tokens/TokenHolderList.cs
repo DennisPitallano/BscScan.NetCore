@@ -1,35 +1,34 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace BscScan.NetCore.Models.Response.Tokens
+namespace BscScan.NetCore.Models.Response.Tokens;
+
+/// <summary>
+/// TokenHolderList
+/// </summary>
+public class TokenHolderList : BaseResponse
 {
     /// <summary>
-    /// TokenHolderList
+    /// List of TokenHolderListItem
     /// </summary>
-    public class TokenHolderList : BaseResponse
-    {
-        /// <summary>
-        /// List of TokenHolderListItem
-        /// </summary>
-        [JsonPropertyName("result")]
-        public IEnumerable<TokenHolderListItem>? Result { get; set; }
-    }
+    [JsonPropertyName("result")]
+    public IEnumerable<TokenHolderListItem>? Result { get; set; }
+}
+
+/// <summary>
+/// TokenHolderListItem
+/// </summary>
+public class TokenHolderListItem
+{
+    /// <summary>
+    /// TokenHolderAddress
+    /// </summary>
+    [JsonPropertyName("TokenHolderAddress")]
+    public string? TokenHolderAddress { get; set; }
 
     /// <summary>
-    /// TokenHolderListItem
+    /// TokenHolderQuantity
     /// </summary>
-    public class TokenHolderListItem
-    {
-        /// <summary>
-        /// TokenHolderAddress
-        /// </summary>
-        [JsonPropertyName("TokenHolderAddress")]
-        public string? TokenHolderAddress { get; set; }
+    [JsonPropertyName("TokenHolderQuantity")]
+    public string? TokenHolderQuantity { get; set; }
 
-        /// <summary>
-        /// TokenHolderQuantity
-        /// </summary>
-        [JsonPropertyName("TokenHolderQuantity")]
-        public string? TokenHolderQuantity { get; set; }
-
-    }
 }

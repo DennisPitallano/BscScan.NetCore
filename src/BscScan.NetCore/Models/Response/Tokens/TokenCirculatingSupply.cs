@@ -1,16 +1,15 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace BscScan.NetCore.Models.Response.Tokens
+namespace BscScan.NetCore.Models.Response.Tokens;
+
+/// <summary>
+/// TokenCirculatingSupply
+/// </summary>
+public class TokenCirculatingSupply : BaseResponse
 {
     /// <summary>
-    /// TokenCirculatingSupply
+    /// result
     /// </summary>
-    public class TokenCirculatingSupply : BaseResponse
-    {
-        /// <summary>
-        /// result
-        /// </summary>
-        [JsonPropertyName("result")]
-        public string? Result { get; set; }
-    }
+    [JsonPropertyName("result")]
+    public string? Result { get; set; }
 }

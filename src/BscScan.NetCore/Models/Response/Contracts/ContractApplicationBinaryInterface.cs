@@ -1,16 +1,15 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace BscScan.NetCore.Models.Response.Contracts
+namespace BscScan.NetCore.Models.Response.Contracts;
+
+/// <summary>
+/// Contract Application Binary Interface
+/// </summary>
+public class ContractApplicationBinaryInterface : BaseResponse
 {
     /// <summary>
-    /// Contract Application Binary Interface
+    /// Result
     /// </summary>
-    public class ContractApplicationBinaryInterface : BaseResponse
-    {
-        /// <summary>
-        /// Result
-        /// </summary>
-        [JsonPropertyName("result")]
-        public string?  Result { get; set; }
-    }
+    [JsonPropertyName("result")]
+    public string?  Result { get; set; }
 }

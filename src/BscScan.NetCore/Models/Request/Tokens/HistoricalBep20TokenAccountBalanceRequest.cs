@@ -3,9 +3,9 @@
 namespace BscScan.NetCore.Models.Request.Tokens;
 
 /// <summary>
-/// TokenHolderListRequest
+/// HistoricalBep20TokenAccountBalanceRequest
 /// </summary>
-public class TokenHolderListRequest
+public class HistoricalBep20TokenAccountBalanceRequest
 {
     /// <summary>
     /// the contract address of the BEP-20 token

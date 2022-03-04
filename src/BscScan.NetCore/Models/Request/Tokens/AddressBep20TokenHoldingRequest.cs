@@ -3,15 +3,15 @@
 namespace BscScan.NetCore.Models.Request.Tokens;
 
 /// <summary>
-/// TokenHolderListRequest
+/// AddressBep20TokenHoldingRequest
 /// </summary>
-public class TokenHolderListRequest
+public class AddressBep20TokenHoldingRequest
 {
     /// <summary>
-    /// the contract address of the BEP-20 token
+    /// the string representing the address to check for balance
     /// </summary>
-    [JsonPropertyName("contractaddress")]
-    public string? ContractAddress { get; set; }
+    [JsonPropertyName("address")]
+    public string? Address { get; set; }
     /// <summary>
     /// the integer page number, if pagination is enabled (default is 1)
     /// </summary>
