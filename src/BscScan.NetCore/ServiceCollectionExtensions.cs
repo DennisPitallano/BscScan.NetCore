@@ -41,5 +41,7 @@ public static class BscScanServiceCollectionExtensions
         services.AddHttpClient<IBscScanTokensService, BscScanTokensService>(configureClient);
 
         services.AddHttpClient<IBscScanGasTrackerService, BscScanGasTrackerService>(configureClient);
+
+        services.AddHttpClient<IBscScanStatsService, BscScanStatsService>(configureClient);
     }
 }

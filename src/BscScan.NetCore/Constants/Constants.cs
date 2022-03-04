@@ -110,6 +110,14 @@ internal static class GasTrackerModuleAction
 }
 
 /// <summary>
+///  BscScan Gas Stats Module Actions
+/// </summary>
+internal static class GasStatsModuleAction
+{
+    public const string BNB_SUPPLY = "bnbsupply";
+}
+
+/// <summary>
 /// BscScan shared Query Params
 /// </summary>
 internal static class BscQueryParam
