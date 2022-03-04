@@ -105,7 +105,7 @@ public class BscScanBlocksService :BaseHttpClient, IBscScanBlocksService
     }
 
     /// <inheritdoc />
-    public async Task<DailyAverageTimeForBlock?> GetDailyAverageTimeForABlock(DailyBlockRequest request)
+    public async Task<DailyAverageTimeForBlock?> GetDailyAverageTimeForABlockAsync(DailyBlockRequest request)
     {
         var queryParameters = $"{_bscScanModuleStat}{request.ToRequestParameters(BlocksModuleAction.GET_DAILY_AVG_BLOCK_TIME)}";
         using var response = await BscScanHttpClient.GetAsync($"{queryParameters}")
