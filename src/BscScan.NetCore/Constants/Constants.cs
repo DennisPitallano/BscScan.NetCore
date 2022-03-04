@@ -53,8 +53,8 @@ internal static class TransactionsModuleAction
 internal static class BlocksModuleAction
 {
     public const string GET_BLOCK_REWARD = "getblockreward";
-    public const string GET_BLOCK_COUNT_DOWN= "getblockcountdown";
-    public const string GET_BLOCK_NUMBER_BY_TIMESTAMP= "getblocknobytime";
+    public const string GET_BLOCK_COUNT_DOWN = "getblockcountdown";
+    public const string GET_BLOCK_NUMBER_BY_TIMESTAMP = "getblocknobytime";
     public const string GET_DAILY_AVG_BLOCK_SIZE = "dailyavgblocksize";
     public const string GET_DAILY_BLOCK_COUNT = "dailyblkcount";
     public const string GET_DAILY_BLOCK_REWARDS = "dailyblockrewards";
@@ -106,12 +106,13 @@ internal static class GasTrackerModuleAction
     public const string GAS_ORACLE = "gasoracle";
     public const string DAILY_AVG_GAS_LIMIT = "dailyavggaslimit";
     public const string DAILY_GAS_USED = "dailygasused";
+    public const string DAILY_AVG_GAS_PRICE = "dailyavggasprice";
 }
 
 /// <summary>
-    /// BscScan shared Query Params
-    /// </summary>
-    internal static class BscQueryParam
+/// BscScan shared Query Params
+/// </summary>
+internal static class BscQueryParam
 {
     public const string TxHash = "txhash={value}";
     public const string Address = "address={value}";
