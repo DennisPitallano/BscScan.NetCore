@@ -71,4 +71,17 @@ public class BscScanStatsService : BaseHttpClient, IBscScanStatsService
         var result = await JsonSerializer.DeserializeAsync<BnbHistoricalPrice>(responseStream);
         return result;
     }
+
+    /// <inheritdoc />
+    public async Task<DailyNetworkTransactionFee?> GetDailyNetworkTransactionFee(DailyNetworkTransactionFeeRequest request)
+    {
+        var queryParameters = $"{_bscScanStatsModule}{request.ToRequestParameters(GasStatsModuleAction.DAILY_TXN_FEE)}";
+        using var response = await BscScanHttpClient.GetAsync($"{queryParameters}")
+            .ConfigureAwait(false);
+
+        response.EnsureSuccessStatusCode();
+        await using var responseStream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
+        var result = await JsonSerializer.DeserializeAsync<DailyNetworkTransactionFee>(responseStream);
+        return result;
+    }
 }
