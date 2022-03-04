@@ -5,7 +5,7 @@ namespace BscScan.NetCore.Models.Response.Stats;
 /// <summary>
 /// DailyNetworkUtilization
 /// </summary>
-public class DailyNetworkUtilization
+public class DailyNetworkUtilization : BaseResponse
 {
     /// <summary>
     /// result

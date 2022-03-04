@@ -3,21 +3,21 @@
 namespace BscScan.NetCore.Models.Response.Stats;
 
 /// <summary>
-/// DailyNetworkTransactionFee
+/// DailyTransactionCount 
 /// </summary>
-public class DailyNetworkTransactionFee : BaseResponse
+public class DailyTransactionCount : BaseResponse
 {
     /// <summary>
-    /// List of DailyNetworkTransactionFeeData
+    /// List of DailyTransactionCountData
     /// </summary>
     [JsonPropertyName("result")]
-    public IEnumerable<DailyNetworkTransactionFeeData>? Result { get; set; }
+    public IEnumerable<DailyTransactionCountData>? Result { get; set; }
 }
 
 /// <summary>
-/// DailyNetworkTransactionFeeData
+/// DailyTransactionCountData
 /// </summary>
-public class DailyNetworkTransactionFeeData
+public class DailyTransactionCountData
 {
     /// <summary>
     /// UTCDate
@@ -32,8 +32,8 @@ public class DailyNetworkTransactionFeeData
     public string? UnixTimeStamp { get; set; }
 
     /// <summary>
-    /// transactionFee_Eth
+    /// transactionCount
     /// </summary>
-    [JsonPropertyName("transactionFee_Eth")]
-    public string? TransactionFeeEth { get; set; }
+    [JsonPropertyName("transactionCount")]
+    public int TransactionCount { get; set; }
 }
