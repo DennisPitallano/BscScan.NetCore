@@ -32,4 +32,11 @@ public interface IBscScanStatsService
     /// <param name="request">BnbHistoricalPriceRequest</param>
     /// <returns>Returns the historical price of 1 BNB.</returns>
     Task<BnbHistoricalPrice?> GetBnbHistoricalPrice(BnbHistoricalPriceRequest request);
+
+    /// <summary>
+    /// Get Daily Network Transaction Fee 🅰🅿🅸  🅿🆁🅾
+    /// </summary>
+    /// <param name="request">DailyNetworkTransactionFeeRequest</param>
+    /// <returns>Returns the historical amount of transaction fees paid to validators per day.</returns>
+    Task<DailyNetworkTransactionFee?> GetDailyNetworkTransactionFee(DailyNetworkTransactionFeeRequest request);
 }

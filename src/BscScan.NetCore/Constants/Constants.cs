@@ -118,6 +118,7 @@ internal static class GasStatsModuleAction
     public const string VALIDATOR_LIST = "validators";
     public const string BNB_PRICE = "bnbprice";
     public const string BNB_DAILY_PRICE = "bnbdailyprice";
+    public const string DAILY_TXN_FEE = "dailytxnfee";
 }
 
 /// <summary>
