@@ -115,6 +115,7 @@ internal static class GasTrackerModuleAction
 internal static class GasStatsModuleAction
 {
     public const string BNB_SUPPLY = "bnbsupply";
+    public const string VALIDATOR_LIST = "validators";
 }
 
 /// <summary>
