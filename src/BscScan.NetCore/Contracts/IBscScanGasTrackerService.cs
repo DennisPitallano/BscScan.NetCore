@@ -27,4 +27,11 @@ public interface IBscScanGasTrackerService
     /// <param name="request">BnbSmartChainDailyTotalGasUsed</param>
     /// <returns>Returns the total amount of gas used daily for transactions on the BNB Smart Chain network.</returns>
     Task<BnbSmartChainDailyTotalGasUsed?> GetBnbSmartChainDailyTotalGasUsed(BnbSmartChainDailyTotalGasUsedRequest request);
+
+    /// <summary>
+    /// Get Daily Average Gas Price 🅰🅿🅸  🅿🆁🅾
+    /// </summary>
+    /// <param name="request">DailyAverageGasPriceRequest</param>
+    /// <returns>Returns the daily average gas price used on the BNB Smart Chain network.</returns>
+    Task<DailyAverageGasPrice?> GetDailyAverageGasPrice(DailyAverageGasPriceRequest request);
 }
