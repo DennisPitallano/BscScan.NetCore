@@ -1,4 +1,5 @@
-﻿using BscScan.NetCore.Models.Response.GasTracker;
+﻿using BscScan.NetCore.Models.Request.GasTracker;
+using BscScan.NetCore.Models.Response.GasTracker;
 
 namespace BscScan.NetCore.Contracts;
 
@@ -12,4 +13,11 @@ public interface IBscScanGasTrackerService
     /// </summary>
     /// <returns>Returns the current Safe, Proposed and Fast gas prices.</returns>
     Task<GasOracle?> GetGasOracle();
+
+    /// <summary>
+    /// Get Daily Average Gas Limit 🅰🅿🅸  🅿🆁🅾
+    /// </summary>
+    /// <param name="request">DailyAverageGasLimitRequest</param>
+    /// <returns>Returns the historical daily average gas limit of the BNB Smart Chain network.</returns>
+    Task<DailyAverageGasLimit?> GetDailyAverageGasLimit(DailyAverageGasLimitRequest request);
 }
