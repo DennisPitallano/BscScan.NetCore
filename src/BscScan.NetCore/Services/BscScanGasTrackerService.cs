@@ -23,7 +23,7 @@ public class BscScanGasTrackerService : BaseHttpClient, IBscScanGasTrackerServic
     }
 
     /// <inheritdoc />
-    public async Task<GasOracle?> GetGasOracle()
+    public async Task<GasOracle?> GetGasOracleAsync()
     {
         var queryParameters = $"{_bscScanGasTrackerModule}".AddAction(GasTrackerModuleAction.GAS_ORACLE);
         using var response = await BscScanHttpClient.GetAsync($"{queryParameters}")
@@ -36,7 +36,7 @@ public class BscScanGasTrackerService : BaseHttpClient, IBscScanGasTrackerServic
     }
 
     /// <inheritdoc />
-    public async Task<DailyAverageGasLimit?> GetDailyAverageGasLimit(DailyAverageGasLimitRequest request)
+    public async Task<DailyAverageGasLimit?> GetDailyAverageGasLimitAsync(DailyAverageGasLimitRequest request)
     {
         var queryParameters = $"{_bscScanStatsModule}{request.ToRequestParameters(GasTrackerModuleAction.DAILY_AVG_GAS_LIMIT)}";
         using var response = await BscScanHttpClient.GetAsync($"{queryParameters}")
@@ -49,7 +49,7 @@ public class BscScanGasTrackerService : BaseHttpClient, IBscScanGasTrackerServic
     }
 
     /// <inheritdoc />
-    public async Task<BnbSmartChainDailyTotalGasUsed?> GetBnbSmartChainDailyTotalGasUsed(BnbSmartChainDailyTotalGasUsedRequest request)
+    public async Task<BnbSmartChainDailyTotalGasUsed?> GetBnbSmartChainDailyTotalGasUsedAsync(BnbSmartChainDailyTotalGasUsedRequest request)
     {
         var queryParameters = $"{_bscScanStatsModule}{request.ToRequestParameters(GasTrackerModuleAction.DAILY_GAS_USED)}";
         using var response = await BscScanHttpClient.GetAsync($"{queryParameters}")
@@ -62,7 +62,7 @@ public class BscScanGasTrackerService : BaseHttpClient, IBscScanGasTrackerServic
     }
 
     /// <inheritdoc />
-    public async Task<DailyAverageGasPrice?> GetDailyAverageGasPrice(DailyAverageGasPriceRequest request)
+    public async Task<DailyAverageGasPrice?> GetDailyAverageGasPriceAsync(DailyAverageGasPriceRequest request)
     {
         var queryParameters = $"{_bscScanStatsModule}{request.ToRequestParameters(GasTrackerModuleAction.DAILY_AVG_GAS_PRICE)}";
         using var response = await BscScanHttpClient.GetAsync($"{queryParameters}")

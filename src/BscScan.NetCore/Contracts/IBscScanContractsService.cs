@@ -13,12 +13,12 @@ public interface IBscScanContractsService
     /// </summary>
     /// <param name="address">the contract address that has a verified source code</param>
     /// <returns>Returns the contract Application Binary Interface ( ABI ) of a verified smart contract.</returns>
-    Task<ContractApplicationBinaryInterface?> GetContractApplicationBinaryInterface(string address);
+    Task<ContractApplicationBinaryInterface?> GetContractApplicationBinaryInterfaceAsync(string address);
 
     /// <summary>
     /// Get Contract Source Code for Verified Contract Source Codes
     /// </summary>
     /// <param name="address">the contract address that has a verified source code</param>
     /// <returns>Returns the Solidity source code of a verified smart contract.</returns>
-    Task<ContractSourceCode?> GetContractSourceCode(string address);
+    Task<ContractSourceCode?> GetContractSourceCodeAsync(string address);
 }

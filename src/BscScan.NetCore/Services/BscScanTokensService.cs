@@ -26,7 +26,7 @@ public class BscScanTokensService : BaseHttpClient, IBscScanTokensService
     }
 
     /// <inheritdoc />
-    public async Task<TokenTotalSupply?> GetBep20TokenTotalSupplyByContractAddress(string contractAddress)
+    public async Task<TokenTotalSupply?> GetBep20TokenTotalSupplyByContractAddressAsync(string contractAddress)
     {
         var queryParameters = $"{_bscScanModuleStat}".AddAction(TokenModuleAction.TOKEN_SUPPLY)
             .AddQuery(BscQueryParam.ContractAddress.AppendValue(contractAddress));
@@ -40,7 +40,7 @@ public class BscScanTokensService : BaseHttpClient, IBscScanTokensService
     }
 
     /// <inheritdoc />
-    public async Task<TokenCirculatingSupply?> GetBep20TokenCirculatingSupplyByContractAddress(string contractAddress)
+    public async Task<TokenCirculatingSupply?> GetBep20TokenCirculatingSupplyByContractAddressAsync(string contractAddress)
     {
         var queryParameters = $"{_bscScanModuleStat}".AddAction(TokenModuleAction.TOKEN_C_SUPPLY)
             .AddQuery(BscQueryParam.ContractAddress.AppendValue(contractAddress));
@@ -54,7 +54,7 @@ public class BscScanTokensService : BaseHttpClient, IBscScanTokensService
     }
 
     /// <inheritdoc />
-    public async Task<TokenAccountBalance?> GetBep20TokenAccountBalanceByContractAddress(string contractAddress, string address)
+    public async Task<TokenAccountBalance?> GetBep20TokenAccountBalanceByContractAddressAsync(string contractAddress, string address)
     {
         var queryParameters = $"{_bscScanModuleAccount}".AddAction(TokenModuleAction.TOKEN_BALANCE)
             .AddQuery(BscQueryParam.ContractAddress.AppendValue(contractAddress))
@@ -71,7 +71,7 @@ public class BscScanTokensService : BaseHttpClient, IBscScanTokensService
     }
 
     /// <inheritdoc />
-    public async Task<TokenHolderList?> GetTokenHolderListByContractAddress(TokenHolderListRequest request)
+    public async Task<TokenHolderList?> GetTokenHolderListByContractAddressAsync(TokenHolderListRequest request)
     {
         var queryParameters = $"{_bscScanModuleToken}{request.ToRequestParameters(TokenModuleAction.TOKEN_HOLDER_LIST)}";
         using var response = await BscScanHttpClient.GetAsync($"{queryParameters}")
@@ -84,7 +84,7 @@ public class BscScanTokensService : BaseHttpClient, IBscScanTokensService
     }
 
     /// <inheritdoc />
-    public async Task<HistoricalBep20TokenTotalSupply?> GetHistoricalBep20TokenTotalSupplyByContractAddressAndBlockNo(
+    public async Task<HistoricalBep20TokenTotalSupply?> GetHistoricalBep20TokenTotalSupplyByContractAddressAndBlockNoAsync(
         string contractAddress, int blockNo)
     {
         var queryParameters = $"{_bscScanModuleStat}".AddAction(TokenModuleAction.TOKEN_SUPPLY_HISTORY)
@@ -102,7 +102,7 @@ public class BscScanTokensService : BaseHttpClient, IBscScanTokensService
     }
 
     /// <inheritdoc />
-    public async Task<HistoricalBep20TokenAccountBalance?> GetHistoricalBep20TokenAccountBalanceByContractAddressAndBlockNo(
+    public async Task<HistoricalBep20TokenAccountBalance?> GetHistoricalBep20TokenAccountBalanceByContractAddressAndBlockNoAsync(
         HistoricalBep20TokenAccountBalanceRequest request)
     {
         var queryParameters = $"{_bscScanModuleAccount}{request.ToRequestParameters(TokenModuleAction.TOKEN_BALANCE_HISTORY)}";
@@ -116,7 +116,7 @@ public class BscScanTokensService : BaseHttpClient, IBscScanTokensService
     }
 
     /// <inheritdoc />
-    public async Task<TokenInfo?> GetTokenInfoByContractAddress(string contractAddress)
+    public async Task<TokenInfo?> GetTokenInfoByContractAddressAsync(string contractAddress)
     {
         var queryParameters = $"{_bscScanModuleToken}".AddAction(TokenModuleAction.TOKEN_INFO)
             .AddQuery(BscQueryParam.ContractAddress.AppendValue(contractAddress));
@@ -130,7 +130,7 @@ public class BscScanTokensService : BaseHttpClient, IBscScanTokensService
     }
 
     /// <inheritdoc />
-    public async Task<AddressBep20TokenHolding?> GetAddressBep20TokenHolding(AddressBep20TokenHoldingRequest request)
+    public async Task<AddressBep20TokenHolding?> GetAddressBep20TokenHoldingAsync(AddressBep20TokenHoldingRequest request)
     {
         var queryParameters = $"{_bscScanModuleAccount}{request.ToRequestParameters(TokenModuleAction.ADDRESS_TOKEN_BALANCE)}";
         using var response = await BscScanHttpClient.GetAsync($"{queryParameters}")
@@ -143,7 +143,7 @@ public class BscScanTokensService : BaseHttpClient, IBscScanTokensService
     }
 
     /// <inheritdoc />
-    public async Task<AddressBep721TokenHolding?> GetAddressBep721TokenHolding(AddressBep721TokenHoldingRequest request)
+    public async Task<AddressBep721TokenHolding?> GetAddressBep721TokenHoldingAsync(AddressBep721TokenHoldingRequest request)
     {
         var queryParameters = $"{_bscScanModuleAccount}{request.ToRequestParameters(TokenModuleAction.ADDRESS_TOKEN_NFT_BALANCE)}";
         using var response = await BscScanHttpClient.GetAsync($"{queryParameters}")
@@ -156,7 +156,7 @@ public class BscScanTokensService : BaseHttpClient, IBscScanTokensService
     }
 
     /// <inheritdoc />
-    public async Task<AddressBep721TokenInventory?> GetAddressBep721TokenInventoryByContractAddress(AddressBep721TokenInventoryRequest request)
+    public async Task<AddressBep721TokenInventory?> GetAddressBep721TokenInventoryByContractAddressAsync(AddressBep721TokenInventoryRequest request)
     {
         var queryParameters = $"{_bscScanModuleAccount}{request.ToRequestParameters(TokenModuleAction.ADDRESS_TOKEN_NFT_INVENTORY)}";
         using var response = await BscScanHttpClient.GetAsync($"{queryParameters}")

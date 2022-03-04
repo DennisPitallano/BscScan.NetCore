@@ -19,7 +19,7 @@ public class BscScanContractsService : BaseHttpClient, IBscScanContractsService
     }
 
     /// <inheritdoc />
-    public async Task<ContractApplicationBinaryInterface?> GetContractApplicationBinaryInterface(string address)
+    public async Task<ContractApplicationBinaryInterface?> GetContractApplicationBinaryInterfaceAsync(string address)
     {
         var queryParameters = $"{_bscScanModule}".AddAction(ContractsModuleAction.GET_ABI)
             .AddQuery(BscQueryParam.Address.AppendValue(address));
@@ -33,7 +33,7 @@ public class BscScanContractsService : BaseHttpClient, IBscScanContractsService
     }
 
     /// <inheritdoc />
-    public async Task<ContractSourceCode?> GetContractSourceCode(string address)
+    public async Task<ContractSourceCode?> GetContractSourceCodeAsync(string address)
     {
         var queryParameters = $"{_bscScanModule}".AddAction(ContractsModuleAction.GET_SOURCE_CODE)
             .AddQuery(BscQueryParam.Address.AppendValue(address));

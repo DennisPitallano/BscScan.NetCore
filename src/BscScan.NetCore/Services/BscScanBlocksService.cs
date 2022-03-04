@@ -23,7 +23,7 @@ public class BscScanBlocksService :BaseHttpClient, IBscScanBlocksService
     }
 
     /// <inheritdoc />
-    public async Task<BlockRewards?> GetBlockRewardsByBlockNo(string blockNo)
+    public async Task<BlockRewards?> GetBlockRewardsByBlockNoAsync(string blockNo)
     {
         var queryParameters = $"{_bscScanModuleBlock}".AddAction(BlocksModuleAction.GET_BLOCK_REWARD)
             .AddQuery(BscQueryParam.BlockNo.AppendValue(blockNo));
@@ -37,7 +37,7 @@ public class BscScanBlocksService :BaseHttpClient, IBscScanBlocksService
     }
 
     /// <inheritdoc />
-    public async Task<EstimatedBlockCountdownTime?> GetEstimatedBlockCountdownTimeByBlockNo(string blockNo)
+    public async Task<EstimatedBlockCountdownTime?> GetEstimatedBlockCountdownTimeByBlockNoAsync(string blockNo)
     {
         var queryParameters = $"{_bscScanModuleBlock}".AddAction(BlocksModuleAction.GET_BLOCK_COUNT_DOWN)
             .AddQuery(BscQueryParam.BlockNo.AppendValue(blockNo));
@@ -51,7 +51,7 @@ public class BscScanBlocksService :BaseHttpClient, IBscScanBlocksService
     }
 
     /// <inheritdoc />
-    public async Task<BlockNumber?> GetBlockNumberByTimestamp(int timestamp, Closest closest = Closest.Before)
+    public async Task<BlockNumber?> GetBlockNumberByTimestampAsync(int timestamp, Closest closest = Closest.Before)
     {
         var queryParameters = $"{_bscScanModuleBlock}".AddAction(BlocksModuleAction.GET_BLOCK_NUMBER_BY_TIMESTAMP)
             .AddQuery(BscQueryParam.Timestamp.AppendValue(timestamp)).AddQuery(BscQueryParam.Closest.AppendValue(closest.ToString().ToLower()));
@@ -65,7 +65,7 @@ public class BscScanBlocksService :BaseHttpClient, IBscScanBlocksService
     }
 
     /// <inheritdoc />
-    public async Task<DailyAverageBlockSize?> GetDailyAverageBlockSize(DailyAverageBlockSizeRequest request)
+    public async Task<DailyAverageBlockSize?> GetDailyAverageBlockSizeAsync(DailyAverageBlockSizeRequest request)
     {
         var queryParameters = $"{_bscScanModuleStat}{request.ToRequestParameters(BlocksModuleAction.GET_DAILY_AVG_BLOCK_SIZE)}";
         using var response = await BscScanHttpClient.GetAsync($"{queryParameters}")
@@ -79,7 +79,7 @@ public class BscScanBlocksService :BaseHttpClient, IBscScanBlocksService
 
 
     /// <inheritdoc />
-    public async Task<DailyBlockCountAndRewards?> GetDailyBlockCountsAndRewards(DailyBlockCountAndRewardRequest request)
+    public async Task<DailyBlockCountAndRewards?> GetDailyBlockCountsAndRewardsAsync(DailyBlockCountAndRewardRequest request)
     {
         var queryParameters = $"{_bscScanModuleStat}{request.ToRequestParameters(BlocksModuleAction.GET_DAILY_BLOCK_COUNT)}";
         using var response = await BscScanHttpClient.GetAsync($"{queryParameters}")
@@ -92,7 +92,7 @@ public class BscScanBlocksService :BaseHttpClient, IBscScanBlocksService
     }
 
     /// <inheritdoc />
-    public async Task<DailyBlockRewards?> GetDailyBlockRewards(DailyBlockRequest request)
+    public async Task<DailyBlockRewards?> GetDailyBlockRewardsAsync(DailyBlockRequest request)
     {
         var queryParameters = $"{_bscScanModuleStat}{request.ToRequestParameters(BlocksModuleAction.GET_DAILY_BLOCK_REWARDS)}";
         using var response = await BscScanHttpClient.GetAsync($"{queryParameters}")
