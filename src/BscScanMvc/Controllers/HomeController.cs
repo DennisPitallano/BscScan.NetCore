@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using BscScan.NetCore.Contracts;
+using BscScan.NetCore.Models.Request.GasTracker;
 
 namespace BscScanMvc.Controllers
 {
@@ -137,7 +138,13 @@ namespace BscScanMvc.Controllers
             //    ContractAddress = "0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82"
             //});
 
-            var result = await _bscScanGasTrackerService.GetGasOracle();
+            // var result = await _bscScanGasTrackerService.GetGasOracle();
+
+            var result = await _bscScanGasTrackerService.GetDailyAverageGasLimit(new DailyAverageGasLimitRequest
+            {
+                StartDate = new DateOnly(2021,8,1),
+                EndDate = new DateOnly(2021,8,28)
+            });
             return View();
         }
 
