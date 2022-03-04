@@ -46,4 +46,11 @@ public interface IBscScanStatsService
     /// <param name="request">DailyNewAddressCountRequest</param>
     /// <returns>Returns the historical number of new BNB Smart Chain addresses created per day.</returns>
     Task<DailyNewAddressCount?> GetDailyNewAddressCount(DailyNewAddressCountRequest request);
+
+    /// <summary>
+    /// Get Daily Network Utilization 🅰🅿🅸  🅿🆁🅾
+    /// </summary>
+    /// <param name="request">DailyNetworkUtilizationRequest</param>
+    /// <returns>Returns the daily average gas used over gas limit percentage.</returns>
+    Task<DailyNetworkUtilization?> GetDailyNetworkUtilization(DailyNetworkUtilizationRequest request);
 }
