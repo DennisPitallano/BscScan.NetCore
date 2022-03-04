@@ -44,4 +44,17 @@ public class BscScanStatsService : BaseHttpClient, IBscScanStatsService
         var result = await JsonSerializer.DeserializeAsync<ValidatorsList>(responseStream);
         return result;
     }
+
+    /// <inheritdoc />
+    public async Task<BnbLastPrice?> GetBnbLastPrice()
+    {
+        var queryParameters = $"{_bscScanStatsModule}".AddAction(GasStatsModuleAction.BNB_PRICE);
+        using var response = await BscScanHttpClient.GetAsync($"{queryParameters}")
+            .ConfigureAwait(false);
+
+        response.EnsureSuccessStatusCode();
+        await using var responseStream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
+        var result = await JsonSerializer.DeserializeAsync<BnbLastPrice>(responseStream);
+        return result;
+    }
 }

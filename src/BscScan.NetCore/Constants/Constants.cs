@@ -116,6 +116,7 @@ internal static class GasStatsModuleAction
 {
     public const string BNB_SUPPLY = "bnbsupply";
     public const string VALIDATOR_LIST = "validators";
+    public const string BNB_PRICE = "bnbprice";
 }
 
 /// <summary>
