@@ -18,4 +18,10 @@ public interface IBscScanStatsService
     /// </summary>
     /// <returns>Returns the top 21 validators for the BNB Smart Chain.</returns>
     Task<ValidatorsList?> GetValidatorsList();
+
+    /// <summary>
+    /// Get BNB Last Price
+    /// </summary>
+    /// <returns>Returns the latest price of 1 BNB.</returns>
+    Task<BnbLastPrice?> GetBnbLastPrice();
 }
