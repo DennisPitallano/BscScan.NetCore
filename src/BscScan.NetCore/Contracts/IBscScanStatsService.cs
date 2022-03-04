@@ -53,4 +53,11 @@ public interface IBscScanStatsService
     /// <param name="request">DailyNetworkUtilizationRequest</param>
     /// <returns>Returns the daily average gas used over gas limit percentage.</returns>
     Task<DailyNetworkUtilization?> GetDailyNetworkUtilization(DailyNetworkUtilizationRequest request);
+
+    /// <summary>
+    /// Get Daily Transaction Count 🅰🅿🅸  🅿🆁🅾
+    /// </summary>
+    /// <param name="request">DailyTransactionCountRequest</param>
+    /// <returns>Returns the number of transactions performed on the Ethereum blockchain per day.</returns>
+    Task<DailyTransactionCount?> GetDailyTransactionCount(DailyTransactionCountRequest request);
 }
