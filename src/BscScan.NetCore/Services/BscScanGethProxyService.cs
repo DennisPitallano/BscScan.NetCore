@@ -20,7 +20,7 @@ public class BscScanGethProxyService: BaseHttpClient, IBscScanGethProxyService
     }
 
     /// <inheritdoc />
-    public async Task<EthBlockNumber?> EthBlockNumber()
+    public async Task<EthBlockNumber?> EthBlockNumberAsync()
     {
         var queryParameters = $"{_bscScanModule}".AddAction(ProxyModuleAction.ETH_BLOCK_NUMBER);
         using var response = await BscScanHttpClient.GetAsync($"{queryParameters}")
@@ -33,7 +33,7 @@ public class BscScanGethProxyService: BaseHttpClient, IBscScanGethProxyService
     }
 
     /// <inheritdoc />
-    public async Task<BlockByNumber?> EthGetBlockByNumber(string tag)
+    public async Task<BlockByNumber?> EthGetBlockByNumberAsync(string tag)
     {
         var queryParameters = $"{_bscScanModule}".AddAction(ProxyModuleAction.ETH_GET_BLOCk_BY_NUMBER)
             .AddQuery(BscQueryParam.Tag.AppendValue(tag)).AddQuery(BscQueryParam.Boolean.AppendValue("true"));
@@ -47,7 +47,7 @@ public class BscScanGethProxyService: BaseHttpClient, IBscScanGethProxyService
     }
 
     /// <inheritdoc />
-    public async Task<BlockTransactionCountByNumber?> EthGetBlockTransactionCountByNumber(string tag)
+    public async Task<BlockTransactionCountByNumber?> EthGetBlockTransactionCountByNumberAsync(string tag)
     {
         var queryParameters = $"{_bscScanModule}".AddAction(ProxyModuleAction.ETH_GET_BLOCk_TRANSACTION_COUNT_BY_NUMBER)
             .AddQuery(BscQueryParam.Tag.AppendValue(tag));
@@ -61,7 +61,7 @@ public class BscScanGethProxyService: BaseHttpClient, IBscScanGethProxyService
     }
 
     /// <inheritdoc />
-    public async Task<TransactionByHash?> EthGetTransactionByHash(string txhash)
+    public async Task<TransactionByHash?> EthGetTransactionByHashAsync(string txhash)
     {
         var queryParameters = $"{_bscScanModule}".AddAction(ProxyModuleAction.ETH_GET_TRANSACTION_BY_HASH)
             .AddQuery(BscQueryParam.TxHash.AppendValue(txhash));
@@ -75,7 +75,7 @@ public class BscScanGethProxyService: BaseHttpClient, IBscScanGethProxyService
     }
 
     /// <inheritdoc />
-    public async Task<TransactionByBlockNumberAndIndex?> EthGetTransactionByBlockNumberAndIndex(string tag, string index)
+    public async Task<TransactionByBlockNumberAndIndex?> EthGetTransactionByBlockNumberAndIndexAsync(string tag, string index)
     {
         var queryParameters = $"{_bscScanModule}".AddAction(ProxyModuleAction.ETH_GET_TRANSACTION_BY_BLOCK_NUMBER_AND_INDEX)
             .AddQuery(BscQueryParam.Tag.AppendValue(tag)).AddQuery(BscQueryParam.Index.AppendValue(index));
@@ -89,7 +89,7 @@ public class BscScanGethProxyService: BaseHttpClient, IBscScanGethProxyService
     }
 
     /// <inheritdoc />
-    public async Task<TransactionCount?> EthGetTransactionCount(string address, Tag tag = Tag.Latest)
+    public async Task<TransactionCount?> EthGetTransactionCountAsync(string address, Tag tag = Tag.Latest)
     {
         var queryParameters = $"{_bscScanModule}".AddAction(ProxyModuleAction.ETH_GET_TRANSACTION_COUNT)
             .AddQuery(BscQueryParam.Tag.AppendValue(tag.ToString().ToLower())).AddQuery(BscQueryParam.Address.AppendValue(address));
@@ -103,7 +103,7 @@ public class BscScanGethProxyService: BaseHttpClient, IBscScanGethProxyService
     }
 
     /// <inheritdoc />
-    public async Task<SendRawTransaction?> EthSendRawTransaction(string hex)
+    public async Task<SendRawTransaction?> EthSendRawTransactionAsync(string hex)
     {
         var queryParameters = $"{_bscScanModule}".AddAction(ProxyModuleAction.ETH_SEND_RAW_TRANSACTION)
             .AddQuery(BscQueryParam.Hex.AppendValue(hex));
@@ -117,7 +117,7 @@ public class BscScanGethProxyService: BaseHttpClient, IBscScanGethProxyService
     }
 
     /// <inheritdoc />
-    public async Task<TransactionReceipt?> EthGetTransactionReceipt(string txhash)
+    public async Task<TransactionReceipt?> EthGetTransactionReceiptAsync(string txhash)
     {
         var queryParameters = $"{_bscScanModule}".AddAction(ProxyModuleAction.ETH_GET_TRANSACTION_RECEIPT)
             .AddQuery(BscQueryParam.TxHash.AppendValue(txhash));
@@ -131,7 +131,7 @@ public class BscScanGethProxyService: BaseHttpClient, IBscScanGethProxyService
     }
 
     /// <inheritdoc />
-    public async Task<EthCall?> EthCall(string to, string data, Tag tag = Tag.Latest)
+    public async Task<EthCall?> EthCallAsync(string to, string data, Tag tag = Tag.Latest)
     {
         var queryParameters = $"{_bscScanModule}".AddAction(ProxyModuleAction.ETH_CALL)
             .AddQuery(BscQueryParam.Tag.AppendValue(tag.ToString().ToLower()))
@@ -147,7 +147,7 @@ public class BscScanGethProxyService: BaseHttpClient, IBscScanGethProxyService
     }
 
     /// <inheritdoc />
-    public async Task<EthCode?> EthGetCode(string address, Tag tag = Tag.Latest)
+    public async Task<EthCode?> EthGetCodeAsync(string address, Tag tag = Tag.Latest)
     {
         var queryParameters = $"{_bscScanModule}".AddAction(ProxyModuleAction.ETH_GET_CODE)
             .AddQuery(BscQueryParam.Tag.AppendValue(tag.ToString().ToLower()))
@@ -162,7 +162,7 @@ public class BscScanGethProxyService: BaseHttpClient, IBscScanGethProxyService
     }
 
     /// <inheritdoc />
-    public async Task<EthStorageAt?> EthGetStorageAt(string address, string position, Tag tag = Tag.Latest)
+    public async Task<EthStorageAt?> EthGetStorageAtAsync(string address, string position, Tag tag = Tag.Latest)
     {
         var queryParameters = $"{_bscScanModule}".AddAction(ProxyModuleAction.ETH_GET_STORAGE_AT)
             .AddQuery(BscQueryParam.Tag.AppendValue(tag.ToString().ToLower()))
@@ -178,7 +178,7 @@ public class BscScanGethProxyService: BaseHttpClient, IBscScanGethProxyService
     }
 
     /// <inheritdoc />
-    public async Task<EthGasPrice?> EthGasPrice()
+    public async Task<EthGasPrice?> EthGasPriceAsync()
     {
         var queryParameters = $"{_bscScanModule}".AddAction(ProxyModuleAction.ETH_GAS_PRICE);
         using var response = await BscScanHttpClient.GetAsync($"{queryParameters}")
@@ -191,7 +191,7 @@ public class BscScanGethProxyService: BaseHttpClient, IBscScanGethProxyService
     }
 
     /// <inheritdoc />
-    public async Task<EthEstimateGas?> EthEstimateGas(EthEstimateGasRequest request)
+    public async Task<EthEstimateGas?> EthEstimateGasAsync(EthEstimateGasRequest request)
     {
         var queryParameters = $"{_bscScanModule}{request.ToRequestParameters(ProxyModuleAction.ETH_ESTIMATE_GAS)}";
         using var response = await BscScanHttpClient.GetAsync($"{queryParameters}")

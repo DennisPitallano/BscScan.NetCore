@@ -19,7 +19,7 @@ public class BscScanTransactionService : BaseHttpClient, IBscScanTransactionServ
     }
 
     /// <inheritdoc />
-    public async Task<TransactionReceiptStatus?> CheckTransactionReceiptStatus(string txHash)
+    public async Task<TransactionReceiptStatus?> CheckTransactionReceiptStatusAsync(string txHash)
     {
         var queryParameters = $"{_bscScanModule}".AddAction(TransactionsModuleAction.GET_TX_RECEIPT_STATUS)
             .AddQuery(BscQueryParam.TxHash.AppendValue(txHash));

@@ -115,6 +115,13 @@ internal static class GasTrackerModuleAction
 internal static class GasStatsModuleAction
 {
     public const string BNB_SUPPLY = "bnbsupply";
+    public const string VALIDATOR_LIST = "validators";
+    public const string BNB_PRICE = "bnbprice";
+    public const string BNB_DAILY_PRICE = "bnbdailyprice";
+    public const string DAILY_TXN_FEE = "dailytxnfee";
+    public const string DAILY_NEW_ADDRESS = "dailynewaddress";
+    public const string DAILY_NET_UTILIZATION = "dailynetutilization";
+    public const string DAILY_TX = "dailytx";
 }
 
 /// <summary>

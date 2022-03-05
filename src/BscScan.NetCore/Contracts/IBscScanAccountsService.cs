@@ -63,7 +63,7 @@ public interface IBscScanAccountsService
     ///    BEP-20 transfers from an address filtered by a token contract, specify both address and contract address parameters.
     /// </remarks>
     /// <returns>Returns the list of BEP-20 tokens transferred by an address, with optional filtering by token contract.</returns>
-    Task<Bep20TokenTransferEvents?> GetBep20TokenTransferEventsByAddress(Bep20TokenTransferEventsRequest request);
+    Task<Bep20TokenTransferEvents?> GetBep20TokenTransferEventsByAddressAsync(Bep20TokenTransferEventsRequest request);
 
     /// <summary>
     /// Get a list of 'BEP-721 Token Transfer Events' by Address
@@ -76,14 +76,14 @@ public interface IBscScanAccountsService
     ///     BEP-721 transfers from an address filtered by a token contract, specify both address and contract address parameters.
     /// </remarks>
     /// <returns>Returns the list of BEP-721 ( NFT ) tokens transferred by an address, with optional filtering by token contract.</returns>
-    Task<Bep721TokenTransferEvents?> GetBep721TokenTransferEventsByAddress(Bep721TokenTransferEventsRequest request);
-
+    Task<Bep721TokenTransferEvents?> GetBep721TokenTransferEventsByAddressAsync(Bep721TokenTransferEventsRequest request);
+        
     /// <summary>
     /// Get list of Blocks Validated by Address
     /// </summary>
     /// <param name="request">BlocksValidatedRequest Model</param>
     /// <returns>Returns the list of blocks validated by an address.</returns>
-    Task<BlocksValidated?> GetBlocksValidatedByAddress(BlocksValidatedRequest request);
+    Task<BlocksValidated?> GetBlocksValidatedByAddressAsync(BlocksValidatedRequest request);
 
     /// <summary>
     ///  Get Historical BNB Balance for a Single Address by BlockNo 🅰🅿🅸  🅿🆁🅾
@@ -94,5 +94,5 @@ public interface IBscScanAccountsService
     ///     Note : This endpoint is throttled to 2 calls/second regardless of API Pro tier.
     /// </remarks>
     /// <returns>Returns the historical BNB balance of an address at a certain block height. </returns>
-    Task<BnbBalanceHistoryByBlockNo?> GetHistoricalBnbBalanceByBlockNo(string address, int blockno);
+    Task<BnbBalanceHistoryByBlockNo?> GetHistoricalBnbBalanceByBlockNoAsync(string address, int blockno);
 }

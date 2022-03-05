@@ -12,5 +12,5 @@ public interface IBscScanTransactionService
     /// </summary>
     /// <param name="txHash">the string representing the transaction hash to check the execution status</param>
     /// <returns>Returns the status code of a transaction execution.</returns>
-    Task<TransactionReceiptStatus?> CheckTransactionReceiptStatus(string txHash);
+    Task<TransactionReceiptStatus?> CheckTransactionReceiptStatusAsync(string txHash);
 }
