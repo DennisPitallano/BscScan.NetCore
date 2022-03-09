@@ -10,7 +10,7 @@ For your API Key, please follow [BscScan Getting Started Guide](https://docs.bsc
 
 # # 🐲BSC API ENDPOINTS:
 
-**Current Version** `version 1.0.2`
+**Current Version** `version 1.0.4`
 
 ### 🎯**BscScan Accounts API**
 
@@ -125,4 +125,4 @@ For your API Key, please follow [BscScan Getting Started Guide](https://docs.bsc
    using BscScan.NetCore;
    ```
 
-## `(Documentation In-Progress)` See the detailed guide [here](https://dennispitallano.github.io/docs/bscsan-netcore/get-start).
+## See the detailed guide [here](https://dennispitallano.github.io/docs/bscsan-netcore/get-start).
