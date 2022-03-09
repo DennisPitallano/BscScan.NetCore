@@ -32,8 +32,14 @@ public class DailyBlockCountAndRewardsData
     public string? UnixTimeStamp { get; set; }
 
     /// <summary>
-    /// BlockTimeSec
+    /// blockCount
     /// </summary>
-    [JsonPropertyName("blockTime_sec")]
-    public string? BlockTimeSec { get; set; }
+    [JsonPropertyName("blockCount")]
+    public string? BlockCount { get; set; }
+
+    /// <summary>
+    /// blockRewards_Eth
+    /// </summary>
+    [JsonPropertyName("blockRewards_Eth")]
+    public string? BlockRewardsEth { get; set; }
 }
