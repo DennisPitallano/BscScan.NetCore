@@ -14,10 +14,10 @@
 	  <License>https://github.com/DennisPitallano/BscScan.NetCore/blob/main/LICENSE</License>
     <PackageReleaseNotes>https://github.com/DennisPitallano/BscScan.NetCore/releases/tag/release-1</PackageReleaseNotes>
     <PackageTags>.netcore,bscscan,crypto,api,wrapper,.net,binance-chain,cryptocurrency,library,csharp,wrapper-api,binance-smart-chain,binance-api,api,bscscan-api</PackageTags>
-    <Version>1.0.1</Version>
+    <Version>1.0.3</Version>
     <PackageReadmeFile>RELEASED.md</PackageReadmeFile>
     <RepositoryType>git</RepositoryType>
-    <Copyright>Copyright © 2022 Oragon</Copyright>
+    <Copyright>Copyright © 2022 Oragon 🌶</Copyright>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
   </PropertyGroup>
 
