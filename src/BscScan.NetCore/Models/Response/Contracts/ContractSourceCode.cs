@@ -8,6 +8,18 @@ namespace BscScan.NetCore.Models.Response.Contracts;
 public class ContractSourceCode : BaseResponse
 {
     /// <summary>
+    /// ContractSourceCodeData
+    /// </summary>
+    [JsonPropertyName("result")]
+    public IEnumerable<ContractSourceCodeData>? Result { get; set; }
+}
+
+/// <summary>
+/// ContractSourceCodeData
+/// </summary>
+public class ContractSourceCodeData
+{
+    /// <summary>
     /// SwarmSource
     /// </summary>
     [JsonPropertyName("SourceCode")]
