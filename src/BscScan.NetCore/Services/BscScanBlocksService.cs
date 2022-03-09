@@ -23,7 +23,7 @@ public class BscScanBlocksService :BaseHttpClient, IBscScanBlocksService
     }
 
     /// <inheritdoc />
-    public async Task<BlockRewards?> GetBlockRewardsByBlockNoAsync(string blockNo)
+    public async Task<BlockRewards?> GetBlockRewardsByBlockNoAsync(int blockNo)
     {
         var queryParameters = $"{_bscScanModuleBlock}".AddAction(BlocksModuleAction.GET_BLOCK_REWARD)
             .AddQuery(BscQueryParam.BlockNo.AppendValue(blockNo));
@@ -37,7 +37,7 @@ public class BscScanBlocksService :BaseHttpClient, IBscScanBlocksService
     }
 
     /// <inheritdoc />
-    public async Task<EstimatedBlockCountdownTime?> GetEstimatedBlockCountdownTimeByBlockNoAsync(string blockNo)
+    public async Task<EstimatedBlockCountdownTime?> GetEstimatedBlockCountdownTimeByBlockNoAsync(int blockNo)
     {
         var queryParameters = $"{_bscScanModuleBlock}".AddAction(BlocksModuleAction.GET_BLOCK_COUNT_DOWN)
             .AddQuery(BscQueryParam.BlockNo.AppendValue(blockNo));
