@@ -147,7 +147,7 @@ namespace BscScanMvc.Controllers
             //    EndDate = new DateOnly(2021,8,28)
             //});
 
-            var result = await _bscScanStatsService.GetTotalSupply();
+            var result = await _bscScanContractsService.GetContractSourceCodeAsync("0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82");
             return View();
         }
 
