@@ -2,7 +2,9 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using BscScan.NetCore.Contracts;
-using BscScan.NetCore.Models.Request.Tokens;
+using BscScan.NetCore.Models;
+using BscScan.NetCore.Models.Request.GasTracker;
+using BscScan.NetCore.Models.Response.GasTracker;
 
 namespace BscScanMvc.Controllers
 {
@@ -148,17 +150,49 @@ namespace BscScanMvc.Controllers
             //    EndDate = new DateOnly(2021,8,28)
             //});
 
-            var parameters = new HistoricalBep20TokenAccountBalanceRequest
+            var parameters = new DailyAverageGasPriceRequest
             {
-                ContractAddress = "0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82",
-                Page = 1,
-                OffSet = 10
+                StartDate = new DateOnly(2021,8,1),
+                EndDate = new DateOnly(2021,8,28),
+                Sort = Sort.Asc
             };
-            var historicalBep20TokenTotalSupply =
-                await _bscScanTokensService
-                    .GetHistoricalBep20TokenAccountBalanceByContractAddressAndBlockNoAsync(new HistoricalBep20TokenAccountBalanceRequest());
-
-
+            var dailyAverageGasPrice =
+                await _bscScanGasTrackerService
+                    .GetDailyAverageGasPriceAsync(parameters);
+            var test = await _bscScanGasTrackerService.GetGasOracleAsync();
+            var dailyAverageGasPricea= new DailyAverageGasPrice
+            {
+                Status = "1",
+                Message = "OK",
+                Result =new List<DailyAverageGasPriceData>
+                {
+                    new()
+                    {
+                        UtcDate = "2021-02-01",
+                        UnixTimeStamp = "1612137600",
+                        MaxGasPriceWei = "4557272900001",
+                        MinGasPriceWei = "20000000000",
+                        AvgGasPriceWei = "26264086210"
+                    },
+                    new()
+                    {
+                        UtcDate = "2021-02-02",
+                        UnixTimeStamp = "1612224000",
+                        MaxGasPriceWei = "5449370028101",
+                        MinGasPriceWei = "20000000000",
+                        AvgGasPriceWei = "26877628667"
+                    },
+                    new()
+                    {
+                        UtcDate = "2021-02-03",
+                        UnixTimeStamp = "1612310400",
+                        MaxGasPriceWei = "5440938161363",
+                        MinGasPriceWei = "20000000000",
+                        AvgGasPriceWei = "24451656852"
+                    }
+                }
+            };
+            
             return View();
         }
 
