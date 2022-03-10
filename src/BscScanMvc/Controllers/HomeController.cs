@@ -2,8 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using BscScan.NetCore.Contracts;
-using BscScan.NetCore.Models;
-using BscScan.NetCore.Models.Request.Blocks;
+using BscScan.NetCore.Models.Request.Tokens;
 
 namespace BscScanMvc.Controllers
 {
@@ -148,15 +147,16 @@ namespace BscScanMvc.Controllers
             //    StartDate = new DateOnly(2021,8,1),
             //    EndDate = new DateOnly(2021,8,28)
             //});
-            var parameters = new DailyBlockCountAndRewardRequest
-            {
-                StartDate = new DateOnly(2021,8,1),
-                EndDate = new DateOnly(2021,8,31),
-                Sort = Sort.Asc
-            };
-            var dailyBlockCountAndRewards =
-                await _bscScanBlocksService.GetDailyBlockCountsAndRewardsAsync(parameters);
 
+            var parameters = new HistoricalBep20TokenAccountBalanceRequest
+            {
+                ContractAddress = "0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82",
+                Page = 1,
+                OffSet = 10
+            };
+            var historicalBep20TokenTotalSupply =
+                await _bscScanTokensService
+                    .GetHistoricalBep20TokenAccountBalanceByContractAddressAndBlockNoAsync(new HistoricalBep20TokenAccountBalanceRequest());
 
 
             return View();
