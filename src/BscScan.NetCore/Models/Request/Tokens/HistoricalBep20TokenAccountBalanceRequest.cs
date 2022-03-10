@@ -13,14 +13,14 @@ public class HistoricalBep20TokenAccountBalanceRequest
     [JsonPropertyName("contractaddress")]
     public string? ContractAddress { get; set; }
     /// <summary>
-    /// the integer page number, if pagination is enabled (default is 1)
+    /// the string representing the address to check for balance
     /// </summary>
-    [JsonPropertyName("page")]
-    public int Page { get; set; } = 1;
+    [JsonPropertyName("address")]
+    public string? Address { get; set; }
 
     /// <summary>
-    /// the number of transactions displayed per page (default is 10)
+    /// the integer block number to check total supply for eg. 400000
     /// </summary>
-    [JsonPropertyName("offset")]
-    public int OffSet { get; set; } = 10;
+    [JsonPropertyName("blockno")]
+    public int BlockNo { get; set; }
 }
