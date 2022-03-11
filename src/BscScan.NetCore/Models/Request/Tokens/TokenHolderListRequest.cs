@@ -1,6 +1,4 @@
-﻿using System.Text.Json.Serialization;
-
-namespace BscScan.NetCore.Models.Request.Tokens;
+﻿namespace BscScan.NetCore.Models.Request.Tokens;
 
 /// <summary>
 /// TokenHolderListRequest
@@ -12,6 +10,7 @@ public class TokenHolderListRequest
     /// </summary>
     [JsonPropertyName("contractaddress")]
     public string? ContractAddress { get; set; }
+
     /// <summary>
     /// the integer page number, if pagination is enabled (default is 1)
     /// </summary>

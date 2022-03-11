@@ -1,11 +1,9 @@
-﻿using System.Text.Json.Serialization;
-
-namespace BscScan.NetCore.Models.Request.Accounts;
+﻿namespace BscScan.NetCore.Models.Request.Accounts;
 
 /// <summary>
 /// Multiple Bnb Balance Request Model
 /// </summary>
-public  class MultipleBnbBalanceRequest
+public class MultipleBnbBalanceRequest
 {
     /// <summary>
     /// the strings representing the addresses to check for balance, separated by , commas up to 20 addresses per call

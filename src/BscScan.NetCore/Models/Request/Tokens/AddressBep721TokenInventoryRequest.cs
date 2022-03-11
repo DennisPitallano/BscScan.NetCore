@@ -1,6 +1,4 @@
-﻿using System.Text.Json.Serialization;
-
-namespace BscScan.NetCore.Models.Request.Tokens;
+﻿namespace BscScan.NetCore.Models.Request.Tokens;
 
 /// <summary>
 /// AddressBep721TokenInventoryRequest
@@ -12,11 +10,13 @@ public class AddressBep721TokenInventoryRequest
     /// </summary>
     [JsonPropertyName("address")]
     public string? Address { get; set; }
+
     /// <summary>
     /// the contract address of the BEP-20 token
     /// </summary>
     [JsonPropertyName("contractaddress")]
     public string? ContractAddress { get; set; }
+
     /// <summary>
     /// the integer page number, if pagination is enabled (default is 1)
     /// </summary>

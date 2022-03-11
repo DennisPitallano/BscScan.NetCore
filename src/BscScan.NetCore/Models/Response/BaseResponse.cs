@@ -1,6 +1,4 @@
-﻿using System.Text.Json.Serialization;
-
-namespace BscScan.NetCore.Models.Response;
+﻿namespace BscScan.NetCore.Models.Response;
 
 /// <summary>
 /// 
@@ -12,6 +10,7 @@ public class BaseResponse
     /// </summary>
     [JsonPropertyName("status")]
     public string? Status { get; set; }
+
     /// <summary>
     /// Message
     /// </summary>

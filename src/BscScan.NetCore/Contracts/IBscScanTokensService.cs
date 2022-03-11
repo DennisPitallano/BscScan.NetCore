@@ -1,7 +1,4 @@
-﻿using BscScan.NetCore.Models.Request.Tokens;
-using BscScan.NetCore.Models.Response.Tokens;
-
-namespace BscScan.NetCore.Contracts;
+﻿namespace BscScan.NetCore.Contracts;
 
 /// <summary>
 /// Tokens Module
@@ -28,7 +25,8 @@ public interface IBscScanTokensService
     /// <param name="contractAddress">the contract address of the BEP-20 token</param>
     /// <param name="address">the string representing the address to check for token balance</param>
     /// <returns>Returns the current balance of a BEP-20 token of an address.</returns>
-    Task<TokenAccountBalance?> GetBep20TokenAccountBalanceByContractAddressAsync(string contractAddress, string address);
+    Task<TokenAccountBalance?>
+        GetBep20TokenAccountBalanceByContractAddressAsync(string contractAddress, string address);
 
     /// <summary>
     /// Get Token Holder List by Contract Address  🅰🅿🅸  🅿🆁🅾
@@ -44,7 +42,8 @@ public interface IBscScanTokensService
     /// <param name="contractAddress">the contract address of the BEP-20 token</param>
     /// <param name="blockNo">the integer block number to check total supply for eg. 4000000</param>
     /// <returns>Returns the historical amount of a BEP-20 token in circulation at a certain block height.</returns>
-    Task<HistoricalBep20TokenTotalSupply?> GetHistoricalBep20TokenTotalSupplyByContractAddressAndBlockNoAsync(string contractAddress, int blockNo);
+    Task<HistoricalBep20TokenTotalSupply?> GetHistoricalBep20TokenTotalSupplyByContractAddressAndBlockNoAsync(
+        string contractAddress, int blockNo);
 
 
     /// <summary>
@@ -52,7 +51,8 @@ public interface IBscScanTokensService
     /// </summary>
     /// <param name="request">HistoricalBep20TokenAccountBalanceRequest</param>
     /// <returns>Returns the balance of a BEP-20 token of an address at a certain block height.</returns>
-    Task<HistoricalBep20TokenAccountBalance?> GetHistoricalBep20TokenAccountBalanceByContractAddressAndBlockNoAsync(HistoricalBep20TokenAccountBalanceRequest request);
+    Task<HistoricalBep20TokenAccountBalance?> GetHistoricalBep20TokenAccountBalanceByContractAddressAndBlockNoAsync(
+        HistoricalBep20TokenAccountBalanceRequest request);
 
     /// <summary>
     /// Get Token Info by ContractAddress 🅰🅿🅸  🅿🆁🅾
@@ -81,5 +81,6 @@ public interface IBscScanTokensService
     /// </summary>
     /// <param name="request">AddressBep721TokenInventoryRequest</param>
     /// <returns>Returns the BEP-721 token inventory of an address, filtered by contract address.</returns>
-    Task<AddressBep721TokenInventory?> GetAddressBep721TokenInventoryByContractAddressAsync(AddressBep721TokenInventoryRequest request);
+    Task<AddressBep721TokenInventory?> GetAddressBep721TokenInventoryByContractAddressAsync(
+        AddressBep721TokenInventoryRequest request);
 }

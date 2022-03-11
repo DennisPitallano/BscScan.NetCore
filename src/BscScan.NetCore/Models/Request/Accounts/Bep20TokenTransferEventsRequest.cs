@@ -1,11 +1,9 @@
-﻿using System.Text.Json.Serialization;
-
-namespace BscScan.NetCore.Models.Request.Accounts;
+﻿namespace BscScan.NetCore.Models.Request.Accounts;
 
 /// <summary>
 /// Bep20Token Transfer Request Model
 /// </summary>
-public  class Bep20TokenTransferEventsRequest
+public class Bep20TokenTransferEventsRequest
 {
     /// <summary>
     /// the string representing the addresses to check for balance

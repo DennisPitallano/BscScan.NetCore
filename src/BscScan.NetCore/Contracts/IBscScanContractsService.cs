@@ -7,7 +7,6 @@ namespace BscScan.NetCore.Contracts;
 /// </summary>
 public interface IBscScanContractsService
 {
-
     /// <summary>
     /// Get Contract ABI for Verified Contract Source Codes
     /// </summary>

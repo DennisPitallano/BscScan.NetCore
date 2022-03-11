@@ -1,0 +1,22 @@
+﻿global using BscScan.NetCore.Models;
+global using BscScan.NetCore.Models.Request.Accounts;
+global using BscScan.NetCore.Models.Response.Accounts;
+global using BscScan.NetCore.Models.Request.Blocks;
+global using BscScan.NetCore.Models.Response.Blocks;
+global using BscScan.NetCore.Models.Request.GasTracker;
+global using BscScan.NetCore.Models.Response.GasTracker;
+global using BscScan.NetCore.Models.Request.Proxy;
+global using BscScan.NetCore.Models.Response.Proxy;
+global using BscScan.NetCore.Models.Response.Transactions;
+global using BscScan.NetCore.Models.Request.Stats;
+global using BscScan.NetCore.Models.Response.Stats;
+global using BscScan.NetCore.Models.Request.Tokens;
+global using BscScan.NetCore.Models.Response.Tokens;
+global using System.Text.Json;
+global using System.Text.Json.Serialization;
+
+global using BscScan.NetCore.Configuration;
+global using BscScan.NetCore.Constants;
+global using BscScan.NetCore.Contracts;
+global using BscScan.NetCore.Extensions;
+global using BscScan.NetCore.Services;

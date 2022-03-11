@@ -1,6 +1,4 @@
-﻿using System.Text.Json.Serialization;
-
-namespace BscScan.NetCore.Models.Response.Tokens;
+﻿namespace BscScan.NetCore.Models.Response.Tokens;
 
 /// <summary>
 /// AddressBep721TokenInventory
@@ -24,10 +22,10 @@ public class AddressBep721TokenInventoryData
     /// </summary>
     [JsonPropertyName("TokenAddress")]
     public string? TokenAddress { get; set; }
+
     /// <summary>
     /// TokenId
     /// </summary>
     [JsonPropertyName("TokenId")]
     public string? TokenId { get; set; }
-
 }

@@ -1,7 +1,4 @@
-﻿using BscScan.NetCore.Models.Request.GasTracker;
-using BscScan.NetCore.Models.Response.GasTracker;
-
-namespace BscScan.NetCore.Contracts;
+﻿namespace BscScan.NetCore.Contracts;
 
 /// <summary>
 /// BscScan Gas Tracker Module Interface

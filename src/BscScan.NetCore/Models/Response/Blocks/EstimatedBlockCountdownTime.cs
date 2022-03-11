@@ -1,11 +1,9 @@
-﻿using System.Text.Json.Serialization;
-
-namespace BscScan.NetCore.Models.Response.Blocks;
+﻿namespace BscScan.NetCore.Models.Response.Blocks;
 
 /// <summary>
 /// EstimatedBlockCountdownTime Model
 /// </summary>
-public  class EstimatedBlockCountdownTime : BaseResponse
+public class EstimatedBlockCountdownTime : BaseResponse
 {
     /// <summary>
     /// EstimatedBlockCountdownTimeData
@@ -19,7 +17,6 @@ public  class EstimatedBlockCountdownTime : BaseResponse
 /// </summary>
 public class EstimatedBlockCountdownTimeData
 {
-
     /// <summary>
     /// CurrentBlock
     /// </summary>

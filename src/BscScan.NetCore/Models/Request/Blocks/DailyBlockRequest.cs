@@ -1,6 +1,4 @@
-﻿using System.Text.Json.Serialization;
-
-namespace BscScan.NetCore.Models.Request.Blocks;
+﻿namespace BscScan.NetCore.Models.Request.Blocks;
 
 /// <summary>
 /// DailyBlockRequest Base Request

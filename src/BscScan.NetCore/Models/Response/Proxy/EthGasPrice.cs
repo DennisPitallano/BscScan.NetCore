@@ -1,6 +1,4 @@
-﻿using System.Text.Json.Serialization;
-
-namespace BscScan.NetCore.Models.Response.Proxy;
+﻿namespace BscScan.NetCore.Models.Response.Proxy;
 
 /// <summary>
 /// EthGasPrice

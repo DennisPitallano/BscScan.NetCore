@@ -1,11 +1,4 @@
-﻿using System.Text.Json;
-using BscScan.NetCore.Configuration;
-using BscScan.NetCore.Constants;
-using BscScan.NetCore.Contracts;
-using BscScan.NetCore.Extensions;
-using BscScan.NetCore.Models.Response.Transactions;
-
-namespace BscScan.NetCore.Services;
+﻿namespace BscScan.NetCore.Services;
 
 /// <inheritdoc cref="IBscScanTransactionService" />
 public class BscScanTransactionService : BaseHttpClient, IBscScanTransactionService
@@ -13,7 +6,8 @@ public class BscScanTransactionService : BaseHttpClient, IBscScanTransactionServ
     private readonly string _bscScanModule;
 
     /// <inheritdoc />
-    public BscScanTransactionService(HttpClient bscScanHttpClient, BscScanConfiguration bscScanConfiguration) : base(bscScanHttpClient, bscScanConfiguration)
+    public BscScanTransactionService(HttpClient bscScanHttpClient, BscScanConfiguration bscScanConfiguration) : base(
+        bscScanHttpClient, bscScanConfiguration)
     {
         _bscScanModule = BscScanModule.TRANSACTIONS.AppendApiKey(bscScanConfiguration.BscScanOptions.Token);
     }

@@ -1,12 +1,4 @@
-﻿using System.Text.Json;
-using BscScan.NetCore.Configuration;
-using BscScan.NetCore.Constants;
-using BscScan.NetCore.Contracts;
-using BscScan.NetCore.Extensions;
-using BscScan.NetCore.Models.Request.Accounts;
-using BscScan.NetCore.Models.Response.Accounts;
-
-namespace BscScan.NetCore.Services;
+﻿namespace BscScan.NetCore.Services;
 
 /// <inheritdoc cref="IBscScanAccountsService" />
 public class BscScanAccountsService : BaseHttpClient, IBscScanAccountsService
@@ -60,9 +52,11 @@ public class BscScanAccountsService : BaseHttpClient, IBscScanAccountsService
     }
 
     /// <inheritdoc />
-    public async Task<InternalTransactionsByAddress?> GetInternalTransactionsByAddressAsync(InternalTransactionsRequest request)
+    public async Task<InternalTransactionsByAddress?> GetInternalTransactionsByAddressAsync(
+        InternalTransactionsRequest request)
     {
-        var queryParameters = $"{_bscScanModule}{request.ToRequestParameters(AccountsModuleAction.TRANSACTION_LIST_INTERNAL)}";
+        var queryParameters =
+            $"{_bscScanModule}{request.ToRequestParameters(AccountsModuleAction.TRANSACTION_LIST_INTERNAL)}";
         using var response = await BscScanHttpClient.GetAsync($"{queryParameters}")
             .ConfigureAwait(false);
 
@@ -87,9 +81,11 @@ public class BscScanAccountsService : BaseHttpClient, IBscScanAccountsService
     }
 
     /// <inheritdoc />
-    public async Task<InternalTransactionsByBlockRange?> GetInternalTransactionsByBlockRangeAsync(InternalTransactionsByBlockRangeRequest request)
+    public async Task<InternalTransactionsByBlockRange?> GetInternalTransactionsByBlockRangeAsync(
+        InternalTransactionsByBlockRangeRequest request)
     {
-        var queryParameters = $"{_bscScanModule}{request.ToRequestParameters(AccountsModuleAction.TRANSACTION_LIST_INTERNAL)}";
+        var queryParameters =
+            $"{_bscScanModule}{request.ToRequestParameters(AccountsModuleAction.TRANSACTION_LIST_INTERNAL)}";
         using var response = await BscScanHttpClient.GetAsync($"{queryParameters}")
             .ConfigureAwait(false);
 
@@ -100,7 +96,8 @@ public class BscScanAccountsService : BaseHttpClient, IBscScanAccountsService
     }
 
     /// <inheritdoc />
-    public async Task<Bep20TokenTransferEvents?> GetBep20TokenTransferEventsByAddressAsync(Bep20TokenTransferEventsRequest request)
+    public async Task<Bep20TokenTransferEvents?> GetBep20TokenTransferEventsByAddressAsync(
+        Bep20TokenTransferEventsRequest request)
     {
         var queryParameters = $"{_bscScanModule}{request.ToRequestParameters(AccountsModuleAction.TOKEN_TX)}";
         using var response = await BscScanHttpClient.GetAsync($"{queryParameters}")
@@ -113,7 +110,8 @@ public class BscScanAccountsService : BaseHttpClient, IBscScanAccountsService
     }
 
     /// <inheritdoc />
-    public async Task<Bep721TokenTransferEvents?> GetBep721TokenTransferEventsByAddressAsync(Bep721TokenTransferEventsRequest request)
+    public async Task<Bep721TokenTransferEvents?> GetBep721TokenTransferEventsByAddressAsync(
+        Bep721TokenTransferEventsRequest request)
     {
         var queryParameters = $"{_bscScanModule}{request.ToRequestParameters(AccountsModuleAction.TOKEN_NFT_TX)}";
         using var response = await BscScanHttpClient.GetAsync($"{queryParameters}")

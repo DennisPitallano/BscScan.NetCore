@@ -11,11 +11,12 @@ public class BaseHttpClient
     /// HttpClient
     /// </summary>
     protected readonly HttpClient BscScanHttpClient;
-    
+
     /// <summary>
     /// BscScanConfiguration 
     /// </summary>
     protected readonly BscScanConfiguration BscScanConfiguration;
+
     /// <summary>
     ///  Base Http Client Constructor
     /// </summary>

@@ -9,10 +9,12 @@ public enum Tag
     /// Earliest
     /// </summary>
     Earliest,
+
     /// <summary>
     /// Pending
     /// </summary>
     Pending,
+
     /// <summary>
     /// Latest
     /// </summary>
@@ -28,6 +30,7 @@ public enum Sort
     /// Ascending
     /// </summary>
     Asc,
+
     /// <summary>
     /// Descending
     /// </summary>
@@ -43,6 +46,7 @@ public enum Closest
     /// Before
     /// </summary>
     Before,
+
     /// <summary>
     /// After
     /// </summary>

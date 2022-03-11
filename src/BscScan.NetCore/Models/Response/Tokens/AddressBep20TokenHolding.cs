@@ -1,6 +1,4 @@
-﻿using System.Text.Json.Serialization;
-
-namespace BscScan.NetCore.Models.Response.Tokens;
+﻿namespace BscScan.NetCore.Models.Response.Tokens;
 
 /// <summary>
 /// AddressBep20TokenHolding
@@ -48,5 +46,4 @@ public class AddressBep20TokenHoldingData
     /// </summary>
     [JsonPropertyName("TokenDivisor")]
     public string? TokenDivisor { get; set; }
-
 }

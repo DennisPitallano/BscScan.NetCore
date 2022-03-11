@@ -1,6 +1,4 @@
-﻿using System.Text.Json.Serialization;
-
-namespace BscScan.NetCore.Models.Request.Tokens;
+﻿namespace BscScan.NetCore.Models.Request.Tokens;
 
 /// <summary>
 /// HistoricalBep20TokenAccountBalanceRequest
@@ -12,6 +10,7 @@ public class HistoricalBep20TokenAccountBalanceRequest
     /// </summary>
     [JsonPropertyName("contractaddress")]
     public string? ContractAddress { get; set; }
+
     /// <summary>
     /// the string representing the address to check for balance
     /// </summary>

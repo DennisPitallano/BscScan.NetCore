@@ -3,6 +3,6 @@
 /// <summary>
 /// DailyBlockCountAndRewardRequest Model
 /// </summary>
-public  class DailyBlockCountAndRewardRequest: DailyBlockRequest
+public class DailyBlockCountAndRewardRequest : DailyBlockRequest
 {
 }

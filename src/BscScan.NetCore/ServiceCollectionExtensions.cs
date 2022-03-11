@@ -1,9 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using System.Net.Http.Headers;
-using BscScan.NetCore.Configuration;
-using BscScan.NetCore.Constants;
-using BscScan.NetCore.Contracts;
-using BscScan.NetCore.Services;
 
 namespace BscScan.NetCore;
 
@@ -27,7 +23,7 @@ public static class BscScanServiceCollectionExtensions
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue(MimeTypes.ApplicationJson));
         });
-        
+
         services.AddHttpClient<IBscScanAccountsService, BscScanAccountsService>(configureClient);
 
         services.AddHttpClient<IBscScanContractsService, BscScanContractsService>(configureClient);
