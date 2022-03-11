@@ -158,7 +158,7 @@ namespace BscScanMvc.Controllers
             };
             var dailyAverageGasPrice =
                 await _bscScanGasTrackerService
-                    .GetDailyAverageGasPriceAsync(parameters);
+                    .GetGasOracleAsync();
             var test = await _bscScanGasTrackerService.GetGasOracleAsync();
             var dailyAverageGasPricea= new DailyAverageGasPrice
             {

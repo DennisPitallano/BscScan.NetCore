@@ -1,12 +1,8 @@
 using BscScan.NetCore;
-using BscScan.NetCore.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var bscScanConfiguration = new BscScanConfiguration();
-builder.Configuration.GetSection(nameof(BscScanOptions)).Bind(bscScanConfiguration.BscScanOptions);
-builder.Services.AddSingleton(bscScanConfiguration);
-builder.Services.AddBscScan(bscScanConfiguration);
+builder.Services.AddBscScan(builder.Configuration);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
