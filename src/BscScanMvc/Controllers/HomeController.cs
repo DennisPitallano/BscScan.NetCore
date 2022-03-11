@@ -3,8 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using BscScan.NetCore.Contracts;
 using BscScan.NetCore.Models;
-using BscScan.NetCore.Models.Request.GasTracker;
-using BscScan.NetCore.Models.Response.GasTracker;
+using BscScan.NetCore.Models.Request.Stats;
+using BscScan.NetCore.Models.Response.Stats;
 
 namespace BscScanMvc.Controllers
 {
@@ -150,49 +150,35 @@ namespace BscScanMvc.Controllers
             //    EndDate = new DateOnly(2021,8,28)
             //});
 
-            var parameters = new DailyAverageGasPriceRequest
+            var parameters = new DailyTransactionCountRequest
             {
-                StartDate = new DateOnly(2021,8,1),
-                EndDate = new DateOnly(2021,8,28),
+                StartDate = new DateOnly(2021, 07, 1),
+                EndDate = new DateOnly(2021, 7, 31),
                 Sort = Sort.Asc
             };
-            var dailyAverageGasPrice =
-                await _bscScanGasTrackerService
-                    .GetGasOracleAsync();
-            var test = await _bscScanGasTrackerService.GetGasOracleAsync();
-            var dailyAverageGasPricea= new DailyAverageGasPrice
+            var dailyTransactionCount = await _bscScanStatsService.GetDailyTransactionCountAsync(parameters);
+
+            var dailyTransactionCounta = new DailyTransactionCount
             {
                 Status = "1",
                 Message = "OK",
-                Result =new List<DailyAverageGasPriceData>
+                Result = new List<DailyTransactionCountData>
                 {
                     new()
                     {
-                        UtcDate = "2021-02-01",
-                        UnixTimeStamp = "1612137600",
-                        MaxGasPriceWei = "4557272900001",
-                        MinGasPriceWei = "20000000000",
-                        AvgGasPriceWei = "26264086210"
+                        UtcDate = "2021-08-01",
+                        UnixTimeStamp = "1548979200",
+                        TransactionCount =498856
                     },
                     new()
                     {
-                        UtcDate = "2021-02-02",
-                        UnixTimeStamp = "1612224000",
-                        MaxGasPriceWei = "5449370028101",
-                        MinGasPriceWei = "20000000000",
-                        AvgGasPriceWei = "26877628667"
-                    },
-                    new()
-                    {
-                        UtcDate = "2021-02-03",
-                        UnixTimeStamp = "1612310400",
-                        MaxGasPriceWei = "5440938161363",
-                        MinGasPriceWei = "20000000000",
-                        AvgGasPriceWei = "24451656852"
+                        UtcDate = "2021-08-02",
+                        UnixTimeStamp = "1627862400",
+                        TransactionCount = 541458
                     }
                 }
             };
-            
+
             return View();
         }
 
