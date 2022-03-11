@@ -1,6 +1,4 @@
-﻿using System.Text.Json.Serialization;
-
-namespace BscScan.NetCore.Models.Response.Tokens;
+﻿namespace BscScan.NetCore.Models.Response.Tokens;
 
 /// <summary>
 /// TokenHolderList
@@ -30,5 +28,4 @@ public class TokenHolderListItem
     /// </summary>
     [JsonPropertyName("TokenHolderQuantity")]
     public string? TokenHolderQuantity { get; set; }
-
 }

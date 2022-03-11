@@ -1,6 +1,4 @@
-﻿using System.Text.Json.Serialization;
-
-namespace BscScan.NetCore.Models.Response.Blocks;
+﻿namespace BscScan.NetCore.Models.Response.Blocks;
 
 /// <summary>
 /// BlockRewards 
@@ -24,21 +22,25 @@ public class BlockRewardData
     /// </summary>
     [JsonPropertyName("blockNumber")]
     public string? BlockNumber { get; set; }
+
     /// <summary>
     /// TimeStamp
     /// </summary>
     [JsonPropertyName("timeStamp")]
     public string? TimeStamp { get; set; }
+
     /// <summary>
     /// BlockMiner
     /// </summary>
     [JsonPropertyName("blockMiner")]
     public string? BlockMiner { get; set; }
+
     /// <summary>
     /// BlockReward
     /// </summary>
     [JsonPropertyName("blockReward")]
     public string? BlockReward { get; set; }
+
     /// <summary>
     /// Uncles
     /// </summary>

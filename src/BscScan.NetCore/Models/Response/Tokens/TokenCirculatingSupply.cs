@@ -1,6 +1,4 @@
-﻿using System.Text.Json.Serialization;
-
-namespace BscScan.NetCore.Models.Response.Tokens;
+﻿namespace BscScan.NetCore.Models.Response.Tokens;
 
 /// <summary>
 /// TokenCirculatingSupply

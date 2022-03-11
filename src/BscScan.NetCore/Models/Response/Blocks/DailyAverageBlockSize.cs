@@ -1,6 +1,4 @@
-﻿using System.Text.Json.Serialization;
-
-namespace BscScan.NetCore.Models.Response.Blocks;
+﻿namespace BscScan.NetCore.Models.Response.Blocks;
 
 /// <summary>
 /// DailyAverageBlockSize Model

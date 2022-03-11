@@ -1,6 +1,4 @@
-﻿using System.Text.Json.Serialization;
-
-namespace BscScan.NetCore.Models.Response.Transactions;
+﻿namespace BscScan.NetCore.Models.Response.Transactions;
 
 /// <summary>
 /// Transaction Receipt Status Model

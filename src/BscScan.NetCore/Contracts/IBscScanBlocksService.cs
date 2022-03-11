@@ -1,8 +1,4 @@
-﻿using BscScan.NetCore.Models;
-using BscScan.NetCore.Models.Request.Blocks;
-using BscScan.NetCore.Models.Response.Blocks;
-
-namespace BscScan.NetCore.Contracts;
+﻿namespace BscScan.NetCore.Contracts;
 
 /// <summary>
 /// BscScan Blocks Module API Interface

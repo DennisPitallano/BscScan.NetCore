@@ -3,7 +3,6 @@
 /// <summary>
 /// DailyAverageBlockSize Request Model
 /// </summary>
-public class DailyAverageBlockSizeRequest :DailyBlockRequest
+public class DailyAverageBlockSizeRequest : DailyBlockRequest
 {
-      
 }

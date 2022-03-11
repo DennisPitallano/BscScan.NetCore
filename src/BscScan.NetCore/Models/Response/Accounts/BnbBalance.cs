@@ -1,6 +1,4 @@
-﻿using System.Text.Json.Serialization;
-
-namespace BscScan.NetCore.Models.Response.Accounts;
+﻿namespace BscScan.NetCore.Models.Response.Accounts;
 
 /// <summary>
 /// Bnb Balance

@@ -1,7 +1,4 @@
-﻿using BscScan.NetCore.Models.Request.Accounts;
-using BscScan.NetCore.Models.Response.Accounts;
-
-namespace BscScan.NetCore.Contracts;
+﻿namespace BscScan.NetCore.Contracts;
 
 /// <summary>
 /// BscScan Account Module API Interface
@@ -51,7 +48,8 @@ public interface IBscScanAccountsService
     /// <param name="request">InternalTransactionsByBlockRangeRequest Model</param>
     /// <returns>Returns the list of internal transactions performed within a block range, with optional pagination.</returns>
     /// <remarks>This API endpoint returns a maximum of 10000 records only.</remarks>
-    Task<InternalTransactionsByBlockRange?> GetInternalTransactionsByBlockRangeAsync(InternalTransactionsByBlockRangeRequest request);
+    Task<InternalTransactionsByBlockRange?> GetInternalTransactionsByBlockRangeAsync(
+        InternalTransactionsByBlockRangeRequest request);
 
     /// <summary>
     /// Get a list of 'BEP-20 Token Transfer Events' by Address
@@ -76,8 +74,9 @@ public interface IBscScanAccountsService
     ///     BEP-721 transfers from an address filtered by a token contract, specify both address and contract address parameters.
     /// </remarks>
     /// <returns>Returns the list of BEP-721 ( NFT ) tokens transferred by an address, with optional filtering by token contract.</returns>
-    Task<Bep721TokenTransferEvents?> GetBep721TokenTransferEventsByAddressAsync(Bep721TokenTransferEventsRequest request);
-        
+    Task<Bep721TokenTransferEvents?> GetBep721TokenTransferEventsByAddressAsync(
+        Bep721TokenTransferEventsRequest request);
+
     /// <summary>
     /// Get list of Blocks Validated by Address
     /// </summary>

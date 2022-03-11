@@ -1,6 +1,4 @@
-﻿using BscScan.NetCore.Models.Response.Transactions;
-
-namespace BscScan.NetCore.Contracts;
+﻿namespace BscScan.NetCore.Contracts;
 
 /// <summary>
 ///  BscScan Transaction Module Interface

@@ -1,6 +1,4 @@
-﻿using System.Text.Json.Serialization;
-
-namespace BscScan.NetCore.Models.Request.Proxy;
+﻿namespace BscScan.NetCore.Models.Request.Proxy;
 
 /// <summary>
 /// EthEstimateGasRequest

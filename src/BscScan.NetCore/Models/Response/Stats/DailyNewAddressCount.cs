@@ -1,11 +1,9 @@
-﻿using System.Text.Json.Serialization;
-
-namespace BscScan.NetCore.Models.Response.Stats;
+﻿namespace BscScan.NetCore.Models.Response.Stats;
 
 /// <summary>
 /// 
 /// </summary>
-public class DailyNewAddressCount :BaseResponse
+public class DailyNewAddressCount : BaseResponse
 {
     /// <summary>
     /// List of DailyNetworkTransactionFeeData

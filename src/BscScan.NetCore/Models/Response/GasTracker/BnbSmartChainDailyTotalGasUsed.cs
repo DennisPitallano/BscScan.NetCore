@@ -1,6 +1,4 @@
-﻿using System.Text.Json.Serialization;
-
-namespace BscScan.NetCore.Models.Response.GasTracker;
+﻿namespace BscScan.NetCore.Models.Response.GasTracker;
 
 /// <summary>
 /// BnbSmartChainDailyTotalGasUsed

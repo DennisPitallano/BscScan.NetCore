@@ -1,8 +1,4 @@
-﻿using BscScan.NetCore.Models;
-using BscScan.NetCore.Models.Request.Proxy;
-using BscScan.NetCore.Models.Response.Proxy;
-
-namespace BscScan.NetCore.Contracts;
+﻿namespace BscScan.NetCore.Contracts;
 
 /// <summary>
 /// Geth Proxy Module
@@ -94,7 +90,7 @@ public interface IBscScanGethProxyService
     /// <param name="position">the hex code of the position in storage, eg 0x0</param>
     /// <param name="tag">the string pre-defined block parameter, either earliest, pending or latest</param>
     /// <returns>Returns the value from a storage position at a given address.</returns>
-    Task<EthStorageAt?> EthGetStorageAtAsync(string address,string position, Tag tag = Tag.Latest);
+    Task<EthStorageAt?> EthGetStorageAtAsync(string address, string position, Tag tag = Tag.Latest);
 
     /// <summary>
     /// eth_gasPrice

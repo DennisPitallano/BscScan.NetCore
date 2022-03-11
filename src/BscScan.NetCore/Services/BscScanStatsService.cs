@@ -1,12 +1,4 @@
-﻿using System.Text.Json;
-using BscScan.NetCore.Configuration;
-using BscScan.NetCore.Constants;
-using BscScan.NetCore.Contracts;
-using BscScan.NetCore.Extensions;
-using BscScan.NetCore.Models.Request.Stats;
-using BscScan.NetCore.Models.Response.Stats;
-
-namespace BscScan.NetCore.Services;
+﻿namespace BscScan.NetCore.Services;
 
 /// <inheritdoc cref="IBscScanStatsService" />
 public class BscScanStatsService : BaseHttpClient, IBscScanStatsService
@@ -14,7 +6,7 @@ public class BscScanStatsService : BaseHttpClient, IBscScanStatsService
     private readonly string _bscScanStatsModule;
 
     /// <inheritdoc />
-    public BscScanStatsService(HttpClient bscScanHttpClient, BscScanConfiguration bscScanConfiguration) 
+    public BscScanStatsService(HttpClient bscScanHttpClient, BscScanConfiguration bscScanConfiguration)
         : base(bscScanHttpClient, bscScanConfiguration)
     {
         _bscScanStatsModule = BscScanModule.STATS.AppendApiKey(bscScanConfiguration.BscScanOptions.Token);
@@ -62,7 +54,8 @@ public class BscScanStatsService : BaseHttpClient, IBscScanStatsService
     /// <inheritdoc />
     public async Task<BnbHistoricalPrice?> GetBnbHistoricalPriceAsync(BnbHistoricalPriceRequest request)
     {
-        var queryParameters = $"{_bscScanStatsModule}{request.ToRequestParameters(GasStatsModuleAction.BNB_DAILY_PRICE)}";
+        var queryParameters =
+            $"{_bscScanStatsModule}{request.ToRequestParameters(GasStatsModuleAction.BNB_DAILY_PRICE)}";
         using var response = await BscScanHttpClient.GetAsync($"{queryParameters}")
             .ConfigureAwait(false);
 
@@ -73,7 +66,8 @@ public class BscScanStatsService : BaseHttpClient, IBscScanStatsService
     }
 
     /// <inheritdoc />
-    public async Task<DailyNetworkTransactionFee?> GetDailyNetworkTransactionFeeAsync(DailyNetworkTransactionFeeRequest request)
+    public async Task<DailyNetworkTransactionFee?> GetDailyNetworkTransactionFeeAsync(
+        DailyNetworkTransactionFeeRequest request)
     {
         var queryParameters = $"{_bscScanStatsModule}{request.ToRequestParameters(GasStatsModuleAction.DAILY_TXN_FEE)}";
         using var response = await BscScanHttpClient.GetAsync($"{queryParameters}")
@@ -88,7 +82,8 @@ public class BscScanStatsService : BaseHttpClient, IBscScanStatsService
     /// <inheritdoc />
     public async Task<DailyNewAddressCount?> GetDailyNewAddressCountAsync(DailyNewAddressCountRequest request)
     {
-        var queryParameters = $"{_bscScanStatsModule}{request.ToRequestParameters(GasStatsModuleAction.DAILY_NEW_ADDRESS)}";
+        var queryParameters =
+            $"{_bscScanStatsModule}{request.ToRequestParameters(GasStatsModuleAction.DAILY_NEW_ADDRESS)}";
         using var response = await BscScanHttpClient.GetAsync($"{queryParameters}")
             .ConfigureAwait(false);
 
@@ -101,7 +96,8 @@ public class BscScanStatsService : BaseHttpClient, IBscScanStatsService
     /// <inheritdoc />
     public async Task<DailyNetworkUtilization?> GetDailyNetworkUtilizationAsync(DailyNetworkUtilizationRequest request)
     {
-        var queryParameters = $"{_bscScanStatsModule}{request.ToRequestParameters(GasStatsModuleAction.DAILY_NET_UTILIZATION)}";
+        var queryParameters =
+            $"{_bscScanStatsModule}{request.ToRequestParameters(GasStatsModuleAction.DAILY_NET_UTILIZATION)}";
         using var response = await BscScanHttpClient.GetAsync($"{queryParameters}")
             .ConfigureAwait(false);
 

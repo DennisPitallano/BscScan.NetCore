@@ -1,6 +1,4 @@
-﻿using System.Text.Json.Serialization;
-
-namespace BscScan.NetCore.Models.Request.Stats;
+﻿namespace BscScan.NetCore.Models.Request.Stats;
 
 /// <summary>
 /// DailyNewAddressCountRequest
@@ -29,13 +27,13 @@ public class DailyNewAddressCountRequest
     /// the starting date in yyyy-MM-dd format, eg. 2020-10-01
     /// </summary>
     [JsonPropertyName("startdate")]
-    public string? StartDateParam => StartDate.ToString("yyyy-MM-dd");
+    public string StartDateParam => StartDate.ToString("yyyy-MM-dd");
 
     /// <summary>
     /// the ending date in yyyy-MM-dd format, eg. 2020-10-31
     /// </summary>
     [JsonPropertyName("enddate")]
-    public string? EndDateParam => EndDate.ToString("yyyy-MM-dd");
+    public string EndDateParam => EndDate.ToString("yyyy-MM-dd");
 
     /// <summary>
     /// the sorting preference, use asc to sort by ascending and desc to sort by descending (default is asc)

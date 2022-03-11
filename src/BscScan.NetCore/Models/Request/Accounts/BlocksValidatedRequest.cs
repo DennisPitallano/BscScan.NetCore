@@ -1,6 +1,4 @@
-﻿using System.Text.Json.Serialization;
-
-namespace BscScan.NetCore.Models.Request.Accounts;
+﻿namespace BscScan.NetCore.Models.Request.Accounts;
 
 /// <summary>
 /// Blocks Validated Request
@@ -21,6 +19,7 @@ public class BlocksValidatedRequest
     /// </summary>
     [JsonPropertyName("address")]
     public string? Address { get; set; }
+
     /// <summary>
     /// the integer page number, if pagination is enabled (default is 1)
     /// </summary>

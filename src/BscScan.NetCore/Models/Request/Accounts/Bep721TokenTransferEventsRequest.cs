@@ -1,6 +1,4 @@
-﻿using System.Text.Json.Serialization;
-
-namespace BscScan.NetCore.Models.Request.Accounts;
+﻿namespace BscScan.NetCore.Models.Request.Accounts;
 
 /// <summary>
 /// Bep721Token Transfer Request Model

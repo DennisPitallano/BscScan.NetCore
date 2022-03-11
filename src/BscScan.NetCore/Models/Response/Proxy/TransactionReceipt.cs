@@ -1,6 +1,4 @@
-﻿using System.Text.Json.Serialization;
-
-namespace BscScan.NetCore.Models.Response.Proxy;
+﻿namespace BscScan.NetCore.Models.Response.Proxy;
 
 /// <summary>
 /// TransactionReceipt
@@ -34,7 +32,7 @@ public class TransactionReceiptData
     /// <summary>
     /// blockHash
     /// </summary>
-    [JsonPropertyName("blockHash")] 
+    [JsonPropertyName("blockHash")]
     public string? BlockHash { get; set; }
 
     /// <summary>

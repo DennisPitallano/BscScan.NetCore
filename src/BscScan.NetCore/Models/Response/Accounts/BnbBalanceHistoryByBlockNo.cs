@@ -1,6 +1,4 @@
-﻿using System.Text.Json.Serialization;
-
-namespace BscScan.NetCore.Models.Response.Accounts;
+﻿namespace BscScan.NetCore.Models.Response.Accounts;
 
 /// <summary>
 /// Bnb Balance History ByBlock No
@@ -24,6 +22,7 @@ public class BnbBalanceHistoryByBlockNoData
     /// </summary>
     [JsonPropertyName("account")]
     public string? Account { get; set; }
+
     /// <summary>
     /// Balance
     /// </summary>

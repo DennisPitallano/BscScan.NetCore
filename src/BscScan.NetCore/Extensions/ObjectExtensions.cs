@@ -1,6 +1,4 @@
-﻿using System.Text.Json;
-
-namespace BscScan.NetCore.Extensions;
+﻿namespace BscScan.NetCore.Extensions;
 
 internal static class ObjectExtensions
 {
@@ -15,7 +13,7 @@ internal static class ObjectExtensions
         return JsonSerializer.Serialize(obj);
     }
 
-    internal static string? ToRequestParameters(this object request,string? moduleAction)
+    internal static string? ToRequestParameters(this object request, string? moduleAction)
     {
         return request.ToDictionary()!.ToQueryString(moduleAction);
     }
