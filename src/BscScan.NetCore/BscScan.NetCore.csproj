@@ -6,15 +6,15 @@
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 	  <Title>BscScan for .NetCore</Title>
-	  <Authors>DennisPitallano</Authors>
+	  <Authors>Dennis Pitallano</Authors>
 	  <Description>A BscScan Wrapper for .Net Core</Description>
     <PackageIcon>BscScan.NetCore.png</PackageIcon>
     <PackageProjectUrl>https://github.com/DennisPitallano/BscScan.NetCore</PackageProjectUrl>
     <RepositoryUrl>https://github.com/DennisPitallano/BscScan.NetCore</RepositoryUrl>
 	  <License>https://github.com/DennisPitallano/BscScan.NetCore/blob/main/LICENSE</License>
-    <PackageReleaseNotes>https://github.com/DennisPitallano/BscScan.NetCore/releases/tag/release-1</PackageReleaseNotes>
+    <PackageReleaseNotes>https://github.com/DennisPitallano/BscScan.NetCore/releases/tag/release-v1.0.5</PackageReleaseNotes>
     <PackageTags>.netcore,bscscan,crypto,api,wrapper,.net,binance-chain,cryptocurrency,library,csharp,wrapper-api,binance-smart-chain,binance-api,api,bscscan-api</PackageTags>
-    <Version>1.0.4</Version>
+    <Version>1.0.5</Version>
     <PackageReadmeFile>RELEASED.md</PackageReadmeFile>
     <RepositoryType>git</RepositoryType>
     <Copyright>Copyright © 2022 Oragon 🌶</Copyright>
@@ -30,6 +30,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="6.0.0" />
     <PackageReference Include="Microsoft.Extensions.Http" Version="6.0.0" />
   </ItemGroup>
 

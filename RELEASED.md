@@ -1,7 +1,7 @@
 # 🐲BSC  API  ENDPOINTS:
 
 **Current Version**
-`version 1.0.4`
+`version 1.0.5`
 
 ### 🎯**BscScan Accounts API**
 
