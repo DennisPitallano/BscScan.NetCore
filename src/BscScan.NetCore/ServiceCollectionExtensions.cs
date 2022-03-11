@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using System.Net.Http.Headers;
-
+using Microsoft.Extensions.Configuration;
 namespace BscScan.NetCore;
 
 /// <summary>
@@ -12,10 +12,14 @@ public static class BscScanServiceCollectionExtensions
     ///  BscScanService CollectionExtensions
     /// </summary>
     /// <param name="services">IServiceCollection</param>
-    /// <param name="bscScanConfiguration">BscScanConfiguration</param>
-    public static void AddBscScan(this IServiceCollection? services, BscScanConfiguration bscScanConfiguration)
+    /// <param name="configuration">IConfiguration</param>
+    public static void AddBscScan(this IServiceCollection? services, IConfiguration configuration)
     {
         if (services == null) return;
+
+        var bscScanConfiguration = new BscScanConfiguration();
+        configuration.GetSection(nameof(BscScanOptions)).Bind(bscScanConfiguration);
+        services.AddSingleton(bscScanConfiguration);
 
         var configureClient = new Action<HttpClient>(client =>
         {
