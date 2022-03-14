@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32126.317
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BscScan.NetCore", "BscScan.NetCore\BscScan.NetCore.csproj", "{3951E8EE-C93E-42A1-9BC6-A3C32903A46F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BscScan.NetCore", "BscScan.NetCore\BscScan.NetCore.csproj", "{3951E8EE-C93E-42A1-9BC6-A3C32903A46F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sample", "sample", "{A72DF7E3-94A9-4D2C-9376-374E720D96BC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BscScanMvc", "BscScanMvc\BscScanMvc.csproj", "{551D248F-9985-4BF2-B35D-72152908D972}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BscScanMvc", "BscScanMvc\BscScanMvc.csproj", "{551D248F-9985-4BF2-B35D-72152908D972}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BscScan.NetCoreTests", "BscScan.NetCoreTests\BscScan.NetCoreTests.csproj", "{AAC6A1A3-E88F-4D7E-B20D-B87B9397EEC1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,6 +25,10 @@ Global
 		{551D248F-9985-4BF2-B35D-72152908D972}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{551D248F-9985-4BF2-B35D-72152908D972}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{551D248F-9985-4BF2-B35D-72152908D972}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AAC6A1A3-E88F-4D7E-B20D-B87B9397EEC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAC6A1A3-E88F-4D7E-B20D-B87B9397EEC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAC6A1A3-E88F-4D7E-B20D-B87B9397EEC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAC6A1A3-E88F-4D7E-B20D-B87B9397EEC1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

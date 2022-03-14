@@ -13,7 +13,7 @@ public static class BscScanServiceCollectionExtensions
     /// </summary>
     /// <param name="services">IServiceCollection</param>
     /// <param name="configuration">IConfiguration</param>
-    public static void AddBscScan(this IServiceCollection? services, IConfiguration configuration)
+    public static void AddBscScan(this IServiceCollection? services, IConfiguration? configuration)
     {
         if (services == null) return;
 
