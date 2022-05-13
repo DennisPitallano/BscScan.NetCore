@@ -8,6 +8,10 @@ For your API Key, please follow [BscScan Getting Started Guide](https://docs.bsc
 
 [![bscscan.netcore on fuget.org](https://www.fuget.org/packages/bscscan.netcore/badge.svg)](https://www.fuget.org/packages/bscscan.netcore) [![Nuget](https://img.shields.io/nuget/v/BscScan.NetCore?logo=nuget)](https://www.nuget.org/packages/BscScan.NetCore) ![Nuget](https://img.shields.io/nuget/dt/BscScan.NetCore)
 
+## This Project has been supported by [JetBrains](https://www.jetbrains.com/shop/eform/opensource)！
+
+<img src="https://www.jetbrains.com/shop/static/images/jetbrains-logo-inv.svg" height="100"> 
+
 # # 🐲BSC API ENDPOINTS:
 
 **Current Version** `version 1.0.5`
